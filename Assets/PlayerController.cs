@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
 	public float gravityForce;
 
 	private Vector2 _smoothMouse;
+	private bool _canJump = true;
  
 	public Vector2 sensitivity = new Vector2(3, 3);
 	public Vector2 smoothing = new Vector2(3, 3);
@@ -40,9 +41,8 @@ public class PlayerController : MonoBehaviour {
 		thecam.transform.Rotate(-_smoothMouse.y / sensitivity.y, 0, 0);
 
 		/* Jumping */
-
-		if (Input.GetKeyDown("space")) {
-			transform.Translate(0, Time.deltaTime, 0);
+		if (_canJump && Input.GetKeyDown("space")) {
+			rb.AddForce(transform.up * 2000);
 		}
 
 		/* Movement */
@@ -58,5 +58,13 @@ public class PlayerController : MonoBehaviour {
 		rb.AddForce((gravityOrigin - transform.position).normalized * gravityForce);
 
 		transform.rotation = Quaternion.FromToRotation(transform.up, transform.position - gravityOrigin) * transform.rotation;
+	}
+
+	void OnCollisionEnter (Collision other) {
+		_canJump = true;
+	}
+
+	void OnCollisionExit (Collision other) {
+		_canJump = false;
 	}
 }

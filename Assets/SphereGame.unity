@@ -255,7 +255,6 @@ MonoBehaviour:
   gravityForce: 10
   sensitivity: {x: 2, y: 2}
   smoothing: {x: 3, y: 3}
-  cam: {fileID: 0}
 --- !u!64 &190700863
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -278,10 +277,10 @@ Rigidbody:
   m_GameObject: {fileID: 190700857}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 5
+  m_AngularDrag: 5
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -297,10 +296,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityOrigin: {x: 0, y: 0, z: 0}
-  gravityForce: 0
+  gravityForce: 100
   sensitivity: {x: 3, y: 3}
   smoothing: {x: 3, y: 3}
-  cam: {fileID: 929903984}
 --- !u!1 &413582203
 GameObject:
   m_ObjectHideFlags: 0
