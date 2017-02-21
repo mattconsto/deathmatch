@@ -168,7 +168,6 @@ GameObject:
   - component: {fileID: 190700862}
   - component: {fileID: 190700864}
   - component: {fileID: 190700863}
-  - component: {fileID: 190700865}
   - component: {fileID: 190700866}
   m_Layer: 0
   m_Name: Cube
@@ -254,6 +253,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravityOrigin: {x: 0, y: 0, z: 0}
   gravityForce: 10
+  sensitivity: {x: 2, y: 2}
+  smoothing: {x: 3, y: 3}
+  cam: {fileID: 0}
 --- !u!64 &190700863
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -283,24 +285,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &190700865
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 190700857}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67409bafb2dcaa14ca917ffdc5dfd2c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clampInDegrees: {x: 360, y: 180}
-  lockCursor: 0
-  sensitivity: {x: 2, y: 2}
-  smoothing: {x: 3, y: 3}
-  targetDirection: {x: 0, y: 0}
-  targetCharacterDirection: {x: 0, y: 0}
-  characterBody: {fileID: 190700857}
 --- !u!114 &190700866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,6 +298,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravityOrigin: {x: 0, y: 0, z: 0}
   gravityForce: 0
+  sensitivity: {x: 3, y: 3}
+  smoothing: {x: 3, y: 3}
+  cam: {fileID: 929903984}
 --- !u!1 &413582203
 GameObject:
   m_ObjectHideFlags: 0

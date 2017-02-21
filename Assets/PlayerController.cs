@@ -10,19 +10,22 @@ public class PlayerController : MonoBehaviour {
  
 	public Vector2 sensitivity = new Vector2(3, 3);
 	public Vector2 smoothing = new Vector2(3, 3);
-	public GameObject camera;
 
 	private Rigidbody rb;
+	private GameObject thecam;
 
 	// Use this for initialization
 	void Start () {
 		Cursor.visible = false;
 
 		rb = gameObject.GetComponent<Rigidbody>();
+		thecam = gameObject.transform.Find("Main Camera").gameObject;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		/* Mouselook */
+
 		// Get raw mouse input for a cleaner reading on more sensitive mice.
 		var mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
  
@@ -34,13 +37,23 @@ public class PlayerController : MonoBehaviour {
 		_smoothMouse.y = Mathf.Lerp(_smoothMouse.y, mouseDelta.y, 1f / smoothing.y);
  
 		transform.Rotate(0, _smoothMouse.x / sensitivity.x, 0);
-		camera.transform.Rotate(-_smoothMouse.y / sensitivity.y, 0, 0);
+		thecam.transform.Rotate(-_smoothMouse.y / sensitivity.y, 0, 0);
+
+		/* Jumping */
+
+		if (Input.GetKeyDown("space")) {
+			transform.Translate(0, Time.deltaTime, 0);
+		}
+
+		/* Movement */
 
 		var x = Input.GetAxis("Horizontal") * Time.deltaTime * 50.0f;
 		var z = Input.GetAxis("Vertical") * Time.deltaTime * 50.0f;
 
-		transform.Rotate(0, x, 0);
+		transform.Translate(x, 0, 0);
 		transform.Translate(0, 0, z);
+
+		/* Gravity */
 
 		rb.AddForce((gravityOrigin - transform.position).normalized * gravityForce);
 
