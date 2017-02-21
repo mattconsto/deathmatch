@@ -1,14 +1,14 @@
 fileFormatVersion: 2
-guid: f7ac32c7bdc42154cb6d758ab9e6b092
-timeCreated: 1487693830
+guid: ffb4dde55ff33904198a5d7a941a5ede
+timeCreated: 1487698107
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: default
-    100002: //RootNode
-    400000: default
-    400002: //RootNode
+    100000: //RootNode
+    100002: default
+    400000: //RootNode
+    400002: default
     2300000: default
     3300000: default
     4300000: default
@@ -22,6 +22,8 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -41,7 +43,7 @@ ModelImporter:
     addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
