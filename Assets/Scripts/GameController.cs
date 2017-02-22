@@ -21,6 +21,7 @@ public class GameController : MonoBehaviour {
 	public void SelectPlayers(int number) {
 		titleCamera.gameObject.SetActive(false);
 		titlehud.gameObject.SetActive(false);
+		Cursor.visible = false;
 
 		GameObject[] players = new GameObject[number];
 

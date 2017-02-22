@@ -19,8 +19,6 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		// Cursor.visible = false;
-
 		rb = gameObject.GetComponent<Rigidbody>();
 		thecam = gameObject.transform.Find("Camera").gameObject;
 	}
