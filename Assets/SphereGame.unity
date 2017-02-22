@@ -3391,6 +3391,7 @@ GameObject:
   - component: {fileID: 1305499141}
   - component: {fileID: 1305499140}
   - component: {fileID: 1305499139}
+  - component: {fileID: 1305499144}
   m_Layer: 0
   m_Name: Spectator Camera
   m_TagString: Untagged
@@ -3468,6 +3469,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 25, y: -40, z: 0}
+--- !u!114 &1305499144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1305499138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bef3c2fe5063d224e8d5240e8c83fb79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1313105935
 Prefab:
   m_ObjectHideFlags: 0
@@ -4081,6 +4093,7 @@ GameObject:
   - component: {fileID: 1647084924}
   - component: {fileID: 1647084923}
   - component: {fileID: 1647084922}
+  - component: {fileID: 1647084927}
   m_Layer: 0
   m_Name: Title Camera
   m_TagString: Untagged
@@ -4158,6 +4171,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 25, y: -40, z: 0}
+--- !u!114 &1647084927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1647084921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bef3c2fe5063d224e8d5240e8c83fb79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1659060008 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400002, guid: 749f0fcee8899d14d9fc75a4b5997df6, type: 3}
