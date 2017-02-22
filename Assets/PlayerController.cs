@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 	public Vector3 gravityOrigin;
-	public float gravityForce;
+	public float gravityForce = 9.8f;
 
 	private Vector2 _smoothMouse;
 	private bool _canJump = true;
  
 	public Vector2 sensitivity = new Vector2(3, 3);
 	public Vector2 smoothing = new Vector2(3, 3);
+
+	public float movementspeed = 5f;
 
 	private Rigidbody rb;
 	private GameObject thecam;
@@ -41,17 +43,22 @@ public class PlayerController : MonoBehaviour {
 		thecam.transform.Rotate(-_smoothMouse.y / sensitivity.y, 0, 0);
 
 		/* Jumping */
-		if (_canJump && Input.GetKeyDown("space")) {
-			rb.AddForce(transform.up * 2000);
-		}
+		if (_canJump && Input.GetKeyDown("space")) rb.AddForce(transform.up * 500);
 
 		/* Movement */
 
-		var x = Input.GetAxis("Horizontal") * Time.deltaTime * 50.0f;
-		var z = Input.GetAxis("Vertical") * Time.deltaTime * 50.0f;
+		float dx = Input.GetAxis("Horizontal"), dy = Input.GetAxis("Vertical");
 
-		transform.Translate(x, 0, 0);
-		transform.Translate(0, 0, z);
+		if(dx + dy != 0) {
+			// Properly handle diagonals
+			float adx = Mathf.Abs(dx), ady = Mathf.Abs(dy);
+
+			var x = adx / (adx + ady) * dx * Time.deltaTime * movementspeed;
+			var z = ady / (adx + ady) * dy * Time.deltaTime * movementspeed;
+
+			transform.Translate(x, 0, 0);
+			transform.Translate(0, 0, z);
+		}
 
 		/* Gravity */
 
