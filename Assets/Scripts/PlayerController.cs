@@ -14,13 +14,19 @@ public class PlayerController : MonoBehaviour {
 
 	public float movementspeed = 5f;
 
+	public GameObject gun;
+	private GameObject _gunInstance;
+
 	private Rigidbody rb;
 	private GameObject thecam;
 
 	// Use this for initialization
 	void Start () {
-		rb = gameObject.GetComponent<Rigidbody>();
-		thecam = gameObject.transform.Find("Camera").gameObject;
+		rb = GetComponent<Rigidbody>();
+		thecam = transform.Find("Camera").gameObject;
+
+		_gunInstance = Instantiate(gun, transform.Find("Hand").transform.position, transform.Find("Hand").transform.rotation);
+		_gunInstance.transform.parent = transform.Find("Hand");
 	}
 
 	// Update is called once per frame
@@ -39,8 +45,8 @@ public class PlayerController : MonoBehaviour {
 
 		transform.Rotate(0, _smoothMouse.x / sensitivity.x, 0);
 		thecam.transform.Rotate(-_smoothMouse.y / sensitivity.y, 0, 0);
-		print(thecam.transform.localEulerAngles.x);
 		thecam.transform.localEulerAngles = new Vector3((Mathf.Clamp((thecam.transform.localEulerAngles.x + 90) % 360, 0, 120) + 270) % 360, 0, 0);
+		_gunInstance.transform.localEulerAngles = new Vector3((Mathf.Clamp((thecam.transform.localEulerAngles.x + 90) % 360, 0, 120) + 270) % 360, 0, 0);
 
 		/* Jumping */
 		if (_canJump && Input.GetKeyDown("space")) rb.AddForce(transform.up * 500);
