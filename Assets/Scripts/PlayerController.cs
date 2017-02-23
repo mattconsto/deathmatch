@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour {
 	public float gravityForce = 9.8f;
 
 	private Vector2 _smoothMouse;
-	private bool _canJump = true;
+	private bool _canJump = false;
 
 	public Vector2 sensitivity = new Vector2(3, 3);
 	public Vector2 smoothing = new Vector2(3, 3);
@@ -63,15 +63,14 @@ public class PlayerController : MonoBehaviour {
 		/* Gravity */
 
 		rb.AddForce((gravityOrigin - transform.position).normalized * gravityForce);
-
 		transform.rotation = Quaternion.FromToRotation(transform.up, transform.position - gravityOrigin) * transform.rotation;
 	}
 
-	void OnCollisionEnter (Collision other) {
-		_canJump = true;
+	void OnCollisionEnter (Collision col) {
+		if(col.collider.name == "Planet") _canJump = true;
 	}
 
-	void OnCollisionExit (Collision other) {
-		_canJump = false;
+	void OnCollisionExit (Collision col) {
+		if(col.collider.name == "Planet") _canJump = false;
 	}
 }
