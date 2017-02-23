@@ -136,3 +136,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 5
+  decalPrefab: {fileID: 1070317641154144, guid: 59491d05e6fe58a4dab182ca2a1097ee,
+    type: 2}
