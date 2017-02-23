@@ -23,6 +23,8 @@ public class GameController : MonoBehaviour {
 		/* Calculate grid size, biased towards height */
 		int width = Mathf.RoundToInt(Mathf.Sqrt(number)), height = Mathf.CeilToInt(Mathf.Sqrt(number));
 
+		print(string.Format("Starting a {0} player game, grid size {1}x{2}", number, width, height));
+
 		for(int i = 0; i < number; i++) {
 			/* Spawn players with the correct cameras */
 			int x = i % width, y = i / width;

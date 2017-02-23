@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour {
 		_gunInstance.transform.localEulerAngles = new Vector3((Mathf.Clamp((thecam.transform.localEulerAngles.x + 90) % 360, 0, 120) + 270) % 360, 0, 0);
 
 		/* Jumping */
-		if (_canJump && Input.GetKeyDown("space")) rb.AddForce(transform.up * 500);
+		if (_canJump && Input.GetButton("Jump")) rb.AddForce(transform.up * 500);
 
 		/* Movement */
 
@@ -70,6 +70,13 @@ public class PlayerController : MonoBehaviour {
 
 		rb.AddForce((gravityOrigin - transform.position).normalized * gravityForce);
 		transform.rotation = Quaternion.FromToRotation(transform.up, transform.position - gravityOrigin) * transform.rotation;
+
+		/* Bullets */
+
+		if(Input.GetButton("Fire1")) {
+			var bullet = Instantiate(_gunInstance.GetComponent<GunController>().bulletPrefab, _gunInstance.transform.Find("Bullet Spawn").transform.position, _gunInstance.transform.Find("Bullet Spawn").transform.rotation);
+			bullet.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, _gunInstance.GetComponent<GunController>().muzzleVelocity);
+		}
 	}
 
 	void OnCollisionEnter (Collision col) {
