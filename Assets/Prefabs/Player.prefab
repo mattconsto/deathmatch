@@ -253,7 +253,7 @@ MonoBehaviour:
   sensitivity: {x: 1.5, y: 1.5}
   smoothing: {x: 3, y: 3}
   movementspeed: 30
-  gun: {fileID: 1350577432705164, guid: 80513b1b0d4504a0885e93fd4585ec96, type: 2}
+  gun: {fileID: 1350577432705164, guid: e36cdd5c0b10a78439a30ef16115f505, type: 2}
 --- !u!124 &124326675722948800
 Behaviour:
   m_ObjectHideFlags: 1

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4227209396925238}
   - component: {fileID: 114297226308959462}
   m_Layer: 0
-  m_Name: gun_blue
+  m_Name: Axe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4811774961918810}
   m_Layer: 0
-  m_Name: Bullet Spawn
+  m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 33731699990541812}
   - component: {fileID: 23433055477833208}
   m_Layer: 0
-  m_Name: gun_model
+  m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,6 +151,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9ecb3451eef4003947713f8fc53894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 1575296054628552, guid: 4761f471b38878748a5559357de7b1f8,
+  bulletPrefab: {fileID: 1575296054628552, guid: 9f96c38bef3e5564fa86f887d5e2b47f,
     type: 2}
   muzzleVelocity: 100
+  fireRate: 0.5
+  pelletCount: 1
+  bulletSpread: 0
+  ammo: Infinity

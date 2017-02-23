@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114782895343473330}
   - component: {fileID: 114994411910225684}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: Shotgun_Pellet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   COG: {x: 0, y: 0, z: 0}
-  G: 20
+  G: 5
 --- !u!114 &114994411910225684
 MonoBehaviour:
   m_ObjectHideFlags: 1
