@@ -252,6 +252,7 @@ MonoBehaviour:
   gravityForce: 50
   sensitivity: {x: 1.5, y: 1.5}
   smoothing: {x: 3, y: 3}
+  burnTime: 0
   movementspeed: 30
   gun: {fileID: 1350577432705164, guid: 1ffd17ef0d846294da4832dd26695850, type: 2}
 --- !u!124 &124326675722948800

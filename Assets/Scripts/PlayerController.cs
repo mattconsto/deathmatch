@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour {
 	public Vector2 sensitivity = new Vector2(3, 3);
 	public Vector2 smoothing = new Vector2(3, 3);
 
+	public float burnTime = 0;
+
 	public float movementspeed = 5f;
 
 	public GameObject gun;
@@ -41,11 +43,13 @@ public class PlayerController : MonoBehaviour {
 			// Properly handle diagonals
 			float adx = Mathf.Abs(dx), ady = Mathf.Abs(dy);
 
-			var x = adx / (adx + ady) * dx * movementspeed;
-			var z = ady / (adx + ady) * dy * movementspeed;
+			var x = adx / (adx + ady) * dx * movementspeed * Time.deltaTime;
+			var z = ady / (adx + ady) * dy * movementspeed * Time.deltaTime;
 
-			rb.AddForce(transform.forward * z);
-			rb.AddForce(transform.right * x);
+			// rb.AddForce(transform.forward * z);
+			// rb.AddForce(transform.right * x);
+			transform.Translate(x, 0, 0);
+			transform.Translate(0, 0, z);
 		}
 
 		/* Gravity */
@@ -73,7 +77,10 @@ public class PlayerController : MonoBehaviour {
 		_gunInstance.transform.localEulerAngles = new Vector3(0, 0, (Mathf.Clamp((thecam.transform.localEulerAngles.x + 90) % 360, 0, 120) + 270) % 360 - 30);
 
 		/* Bullets */
-		if(Input.GetButton("Fire1")) _gunInstance.GetComponent<GunController>().Fire();
+		if(Input.GetButton("Fire1")) {
+			GunController gun = _gunInstance.GetComponent<GunController>();
+			if(gun != null) gun.Fire();
+		}
 	}
 
 	void OnCollisionEnter (Collision col) {

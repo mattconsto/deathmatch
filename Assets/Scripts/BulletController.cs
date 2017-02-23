@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour {
 	public float lifetime = Mathf.Infinity;
+	public float bulletDamage = 1;
+	public float explosionDamage = 0;
+	public float explosionRadius = 0;
+	public float incindiaryTime = 0;
 	public GameObject decalPrefab = null;
 	
 	// Update is called once per frame
@@ -29,6 +33,10 @@ public class BulletController : MonoBehaviour {
 			// We don't want to trigger collisions between bullets
 			if(contact.thisCollider.name != contact.otherCollider.name) {
 				destroy = true;
+
+				if(contact.otherCollider.name == "Player") {
+					
+				}
 
 				if(decalPrefab != null) Instantiate(decalPrefab, contact.point, Quaternion.LookRotation(contact.normal, Vector3.up));
 
