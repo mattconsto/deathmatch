@@ -16,7 +16,7 @@ public class GunController : MonoBehaviour {
 	private float _timing = 0;
 
 	public bool Fire() {
-		if(_timing > fireRate && ammo > 0) {
+		if(_timing > fireRate && ammo != 0) {
 			print("Pew");
 			for(int i = 0; i < pelletCount; i++) {
 				Vector3 posSpread = _muzzle.transform.position + new Vector3((0.5f - Random.value) * bulletPosSpread, (0.5f - Random.value) * bulletPosSpread);
@@ -26,7 +26,7 @@ public class GunController : MonoBehaviour {
 			}
 
 			_timing = 0;
-			ammo--;
+			if(ammo > 0) ammo--;
 			return true;
 		}
 
