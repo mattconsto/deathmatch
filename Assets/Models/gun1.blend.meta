@@ -4,7 +4,71 @@ timeCreated: 1487844784
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    100000: barrel
+    100002: center
+    100004: front_grip
+    100006: front_sight
+    100008: //RootNode
+    100010: gun_back
+    100012: hand_guard
+    100014: sight
+    100016: stock
+    100018: stock_bar
+    100020: stock_reinforce
+    100022: trigger
+    100024: trigger_guard
+    400000: barrel
+    400002: center
+    400004: front_grip
+    400006: front_sight
+    400008: //RootNode
+    400010: gun_back
+    400012: hand_guard
+    400014: sight
+    400016: stock
+    400018: stock_bar
+    400020: stock_reinforce
+    400022: trigger
+    400024: trigger_guard
+    2300000: barrel
+    2300002: center
+    2300004: front_grip
+    2300006: front_sight
+    2300008: gun_back
+    2300010: hand_guard
+    2300012: sight
+    2300014: stock
+    2300016: stock_bar
+    2300018: stock_reinforce
+    2300020: trigger
+    2300022: trigger_guard
+    3300000: barrel
+    3300002: center
+    3300004: front_grip
+    3300006: front_sight
+    3300008: gun_back
+    3300010: hand_guard
+    3300012: sight
+    3300014: stock
+    3300016: stock_bar
+    3300018: stock_reinforce
+    3300020: trigger
+    3300022: trigger_guard
+    4300000: trigger_guard
+    4300002: hand_guard
+    4300004: stock_reinforce
+    4300006: stock
+    4300008: stock_bar
+    4300010: center
+    4300012: front_sight
+    4300014: barrel
+    4300016: sight
+    4300018: gun_back
+    4300020: front_grip
+    4300022: trigger
+    7400000: Default Take
+    9500000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0

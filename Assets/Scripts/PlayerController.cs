@@ -38,10 +38,9 @@ public class PlayerController : MonoBehaviour {
 		_smoothMouse.y = Mathf.Lerp(_smoothMouse.y, mouseDelta.y, 1f / smoothing.y);
 
 		transform.Rotate(0, _smoothMouse.x / sensitivity.x, 0);
-
-		
-
 		thecam.transform.Rotate(-_smoothMouse.y / sensitivity.y, 0, 0);
+		print(thecam.transform.localEulerAngles.x);
+		thecam.transform.localEulerAngles = new Vector3((Mathf.Clamp((thecam.transform.localEulerAngles.x + 90) % 360, 0, 120) + 270) % 360, 0, 0);
 
 		/* Jumping */
 		if (_canJump && Input.GetKeyDown("space")) rb.AddForce(transform.up * 500);
