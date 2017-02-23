@@ -52,9 +52,6 @@ GameObject:
   - component: {fileID: 4506000428019474}
   - component: {fileID: 33731699990541812}
   - component: {fileID: 23433055477833208}
-  - component: {fileID: 54406488161062266}
-  - component: {fileID: 64146426744373446}
-  - component: {fileID: 114347597781805406}
   m_Layer: 0
   m_Name: gun_model
   m_TagString: Untagged
@@ -69,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1350577432705164}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.8819785, y: 8.534853, z: 1.1543553}
+  m_LocalPosition: {x: 3.6963685, y: 8.773734, z: 3.4108589}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4506000428019474}
@@ -97,7 +94,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1700739310094784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.528, y: 0, z: 0}
+  m_LocalPosition: {x: -0.655, y: 0.087, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4227209396925238}
@@ -143,35 +140,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1809154199360826}
   m_Mesh: {fileID: 4300000, guid: a9cf697d232434cac86ad521e34415d5, type: 3}
---- !u!54 &54406488161062266
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1809154199360826}
-  serializedVersion: 2
-  m_Mass: 10
-  m_Drag: 1
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!64 &64146426744373446
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1809154199360826}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 1
-  m_InflateMesh: 1
-  m_SkinWidth: 0.06
-  m_Mesh: {fileID: 4300000, guid: a9cf697d232434cac86ad521e34415d5, type: 3}
 --- !u!114 &114297226308959462
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -186,16 +154,3 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1575296054628552, guid: 4761f471b38878748a5559357de7b1f8,
     type: 2}
   muzzleVelocity: 50
---- !u!114 &114347597781805406
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1809154199360826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75eb18690dd324aa2b35ae1b2290ef1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  COG: {x: 0, y: 0, z: 0}
-  G: 200

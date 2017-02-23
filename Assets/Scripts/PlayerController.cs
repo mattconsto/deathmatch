@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour {
 		transform.Rotate(0, _smoothMouse.x / sensitivity.x, 0);
 		thecam.transform.Rotate(-_smoothMouse.y / sensitivity.y, 0, 0);
 		thecam.transform.localEulerAngles = new Vector3((Mathf.Clamp((thecam.transform.localEulerAngles.x + 90) % 360, 0, 120) + 270) % 360, 0, 0);
-		_gunInstance.transform.localEulerAngles = new Vector3((Mathf.Clamp((thecam.transform.localEulerAngles.x + 90) % 360, 0, 120) + 270) % 360, 0, 0);
+		_gunInstance.transform.localEulerAngles = new Vector3(0, 0, (Mathf.Clamp((thecam.transform.localEulerAngles.x + 90) % 360, 0, 120) + 270) % 360);
 
 		/* Jumping */
 		if (_canJump && Input.GetButton("Jump")) rb.AddForce(transform.up * 500);
