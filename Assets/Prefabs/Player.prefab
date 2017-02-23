@@ -85,13 +85,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1216776187065638}
-  m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
-  m_LocalPosition: {x: 0, y: 1.2, z: -6.2}
+  m_LocalRotation: {x: 0.24817441, y: -9.3132246e-10, z: 2.3283062e-10, w: 0.96871537}
+  m_LocalPosition: {x: -0.00000014901161, y: 1.824, z: -4.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4626798361466782}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 28.739002, y: 0, z: 0}
 --- !u!4 &4626798361466782
 Transform:
   m_ObjectHideFlags: 1
@@ -99,7 +99,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1464182031590162}
   m_LocalRotation: {x: 0.024238104, y: -0.013316289, z: -0.059223436, w: 0.9978616}
-  m_LocalPosition: {x: -0.77086633, y: 10.409327, z: -0.31896493}
+  m_LocalPosition: {x: 1.0369942, y: 10.298611, z: 1.1505145}
   m_LocalScale: {x: 0.4, y: 1, z: 0.4}
   m_Children:
   - {fileID: 4173843328759608}
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravityOrigin: {x: 0, y: 0, z: 0}
   gravityForce: 50
-  sensitivity: {x: 3, y: 3}
+  sensitivity: {x: 1.5, y: 1.5}
   smoothing: {x: 3, y: 3}
   movementspeed: 30
   gun: {fileID: 1350577432705164, guid: 80513b1b0d4504a0885e93fd4585ec96, type: 2}

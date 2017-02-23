@@ -153,4 +153,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 1575296054628552, guid: 4761f471b38878748a5559357de7b1f8,
     type: 2}
-  muzzleVelocity: 50
+  muzzleVelocity: 100

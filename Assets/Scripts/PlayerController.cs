@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour {
 		/* Bullets */
 		if(Input.GetButton("Fire1")) {
 			var bullet = Instantiate(_gunInstance.GetComponent<GunController>().bulletPrefab, _gunInstance.transform.Find("Bullet Spawn").transform.position, _gunInstance.transform.Find("Bullet Spawn").transform.rotation);
-			bullet.GetComponent<Rigidbody>().velocity = transform.forward * _gunInstance.GetComponent<GunController>().muzzleVelocity;
+			bullet.GetComponent<Rigidbody>().velocity = -_gunInstance.GetComponent<Transform>().right * _gunInstance.GetComponent<GunController>().muzzleVelocity;
 		}
 	}
 
