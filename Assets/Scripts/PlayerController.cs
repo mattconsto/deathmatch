@@ -29,6 +29,30 @@ public class PlayerController : MonoBehaviour {
 		_gunInstance.transform.parent = transform.Find("Hand");
 	}
 
+	void FixedUpdate() {
+		/* Jumping */
+		if (_canJump && Input.GetButton("Jump")) rb.AddForce(transform.up * 500);
+
+		/* Movement */
+		float dx = Input.GetAxis("Horizontal");
+		float dy = Input.GetAxis("Vertical");
+
+		if(dx + dy != 0) {
+			// Properly handle diagonals
+			float adx = Mathf.Abs(dx), ady = Mathf.Abs(dy);
+
+			var x = adx / (adx + ady) * dx * movementspeed;
+			var z = ady / (adx + ady) * dy * movementspeed;
+
+			rb.AddForce(transform.forward * z);
+			rb.AddForce(transform.right * x);
+		}
+
+		/* Gravity */
+		rb.AddForce((gravityOrigin - transform.position).normalized * gravityForce);
+		transform.rotation = Quaternion.FromToRotation(transform.up, transform.position - gravityOrigin) * transform.rotation;
+	}
+
 	// Update is called once per frame
 	void Update () {
 		/* Mouselook */
@@ -48,31 +72,7 @@ public class PlayerController : MonoBehaviour {
 		thecam.transform.localEulerAngles = new Vector3((Mathf.Clamp((thecam.transform.localEulerAngles.x + 90) % 360, 0, 120) + 270) % 360, 0, 0);
 		_gunInstance.transform.localEulerAngles = new Vector3(0, 0, (Mathf.Clamp((thecam.transform.localEulerAngles.x + 90) % 360, 0, 120) + 270) % 360);
 
-		/* Jumping */
-		if (_canJump && Input.GetButton("Jump")) rb.AddForce(transform.up * 500);
-
-		/* Movement */
-
-		float dx = Input.GetAxis("Horizontal"), dy = Input.GetAxis("Vertical");
-
-		if(dx + dy != 0) {
-			// Properly handle diagonals
-			float adx = Mathf.Abs(dx), ady = Mathf.Abs(dy);
-
-			var x = adx / (adx + ady) * dx * Time.deltaTime * movementspeed;
-			var z = ady / (adx + ady) * dy * Time.deltaTime * movementspeed;
-
-			transform.Translate(x, 0, 0);
-			transform.Translate(0, 0, z);
-		}
-
-		/* Gravity */
-
-		rb.AddForce((gravityOrigin - transform.position).normalized * gravityForce);
-		transform.rotation = Quaternion.FromToRotation(transform.up, transform.position - gravityOrigin) * transform.rotation;
-
 		/* Bullets */
-
 		if(Input.GetButton("Fire1")) {
 			var bullet = Instantiate(_gunInstance.GetComponent<GunController>().bulletPrefab, _gunInstance.transform.Find("Bullet Spawn").transform.position, _gunInstance.transform.Find("Bullet Spawn").transform.rotation);
 			bullet.GetComponent<Rigidbody>().velocity = transform.forward * _gunInstance.GetComponent<GunController>().muzzleVelocity;
