@@ -17,15 +17,5 @@ public class PhysicsObject : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		rb.AddForce((COG - transform.position).normalized * G);
-		transform.rotation = Quaternion.FromToRotation(transform.up, transform.position - COG) * transform.rotation;
-	}
-
-	void OnCollisionEnter (Collision other) {
-		rb.isKinematic = true;
-	}
-
-	void OnCollisionExit (Collision other) {
-		rb.drag = 1;
-		rb.angularDrag = 4;
 	}
 }

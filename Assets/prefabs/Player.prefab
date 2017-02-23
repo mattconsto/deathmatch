@@ -249,7 +249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityOrigin: {x: 0, y: 0, z: 0}
-  gravityForce: 20
+  gravityForce: 50
   sensitivity: {x: 3, y: 3}
   smoothing: {x: 3, y: 3}
   movementspeed: 20
