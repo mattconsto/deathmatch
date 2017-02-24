@@ -30,10 +30,10 @@ public class GameController : MonoBehaviour {
 			/* Spawn players with the correct cameras */
 			int x = i % width, y = i / width;
 			players[i] = Instantiate(playerPrefab, new Vector3(10, 10, 10), transform.rotation);
-			Transform pc = players[i].transform.Find("Camera");
-			pc.GetComponent<AudioListener>().enabled = false;
+			Transform pc = players[i].transform.Find("Camera/CameraObject");
+			// pc.GetComponent<AudioListener>().enabled = false;//TODO: ONE AUDIO LISTENER!
 			pc.GetComponent<Camera>().rect = new Rect(1f * x / width, (height - 1f) / height - 1f * y / height, 1f / width, 1f / height);
-			
+
 			CanvasScaler scaler = players[i].transform.Find("Player HUD").GetComponent<CanvasScaler>();
 			scaler.scaleFactor = Screen.currentResolution.width / scaler.referenceResolution.x / Mathf.Max(width, height) / 2;
 		}
