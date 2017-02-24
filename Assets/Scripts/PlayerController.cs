@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour {
 		/* Gravity */
 		rb.AddForce((gravityOrigin - transform.position).normalized * gravityForce);
 		transform.rotation = Quaternion.FromToRotation(transform.up, transform.position - gravityOrigin) * transform.rotation;
+		// transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.FromToRotation(transform.up, transform.position - gravityOrigin) * transform.rotation, 30 * Time.deltaTime);
 	}
 
 	// Update is called once per frame

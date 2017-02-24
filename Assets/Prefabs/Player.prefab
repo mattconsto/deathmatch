@@ -239,7 +239,7 @@ MonoBehaviour:
   sensitivity: {x: 1.5, y: 1.5}
   smoothing: {x: 3, y: 3}
   burnTime: 0
-  movementspeed: 30
+  movementspeed: 50
   gun: {fileID: 1350577432705164, guid: e36cdd5c0b10a78439a30ef16115f505, type: 2}
 --- !u!124 &124326675722948800
 Behaviour:
