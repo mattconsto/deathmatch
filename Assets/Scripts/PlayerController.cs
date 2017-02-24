@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 	public Vector3 gravityOrigin;
@@ -69,7 +70,6 @@ public class PlayerController : MonoBehaviour {
 		transform.Rotate(0, _smoothMouse.x / sensitivity.x, 0);
 		thecam.transform.Rotate(-_smoothMouse.y / sensitivity.y, 0, 0);
 		thecam.transform.localEulerAngles = new Vector3((Mathf.Clamp((thecam.transform.localEulerAngles.x + 90) % 360, 0, 120) + 270) % 360, 0, 0);
-		transform.Find("Player HUD").transform.rotation = thecam.transform.rotation;
 		_gunInstance.transform.localEulerAngles = new Vector3(0, 0, (Mathf.Clamp((thecam.transform.localEulerAngles.x + 90) % 360, 0, 120) + 270) % 360 - 30);
 
 		/* Bullets */

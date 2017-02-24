@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 	public Camera titleCamera;
@@ -32,6 +33,9 @@ public class GameController : MonoBehaviour {
 			Transform pc = players[i].transform.Find("Camera");
 			pc.GetComponent<AudioListener>().enabled = false;
 			pc.GetComponent<Camera>().rect = new Rect(1f * x / width, (height - 1f) / height - 1f * y / height, 1f / width, 1f / height);
+			
+			CanvasScaler scaler = players[i].transform.Find("Player HUD").GetComponent<CanvasScaler>();
+			scaler.scaleFactor = Screen.currentResolution.width / scaler.referenceResolution.x / Mathf.Max(width, height) / 2;
 		}
 
 		/* Add the spectator camera if needed */
