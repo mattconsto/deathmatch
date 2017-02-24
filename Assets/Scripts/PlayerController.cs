@@ -39,17 +39,11 @@ public class PlayerController : MonoBehaviour {
 		float dx = Input.GetAxis("Horizontal");
 		float dy = Input.GetAxis("Vertical");
 
-		if(dx + dy != 0) {
+		if(dx != 0 || dy  != 0) {
 			// Properly handle diagonals
-			float adx = Mathf.Abs(dx), ady = Mathf.Abs(dy);
-
-			var x = adx / (adx + ady) * dx * movementspeed * Time.deltaTime;
-			var z = ady / (adx + ady) * dy * movementspeed * Time.deltaTime;
-
-			// rb.AddForce(transform.forward * z);
-			// rb.AddForce(transform.right * x);
-			transform.Translate(x, 0, 0);
-			transform.Translate(0, 0, z);
+			Vector3 v = new Vector3(dx, 0, dy).normalized * movementspeed;
+			rb.AddForce(transform.right * v.x);
+			rb.AddForce(transform.forward * v.z);
 		}
 
 		/* Gravity */

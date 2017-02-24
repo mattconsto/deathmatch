@@ -42,8 +42,8 @@ GameObject:
   - component: {fileID: 65287654934018592}
   - component: {fileID: 23988369333931078}
   - component: {fileID: 54462591649403016}
-  - component: {fileID: 64913759329791084}
   - component: {fileID: 114352781272293048}
+  - component: {fileID: 136911329767180414}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -99,7 +99,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1464182031590162}
   m_LocalRotation: {x: 0.024238104, y: -0.013316289, z: -0.059223436, w: 0.9978616}
-  m_LocalPosition: {x: 1.0369942, y: 10.298611, z: 1.1505145}
+  m_LocalPosition: {x: 0.82070076, y: 0.13482936, z: -9.865003}
   m_LocalScale: {x: 0.4, y: 1, z: 0.4}
   m_Children:
   - {fileID: 4173843328759608}
@@ -197,20 +197,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64913759329791084
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1464182031590162}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!65 &65287654934018592
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -254,7 +240,7 @@ MonoBehaviour:
   smoothing: {x: 3, y: 3}
   burnTime: 0
   movementspeed: 30
-  gun: {fileID: 1350577432705164, guid: 1ffd17ef0d846294da4832dd26695850, type: 2}
+  gun: {fileID: 1350577432705164, guid: e36cdd5c0b10a78439a30ef16115f505, type: 2}
 --- !u!124 &124326675722948800
 Behaviour:
   m_ObjectHideFlags: 1
@@ -262,3 +248,16 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1216776187065638}
   m_Enabled: 1
+--- !u!136 &136911329767180414
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1464182031590162}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
