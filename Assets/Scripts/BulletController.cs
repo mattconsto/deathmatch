@@ -3,45 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletController : MonoBehaviour {
-	public float lifetime = Mathf.Infinity;
+	public float lifetime = 5;
 	public float bulletDamage = 1;
 	public float explosionDamage = 0;
 	public float explosionRadius = 0;
 	public float incindiaryTime = 0;
 	public GameObject decalPrefab = null;
-	
+
 	// Update is called once per frame
 	void Update () {
 		lifetime -= Time.deltaTime;
 
-		if(lifetime < -2) {
+		if(lifetime < 0) {
 			Destroy(gameObject);
-		} else {
-			// Sink into the ground
-			GetComponent<Rigidbody>().velocity /= 2;
-			GetComponent<PhysicsObject>().G = 2;
-			Destroy(GetComponent<Collider>());
 		}
 	}
 
 	void OnCollisionEnter(Collision col) {
 		bool destroy = false;
 
-		print("Collision");
+		if(gameObject.name != col.gameObject.name) {
+			destroy = true;
 
-		foreach (ContactPoint contact in col.contacts) {
-			// We don't want to trigger collisions between bullets
-			if(contact.thisCollider.name != contact.otherCollider.name) {
-				destroy = true;
+			if(col.gameObject.name == "Player") {
 
-				if(contact.otherCollider.name == "Player") {
-					
-				}
-
-				if(decalPrefab != null) Instantiate(decalPrefab, contact.point, Quaternion.LookRotation(contact.normal, Vector3.up));
-
-				print(contact.thisCollider.name + " hit " + contact.otherCollider.name);
 			}
+
+			if(decalPrefab != null) Instantiate(decalPrefab, col.contacts[0].point, Quaternion.Euler(col.contacts[0].normal));
+
+			print(gameObject.name + " hit " + col.gameObject.name);
 		}
 
 		if(destroy) Destroy(gameObject);

@@ -24,11 +24,14 @@ public class GunController : MonoBehaviour {
 
 	public bool Fire() {
 		if(_timing > fireRate && ammo != 0) {
-			print("Pew");
 			for(int i = 0; i < shotCount; i++) {
-				Vector3 rotSpread = _muzzle.transform.rotation.eulerAngles + new Vector3((0.5f - Random.value) * shotSpread, (0.5f - Random.value) * shotSpread, (0.5f - Random.value) * shotSpread);
-				var bullet = Instantiate(GetComponent<GunController>().bulletPrefab, _muzzle.transform.position, Quaternion.Euler(rotSpread));
-				bullet.GetComponent<Rigidbody>().velocity = -GetComponent<Transform>().right * GetComponent<GunController>().muzzleVelocity;
+				float xr = (0.5f - Random.value) * shotSpread;
+				float zr = Random.value * 360f;
+
+				Vector3 velocity = Quaternion.AngleAxis(zr, -transform.right) * Quaternion.AngleAxis(xr, transform.forward) * (-transform.right * GetComponent<GunController>().muzzleVelocity);
+
+				var bullet = Instantiate(GetComponent<GunController>().bulletPrefab, _muzzle.transform.position, Quaternion.Euler(velocity));
+				bullet.GetComponent<Rigidbody>().velocity = velocity;
 			}
 
 			_timing = 0;
