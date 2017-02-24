@@ -153,9 +153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 1575296054628552, guid: 1e546b188d1b0244ba46f9b232196885,
     type: 2}
-  muzzleVelocity: 75
+  muzzleVelocity: 100
   fireRate: 0.3
-  pelletCount: 10
-  bulletPosSpread: 1
-  bulletRotSpread: 200
+  shotCount: 10
+  shotSpread: 15
   ammo: 100
