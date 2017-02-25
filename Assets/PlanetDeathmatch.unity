@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.2551955, g: 0.3070116, b: 0.8602326, a: 1}
+  m_IndirectSpecularColor: {r: 0.095847644, g: 0.11188718, b: 0.26355633, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1300,7 +1300,6 @@ GameObject:
   - component: {fileID: 413582205}
   - component: {fileID: 413582204}
   - component: {fileID: 413582208}
-  - component: {fileID: 413582209}
   - component: {fileID: 413582207}
   - component: {fileID: 413582210}
   m_Layer: 0
@@ -1395,20 +1394,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &413582209
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 413582203}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: f7ac32c7bdc42154cb6d758ab9e6b092, type: 3}
 --- !u!64 &413582210
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2096,7 +2081,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 81, y: -140.7}
-  m_SizeDelta: {x: 150, y: 26}
+  m_SizeDelta: {x: 150, y: 26.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &703942118
 MonoBehaviour:
@@ -4227,7 +4212,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0.050980393, b: 0.20784314, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -4383,7 +4368,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -90, y: -166.1}
-  m_SizeDelta: {x: 84.07, y: 26}
+  m_SizeDelta: {x: 84.07, y: 26.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1322469134
 MonoBehaviour:
@@ -4417,7 +4402,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0
-  m_Text: tutorial
+  m_Text: Tutorial
 --- !u!222 &1322469135
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4956,7 +4941,7 @@ Camera:
   m_GameObject: {fileID: 1647084921}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0, g: 0.050980393, b: 0.20784314, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -5339,7 +5324,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 81, y: -166.1}
-  m_SizeDelta: {x: 150, y: 26}
+  m_SizeDelta: {x: 150, y: 26.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1834100987
 MonoBehaviour:
@@ -6086,7 +6071,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 81, y: -191.5}
-  m_SizeDelta: {x: 150, y: 26}
+  m_SizeDelta: {x: 150, y: 26.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2034072169
 MonoBehaviour:
