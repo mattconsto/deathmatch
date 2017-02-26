@@ -1637,6 +1637,84 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: TeamUtility.IO.InputEvent+AxisEvent, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  - name: SwitchLeft
+    axisName: Submit
+    buttonName: LeftTrigger
+    keyCode: 0
+    eventType: 1
+    inputState: 0
+    playerID: 0
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114352781272293048}
+          m_MethodName: OnSwitchLeft
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: TeamUtility.IO.InputEvent+ActionEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onAxis:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114352781272293048}
+          m_MethodName: OnMoveVertical
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: TeamUtility.IO.InputEvent+AxisEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - name: SwitchRight
+    axisName: Submit
+    buttonName: RightTrigger
+    keyCode: 0
+    eventType: 1
+    inputState: 0
+    playerID: 0
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114352781272293048}
+          m_MethodName: OnSwitchRight
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: TeamUtility.IO.InputEvent+ActionEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onAxis:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114352781272293048}
+          m_MethodName: OnMoveVertical
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: TeamUtility.IO.InputEvent+AxisEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
 --- !u!114 &114059107507250202
 MonoBehaviour:
   m_ObjectHideFlags: 1

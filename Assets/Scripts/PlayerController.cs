@@ -105,4 +105,12 @@ public class PlayerController : MonoBehaviour {
 	public void OnCollisionExit (Collision col) {
 		if(col.collider.name == "Planet") _canJump = false;
 	}
+
+	public void OnSwitchLeft() {
+		print("Left Switch");
+	}
+
+	public void OnSwitchRight() {
+		print("Right Switch");
+	}
 }
