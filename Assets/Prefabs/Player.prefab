@@ -1690,6 +1690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af7d5cc8dd6e0b24fbbacc8aef255b02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 0}
   gravityOrigin: {x: 0, y: 0, z: 0}
   gravityForce: 25
   sensitivity: {x: 0.5, y: 0.5}

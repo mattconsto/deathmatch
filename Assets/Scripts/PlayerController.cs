@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
+	public GameController controller;
+
 	public Vector3 gravityOrigin;
 	public float gravityForce = 9.8f;
 
@@ -45,6 +47,10 @@ public class PlayerController : MonoBehaviour {
 
 	public void OnHurt(float value) {
 		health -= value;
+		if(health <= 0) {
+			controller.respawnPlayer(transform.gameObject);
+			health = 100;
+		}
 		UpdateHUD();
 	}
 

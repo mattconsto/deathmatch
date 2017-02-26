@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 5
-  bulletDamage: 1
+  bulletDamage: 8
   explosionDamage: 0
   explosionRadius: 0
   incindiaryTime: 0
