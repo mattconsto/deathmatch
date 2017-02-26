@@ -4668,53 +4668,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400002, guid: e267b8c5eec1deb489416ffa6ac15f5e, type: 3}
   m_PrefabInternal: {fileID: 1338125984}
---- !u!1001 &1342515147
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4672896155606894, guid: a1f590005e9c18f43860c82281454087, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672896155606894, guid: a1f590005e9c18f43860c82281454087, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672896155606894, guid: a1f590005e9c18f43860c82281454087, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672896155606894, guid: a1f590005e9c18f43860c82281454087, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672896155606894, guid: a1f590005e9c18f43860c82281454087, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672896155606894, guid: a1f590005e9c18f43860c82281454087, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672896155606894, guid: a1f590005e9c18f43860c82281454087, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672896155606894, guid: a1f590005e9c18f43860c82281454087, type: 2}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 114352781272293048, guid: a1f590005e9c18f43860c82281454087,
-        type: 2}
-      propertyPath: controller
-      value: 
-      objectReference: {fileID: 83929446}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: a1f590005e9c18f43860c82281454087, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &1350187991
 Prefab:
   m_ObjectHideFlags: 0
@@ -5370,7 +5323,7 @@ MonoBehaviour:
       type: 3
       axis: 8
       joystick: 0
-    isExpanded: 0
+    isExpanded: 1
   - name: Windows_Gamepad2
     axes:
     - name: Horizontal
@@ -6850,7 +6803,7 @@ MonoBehaviour:
       type: 3
       axis: 2
       joystick: 0
-    isExpanded: 0
+    isExpanded: 1
   - name: Linux_Gamepad2
     axes:
     - name: Horizontal

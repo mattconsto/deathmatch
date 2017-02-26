@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour {
 
 	public void OnHurt(float value) {
 		health -= value;
+		GetComponent<AudioSource>().Play();
 		if(health <= 0) {
 			controller.respawnPlayer(transform.gameObject);
 			health = 100;

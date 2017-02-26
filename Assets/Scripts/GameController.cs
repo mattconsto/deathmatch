@@ -53,7 +53,6 @@ public class GameController : MonoBehaviour {
 			players[i] = Instantiate(playerPrefab, respawns[i % respawns.Length].transform.position, respawns[i % respawns.Length].transform.rotation);
 			players[i].GetComponent<PlayerController>().controller = this;
 			Transform pc = players[i].transform.Find("Camera/CameraObject");
-			// pc.GetComponent<AudioListener>().enabled = false;//TODO: ONE AUDIO LISTENER!
 			pc.GetComponent<Camera>().rect = new Rect(1f * x / width, (height - 1f) / height - 1f * y / height, 1f / width, 1f / height);
 
 			// Input
@@ -64,6 +63,8 @@ public class GameController : MonoBehaviour {
 			CanvasScaler scaler = players[i].transform.Find("Player HUD").GetComponent<CanvasScaler>();
 			scaler.scaleFactor = Screen.currentResolution.width / scaler.referenceResolution.x / Mathf.Max(width, height) / 2;
 		}
+
+		players[0].transform.Find("Camera/CameraObject").GetComponent<AudioListener>().enabled = true;
 
 		/* Add the spectator camera if needed */
 		if(number < width * height) {
