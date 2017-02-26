@@ -85,6 +85,7 @@ GameObject:
   - component: {fileID: 114352781272293048}
   - component: {fileID: 114040627694127894}
   - component: {fileID: 82569671201671844}
+  - component: {fileID: 136028918406231992}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -595,7 +596,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4475909706151378}
   - component: {fileID: 95984978157335040}
-  - component: {fileID: 136984733353369582}
   - component: {fileID: 114061052543299896}
   m_Layer: 0
   m_Name: Model
@@ -1308,7 +1308,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e79916d976578cd4a8f2a41551cb4ac8, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1844,19 +1844,19 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1216776187065638}
   m_Enabled: 1
---- !u!136 &136984733353369582
+--- !u!136 &136028918406231992
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1878038212426998}
+  m_GameObject: {fileID: 1090383527944902}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.2
-  m_Height: 9
+  m_Radius: 0.25
+  m_Height: 1.6
   m_Direction: 1
-  m_Center: {x: 0, y: 4.5, z: 0}
+  m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!137 &137489640121662170
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

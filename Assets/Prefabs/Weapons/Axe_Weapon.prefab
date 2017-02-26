@@ -20,14 +20,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4630299263716354}
   - component: {fileID: 33056902071840652}
-  - component: {fileID: 65972657073151160}
   - component: {fileID: 23113317650958078}
   - component: {fileID: 54165491192095366}
   - component: {fileID: 114782895343473330}
   - component: {fileID: 114994411910225684}
+  - component: {fileID: 64070288123564262}
   m_Layer: 0
   m_Name: Axe_Weapon
-  m_TagString: Untagged
+  m_TagString: Projectiles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,8 +99,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!65 &65972657073151160
-BoxCollider:
+--- !u!64 &64070288123564262
+MeshCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -109,8 +109,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Convex: 1
+  m_InflateMesh: 1
+  m_SkinWidth: 0.05
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &114782895343473330
 MonoBehaviour:
   m_ObjectHideFlags: 1

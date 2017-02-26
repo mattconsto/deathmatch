@@ -22,7 +22,7 @@ public class BulletController : MonoBehaviour {
 	void OnCollisionEnter(Collision col) {
 		bool destroy = false;
 
-		if(gameObject.name != col.gameObject.name) {
+		if(col.gameObject.tag != "Projectiles") {
 			destroy = true;
 
 			if(col.gameObject.tag == "Player") {
