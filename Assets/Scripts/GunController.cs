@@ -34,6 +34,8 @@ public class GunController : MonoBehaviour {
 				bullet.GetComponent<Rigidbody>().velocity = velocity;
 			}
 
+			GetComponent<AudioSource>().Play();
+
 			_timing = 0;
 			if(ammo > 0) ammo--;
 			return true;
