@@ -83,6 +83,7 @@ GameObject:
   - component: {fileID: 4672896155606894}
   - component: {fileID: 54462591649403016}
   - component: {fileID: 114352781272293048}
+  - component: {fileID: 114040627694127894}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1047,7 +1048,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1090383527944902}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3914365, y: 9.743461, z: -0.8516804}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224509041552482698}
@@ -1312,6 +1313,241 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114040627694127894
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1090383527944902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 720638557317ea344940e75788ad4061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inputEvents:
+  - name: Jump
+    axisName: 
+    buttonName: Jump
+    keyCode: 0
+    eventType: 1
+    inputState: 0
+    playerID: 0
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114352781272293048}
+          m_MethodName: OnJump
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: TeamUtility.IO.InputEvent+ActionEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onAxis:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: TeamUtility.IO.InputEvent+AxisEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - name: MoveHorizontal
+    axisName: Horizontal
+    buttonName: Jump
+    keyCode: 0
+    eventType: 0
+    inputState: 0
+    playerID: 0
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114352781272293048}
+          m_MethodName: OnJump
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: TeamUtility.IO.InputEvent+ActionEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onAxis:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114352781272293048}
+          m_MethodName: OnMoveHorizontal
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: TeamUtility.IO.InputEvent+AxisEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - name: MoveVertical
+    axisName: Vertical
+    buttonName: Jump
+    keyCode: 0
+    eventType: 0
+    inputState: 0
+    playerID: 0
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114352781272293048}
+          m_MethodName: OnJump
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: TeamUtility.IO.InputEvent+ActionEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onAxis:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114352781272293048}
+          m_MethodName: OnMoveVertical
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: TeamUtility.IO.InputEvent+AxisEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - name: LookHorizontal
+    axisName: LookHorizontal
+    buttonName: Jump
+    keyCode: 0
+    eventType: 0
+    inputState: 0
+    playerID: 0
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114352781272293048}
+          m_MethodName: OnJump
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: TeamUtility.IO.InputEvent+ActionEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onAxis:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114352781272293048}
+          m_MethodName: OnLookHorizontal
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: TeamUtility.IO.InputEvent+AxisEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - name: LookVertical
+    axisName: LookVertical
+    buttonName: Jump
+    keyCode: 0
+    eventType: 0
+    inputState: 0
+    playerID: 0
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114352781272293048}
+          m_MethodName: OnJump
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: TeamUtility.IO.InputEvent+ActionEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onAxis:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114352781272293048}
+          m_MethodName: OnLookVertical
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: TeamUtility.IO.InputEvent+AxisEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - name: Fire
+    axisName: Submit
+    buttonName: Submit
+    keyCode: 0
+    eventType: 1
+    inputState: 0
+    playerID: 0
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114352781272293048}
+          m_MethodName: OnFire
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: TeamUtility.IO.InputEvent+ActionEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onAxis:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114352781272293048}
+          m_MethodName: OnMoveVertical
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: TeamUtility.IO.InputEvent+AxisEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
 --- !u!114 &114059107507250202
 MonoBehaviour:
   m_ObjectHideFlags: 1

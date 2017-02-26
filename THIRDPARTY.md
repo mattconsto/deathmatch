@@ -16,6 +16,7 @@ Third Party Notices
 
 ## Scripts
 
+* Custom InputManager for Unity by daemon3000 (MIT): https://github.com/daemon3000/InputManager
 * Simple decal system by Wishmaster35 (Unity Asset Store): https://www.assetstore.unity3d.com/en/content/13889
 
 ## Sound Effects
@@ -63,4 +64,5 @@ Third Party Notices
 * CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0
 * CC BY 3.0: https://creativecommons.org/licenses/by/3.0
 * CC BY NC 3.0: https://creativecommons.org/licenses/by-nc/3.0
+* MIT: https://opensource.org/licenses/MIT
 * Unity Asset Store: https://unity3d.com/legal/as_terms

@@ -15,8 +15,8 @@ public class walking : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		vert = Input.GetAxis("Vertical");
-		anim.SetFloat("walk", vert);
+		// vert = Input.GetAxis("Vertical");
+		// anim.SetFloat("walk", vert);
 
 	}
 }

@@ -33,57 +33,56 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		/* Jumping */
-		if (_canJump && Input.GetButton("Jump")) rb.AddForce(transform.up * 500);
-
-		/* Movement */
-		float dx = Input.GetAxis("Horizontal");
-		float dy = Input.GetAxis("Vertical");
-
-		if(dx != 0 || dy  != 0) {
-			// Properly handle diagonals
-			Vector3 v = new Vector3(dx, 0, dy).normalized * movementspeed;
-			rb.AddForce(transform.right * v.x);
-			rb.AddForce(transform.forward * v.z);
-		}
-
 		/* Gravity */
 		rb.AddForce((gravityOrigin - transform.position).normalized * gravityForce);
 		transform.rotation = Quaternion.FromToRotation(transform.up, transform.position - gravityOrigin) * transform.rotation;
 		// transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.FromToRotation(transform.up, transform.position - gravityOrigin) * transform.rotation, 30 * Time.deltaTime);
 	}
 
-	// Update is called once per frame
-	void Update () {
-		/* Mouselook */
+	public void OnFire() {
+		print("Fire");
+		GunController gun = _gunInstance.GetComponent<GunController>();
+		if(gun != null) gun.Fire();
+	}
 
-		// Get raw mouse input for a cleaner reading on more sensitive mice.
-		var mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
-
-		// Scale input against the sensitivity setting and multiply that against the smoothing value.
-		mouseDelta = Vector2.Scale(mouseDelta, new Vector2(sensitivity.x * smoothing.x, sensitivity.y * smoothing.y));
+	public void OnLookHorizontal(float value) {
+		float delta = value * sensitivity.x * smoothing.x;
 
 		// Interpolate mouse movement over time to apply smoothing delta.
-		_smoothMouse.x = Mathf.Lerp(_smoothMouse.x, mouseDelta.x, 1f / smoothing.x);
-		_smoothMouse.y = Mathf.Lerp(_smoothMouse.y, mouseDelta.y, 1f / smoothing.y);
+		_smoothMouse.x = Mathf.Lerp(_smoothMouse.x, delta, 1f / smoothing.x);
 
 		transform.Rotate(0, _smoothMouse.x / sensitivity.x, 0);
+	}
+
+	public void OnLookVertical(float value) {
+		float delta = value * sensitivity.x * smoothing.x;
+
+		// Interpolate mouse movement over time to apply smoothing delta.
+		_smoothMouse.y = Mathf.Lerp(_smoothMouse.y, delta, 1f / smoothing.y);
+
 		thecam.transform.Rotate(-_smoothMouse.y / sensitivity.y, 0, 0);
 		thecam.transform.localEulerAngles = new Vector3((Mathf.Clamp((thecam.transform.localEulerAngles.x + 90) % 360, 80, 120) + 270) % 360, 0, 0);
 		_gunInstance.transform.localEulerAngles = new Vector3(0, 0, (Mathf.Clamp((thecam.transform.localEulerAngles.x + 90) % 360, 80, 120) + 270) % 360);
-
-		/* Bullets */
-		if(Input.GetButton("Fire1")) {
-			GunController gun = _gunInstance.GetComponent<GunController>();
-			if(gun != null) gun.Fire();
-		}
 	}
 
-	void OnCollisionEnter (Collision col) {
+	public void OnMoveHorizontal(float value) {
+		rb.AddForce(transform.right * value * movementspeed);
+	}
+
+	public void OnMoveVertical(float value) {
+		rb.AddForce(transform.forward * value * movementspeed);
+	}
+
+	public void OnJump() {
+		print("Jump");
+		if (_canJump) rb.AddForce(transform.up * 500);
+	}
+
+	public void OnCollisionEnter (Collision col) {
 		if(col.collider.name == "Planet") _canJump = true;
 	}
 
-	void OnCollisionExit (Collision col) {
+	public void OnCollisionExit (Collision col) {
 		if(col.collider.name == "Planet") _canJump = false;
 	}
 }

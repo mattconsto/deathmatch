@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TeamUtility.IO;
 
 public class GameController : MonoBehaviour {
 	public Camera titleCamera;
@@ -33,6 +34,12 @@ public class GameController : MonoBehaviour {
 			Transform pc = players[i].transform.Find("Camera/CameraObject");
 			// pc.GetComponent<AudioListener>().enabled = false;//TODO: ONE AUDIO LISTENER!
 			pc.GetComponent<Camera>().rect = new Rect(1f * x / width, (height - 1f) / height - 1f * y / height, 1f / width, 1f / height);
+
+			// Input
+			PlayerID[] ids = new PlayerID[] {PlayerID.One, PlayerID.Two, PlayerID.Three, PlayerID.Four};
+			for(int j = 0; j < players[i].GetComponent<InputEventManager>().EventCount; j++) {
+				players[i].GetComponent<InputEventManager>().GetEvent(j).playerID = ids[i % ids.Length];
+			}
 
 			CanvasScaler scaler = players[i].transform.Find("Player HUD").GetComponent<CanvasScaler>();
 			scaler.scaleFactor = Screen.currentResolution.width / scaler.referenceResolution.x / Mathf.Max(width, height) / 2;
