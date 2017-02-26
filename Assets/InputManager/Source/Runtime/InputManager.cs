@@ -5,19 +5,19 @@
 //
 //	Copyright (c) 2015 Cristian Alexandru Geambasu
 //
-//	Permission is hereby granted, free of charge, to any person obtaining a copy of this software 
-//	and associated documentation files (the "Software"), to deal in the Software without restriction, 
-//	including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, 
-//	and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, 
+//	Permission is hereby granted, free of charge, to any person obtaining a copy of this software
+//	and associated documentation files (the "Software"), to deal in the Software without restriction,
+//	including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
+//	and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so,
 //	subject to the following conditions:
 //
-//	The above copyright notice and this permission notice shall be included in all copies or substantial 
+//	The above copyright notice and this permission notice shall be included in all copies or substantial
 //	portions of the Software.
 //
-//	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
-//	INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
+//	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//	INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
 //	PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
-//	FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, 
+//	FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 //	ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 using UnityEngine;
@@ -34,14 +34,14 @@ namespace TeamUtility.IO
 	/// The 'userData' parameter is used to send additional user data.
 	/// </summary>
 	public delegate bool KeyScanHandler(KeyCode key, object[] userData);
-	
+
 	/// <summary>
 	/// Encapsulates a method that takes one parameter(the axis) and returns 'true' if
 	/// the axis is accepted or 'false' if it isn't.
 	/// The 'userData' parameter is used to send additional user data.
 	/// </summary>
 	public delegate bool AxisScanHandler(int axis, object[] userData);
-	
+
 	/// <summary>
 	/// Encapsulates a method that takes one parameter(the scan result) and returns 'true' if
 	/// the scan result is accepted or 'false' if it isn't.
@@ -58,7 +58,7 @@ namespace TeamUtility.IO
 		public event Action Loaded;
 		public event Action Saved;
 		public event RemoteUpdateDelegate RemoteUpdate;
-		
+
 		public List<InputConfiguration> inputConfigurations = new List<InputConfiguration>();
 		public string playerOneDefault;
         public string playerTwoDefault;
@@ -66,7 +66,7 @@ namespace TeamUtility.IO
         public string playerFourDefault;
         public bool dontDestroyOnLoad;
 		public bool ignoreTimescale;
-		
+
 		private static InputManager _instance;
 		private InputConfiguration _playerOneConfig;
         private InputConfiguration _playerTwoConfig;
@@ -80,7 +80,7 @@ namespace TeamUtility.IO
 		private float _scanTimeout;
 		private int? _scanJoystick;
 		private object _scanUserData;
-		
+
 		private string[] _rawMouseAxes;
 		private string[] _rawJoystickAxes;
 		private KeyCode[] _keys;
@@ -88,7 +88,7 @@ namespace TeamUtility.IO
 		private Dictionary<string, Dictionary<string, AxisConfiguration>> _axesTable;
 
 		#endregion
-		
+
 		private void Awake()
 		{
 			if(_instance != null)
@@ -101,7 +101,7 @@ namespace TeamUtility.IO
 				{
 					UnityEngine.Object.DontDestroyOnLoad(this);
 				}
-				
+
 				_instance = this;
 				_keys = (KeyCode[])Enum.GetValues(typeof(KeyCode));
 				_configurationTable = new Dictionary<string, InputConfiguration>();
@@ -111,7 +111,7 @@ namespace TeamUtility.IO
 				Initialize();
 			}
 		}
-		
+
 		private void SetRawAxisNames()
 		{
 			_rawMouseAxes = new string[AxisConfiguration.MaxMouseAxes];
@@ -119,7 +119,7 @@ namespace TeamUtility.IO
 			{
 				_rawMouseAxes[i] = string.Concat("mouse_axis_", i);
 			}
-			
+
 			_rawJoystickAxes = new string[AxisConfiguration.MaxJoysticks * AxisConfiguration.MaxJoystickAxes];
 			for(int i = 0; i < AxisConfiguration.MaxJoysticks; i++)
 			{
@@ -129,8 +129,8 @@ namespace TeamUtility.IO
 				}
 			}
 		}
-		
-		private void Initialize()
+
+		public void Initialize()
 		{
             _playerOneConfig = null;
             _playerTwoConfig = null;
@@ -139,7 +139,7 @@ namespace TeamUtility.IO
 
             if (inputConfigurations.Count == 0)
 				return;
-			
+
 			PopulateLookupTables();
 
             if (!string.IsNullOrEmpty(playerOneDefault) && _configurationTable.ContainsKey(playerOneDefault))
@@ -177,7 +177,7 @@ namespace TeamUtility.IO
 
             Input.ResetInputAxes();
         }
-		
+
 		private void PopulateLookupTables()
 		{
 			_configurationTable.Clear();
@@ -192,7 +192,7 @@ namespace TeamUtility.IO
 					Debug.LogWarning(string.Format("An input configuration named \'{0}\' already exists in the lookup table", inputConfig.name));
 				}
 			}
-			
+
 			_axesTable.Clear();
 			foreach(InputConfiguration inputConfig in inputConfigurations)
 			{
@@ -208,11 +208,11 @@ namespace TeamUtility.IO
 						Debug.LogWarning(string.Format("Input configuration \'{0}\' already contains an axis named \'{1}\'", inputConfig.name, axisConfig.name));
 					}
 				}
-				
+
 				_axesTable.Add(inputConfig.name, table);
 			}
 		}
-		
+
 		private void Update()
 		{
             UpdateInputConfiguration(_playerOneConfig, PlayerID.One);
@@ -243,7 +243,7 @@ namespace TeamUtility.IO
                     RemoteUpdate(playerID);
             }
         }
-		
+
 		private void ScanInput()
 		{
 			float timeout = ignoreTimescale ? (Time.realtimeSinceStartup - _scanStartTime) : (Time.time - _scanStartTime);
@@ -252,7 +252,7 @@ namespace TeamUtility.IO
 				StopInputScan();
 				return;
 			}
-			
+
 			bool scanSuccess = false;
 			if(((int)_scanFlags & (int)ScanFlags.Key) == (int)ScanFlags.Key)
 			{
@@ -271,7 +271,7 @@ namespace TeamUtility.IO
 				ScanMouseAxis();
 			}
 		}
-		
+
 		private bool ScanKey()
 		{
 			int length = _keys.Length;
@@ -279,7 +279,7 @@ namespace TeamUtility.IO
 			{
 				if((int)_keys[i] >= (int)KeyCode.JoystickButton0)
 					break;
-				
+
 				if(Input.GetKeyDown(_keys[i]))
 				{
 					_scanResult.scanFlags = ScanFlags.Key;
@@ -298,10 +298,10 @@ namespace TeamUtility.IO
 					}
 				}
 			}
-			
+
 			return false;
 		}
-		
+
 		private bool ScanJoystickButton()
 		{
 			int scanStart = (int)KeyCode.Joystick1Button0;
@@ -327,7 +327,7 @@ namespace TeamUtility.IO
 						_scanResult.key = (KeyCode)((int)KeyCode.JoystickButton0 + (key - (int)KeyCode.Joystick1Button0) % 20);
 						_scanResult.joystick = ((key - (int)KeyCode.Joystick1Button0) / 20) + 1;
 					}
-					
+
 					_scanResult.joystickAxis = -1;
 					_scanResult.joystickAxisValue = 0.0f;
 					_scanResult.mouseAxis = -1;
@@ -343,10 +343,10 @@ namespace TeamUtility.IO
 					}
 				}
 			}
-			
+
 			return false;
 		}
-		
+
 		private bool ScanJoystickAxis()
 		{
 			int scanStart = 0, scanEnd = _rawJoystickAxes.Length;
@@ -357,7 +357,7 @@ namespace TeamUtility.IO
 				scanStart = _scanJoystick.Value * AxisConfiguration.MaxJoystickAxes;
 				scanEnd = scanStart + AxisConfiguration.MaxJoystickAxes;
 			}
-			
+
 			for(int i = scanStart; i < scanEnd; i++)
 			{
 				axisRaw = Input.GetAxisRaw(_rawJoystickAxes[i]);
@@ -379,10 +379,10 @@ namespace TeamUtility.IO
 					}
 				}
 			}
-			
+
 			return false;
 		}
-		
+
 		private bool ScanMouseAxis()
 		{
 			for(int i = 0; i < _rawMouseAxes.Length; i++)
@@ -405,10 +405,10 @@ namespace TeamUtility.IO
 					}
 				}
 			}
-			
+
 			return false;
 		}
-		
+
 		private void StopInputScan()
 		{
 			_scanResult.scanFlags = ScanFlags.None;
@@ -418,7 +418,7 @@ namespace TeamUtility.IO
 			_scanResult.joystickAxisValue = 0.0f;
 			_scanResult.mouseAxis = -1;
 			_scanResult.userData = _scanUserData;
-			
+
 			_scanHandler(_scanResult);
 
 			_scanJoystick = null;
@@ -496,25 +496,25 @@ namespace TeamUtility.IO
 			if(ConfigurationChanged != null)
 				ConfigurationChanged(playerID);
 		}
-		
+
 		private void RaiseConfigurationDirtyEvent(string configName)
 		{
 			if(ConfigurationDirty != null)
 				ConfigurationDirty(configName);
 		}
-		
+
 		private void RaiseLoadedEvent()
 		{
 			if(Loaded != null)
 				Loaded();
 		}
-		
+
 		private void RaiseSavedEvent()
 		{
 			if(Saved != null)
 				Saved();
 		}
-		
+
 		#region [Static Interface]
 		/// <summary>
 		/// A reference to the input manager instance. Use it to check if an input manager exists in the scene and
@@ -531,7 +531,7 @@ namespace TeamUtility.IO
         public static InputConfiguration PlayerFourConfiguration { get { return _instance._playerFourConfig; } }
         public static bool IsScanning { get { return _instance._scanFlags != ScanFlags.None; } }
 		public static bool IgnoreTimescale { get { return _instance.ignoreTimescale; } }
-		
+
 		/// <summary>
 		/// Returns true if any axis of any active input configuration is receiving input.
 		/// </summary>
@@ -548,7 +548,7 @@ namespace TeamUtility.IO
         {
             return AnyInput(_instance.GetInputConfigurationByPlayerID(playerID));
         }
-		
+
 		/// <summary>
 		/// Returns true if any axis of the specified input configuration is receiving input.
 		/// If the specified input configuration is not active and the axis is of type
@@ -566,7 +566,7 @@ namespace TeamUtility.IO
 						return true;
 				}
 			}
-			
+
 			return false;
 		}
 
@@ -584,7 +584,7 @@ namespace TeamUtility.IO
 
             return false;
         }
-		
+
 		/// <summary>
 		/// If an axis with the requested name exists, and it is of type 'RemoteAxis', the axis' value will be changed.
 		/// </summary>
@@ -593,7 +593,7 @@ namespace TeamUtility.IO
 		{
 			SetRemoteAxisValue(_instance._playerOneConfig.name, axisName, value);
 		}
-		
+
 		/// <summary>
 		/// If an axis with the requested name exists, and it is of type 'RemoteAxis', the axis' value will be changed.
 		/// </summary>
@@ -614,7 +614,7 @@ namespace TeamUtility.IO
 		{
 			SetRemoteButtonValue(_instance._playerOneConfig.name, buttonName, down, justChanged);
 		}
-		
+
 		/// <summary>
 		/// If an button with the requested name exists, and it is of type 'RemoteButton', the button's state will be changed.
 		/// </summary>
@@ -626,7 +626,7 @@ namespace TeamUtility.IO
 			else
 				Debug.LogError(string.Format("A remote button named \'{0}\' does not exist in the input configuration named \'{1}\'", buttonName, inputConfigName));
 		}
-		
+
 		/// <summary>
 		/// Resets the internal state of the input manager.
 		/// </summary>
@@ -672,7 +672,7 @@ namespace TeamUtility.IO
 
 			if(playerWhoUsesInputConfig.HasValue && playerWhoUsesInputConfig.Value == playerID)
 				return;
-            
+
             InputConfiguration inputConfig = null;
 			if(_instance._configurationTable.TryGetValue(name, out inputConfig))
 			{
@@ -691,7 +691,7 @@ namespace TeamUtility.IO
 			InputConfiguration inputConfig = null;
 			if(_instance._configurationTable.TryGetValue(name, out inputConfig))
 				return inputConfig;
-			
+
 			return null;
 		}
 
@@ -709,7 +709,7 @@ namespace TeamUtility.IO
 				if(table.TryGetValue(axisName, out axisConfig))
 					return axisConfig;
 			}
-			
+
 			return null;
 		}
 
@@ -737,15 +737,15 @@ namespace TeamUtility.IO
 				Debug.LogError(string.Format("An input configuration named \'{0}\' already exists", name));
 				return null;
 			}
-			
+
 			InputConfiguration inputConfig = new InputConfiguration(name);
 			_instance.inputConfigurations.Add(inputConfig);
 			_instance._configurationTable.Add(name, inputConfig);
 			_instance._axesTable.Add(name, new Dictionary<string, AxisConfiguration>());
-			
+
 			return inputConfig;
 		}
-		
+
 		/// <summary>
 		/// Deletes the specified input configuration. If the speficied input configuration is
 		/// active for any player then the active input configuration for the respective player will be set to null.
@@ -755,7 +755,7 @@ namespace TeamUtility.IO
 			InputConfiguration inputConfig = GetInputConfiguration(name);
 			if(inputConfig == null)
 				return false;
-			
+
 			_instance._axesTable.Remove(name);
 			_instance._configurationTable.Remove(name);
 			_instance.inputConfigurations.Remove(inputConfig);
@@ -770,12 +770,12 @@ namespace TeamUtility.IO
 
             return true;
 		}
-		
+
 		public static AxisConfiguration CreateButton(string inputConfigName, string buttonName, KeyCode primaryKey)
 		{
 			return CreateButton(inputConfigName, buttonName, primaryKey, KeyCode.None);
 		}
-		
+
 		public static AxisConfiguration CreateButton(string inputConfigName, string buttonName, KeyCode primaryKey, KeyCode secondaryKey)
 		{
 			InputConfiguration inputConfig = GetInputConfiguration(inputConfigName);
@@ -789,25 +789,25 @@ namespace TeamUtility.IO
 				Debug.LogError(string.Format("The input configuration named {0} already contains an axis configuration named {1}", inputConfigName, buttonName));
 				return null;
 			}
-			
+
 			AxisConfiguration axisConfig = new AxisConfiguration(buttonName);
 			axisConfig.type = InputType.Button;
 			axisConfig.positive = primaryKey;
 			axisConfig.altPositive = secondaryKey;
 			axisConfig.Initialize();
 			inputConfig.axes.Add(axisConfig);
-			
+
 			var table = _instance._axesTable[inputConfigName];
 			table.Add(buttonName, axisConfig);
-			
+
 			return axisConfig;
 		}
-		
+
 		public static AxisConfiguration CreateDigitalAxis(string inputConfigName, string axisName, KeyCode positive, KeyCode negative, float gravity, float sensitivity)
 		{
 			return CreateDigitalAxis(inputConfigName, axisName, positive, negative, KeyCode.None, KeyCode.None, gravity, sensitivity);
 		}
-		
+
 		public static AxisConfiguration CreateDigitalAxis(string inputConfigName, string axisName, KeyCode positive, KeyCode negative,
 		                                                  KeyCode altPositive, KeyCode altNegative, float gravity, float sensitivity)
 		{
@@ -822,7 +822,7 @@ namespace TeamUtility.IO
 				Debug.LogError(string.Format("The input configuration named {0} already contains an axis configuration named {1}", inputConfigName, axisName));
 				return null;
 			}
-			
+
 			AxisConfiguration axisConfig = new AxisConfiguration(axisName);
 			axisConfig.type = InputType.DigitalAxis;
 			axisConfig.positive = positive;
@@ -833,13 +833,13 @@ namespace TeamUtility.IO
 			axisConfig.sensitivity = sensitivity;
 			axisConfig.Initialize();
 			inputConfig.axes.Add(axisConfig);
-			
+
 			var table = _instance._axesTable[inputConfigName];
 			table.Add(axisName, axisConfig);
-			
+
 			return axisConfig;
 		}
-		
+
 		public static AxisConfiguration CreateMouseAxis(string inputConfigName, string axisName, int axis, float sensitivity)
 		{
 			InputConfiguration inputConfig = GetInputConfiguration(inputConfigName);
@@ -858,20 +858,20 @@ namespace TeamUtility.IO
 				Debug.LogError("Mouse axis is out of range. Cannot create new mouse axis.");
 				return null;
 			}
-			
+
 			AxisConfiguration axisConfig = new AxisConfiguration(axisName);
 			axisConfig.type = InputType.MouseAxis;
 			axisConfig.axis = axis;
 			axisConfig.sensitivity = sensitivity;
 			axisConfig.Initialize();
 			inputConfig.axes.Add(axisConfig);
-			
+
 			var table = _instance._axesTable[inputConfigName];
 			table.Add(axisName, axisConfig);
-			
+
 			return axisConfig;
 		}
-		
+
 		public static AxisConfiguration CreateAnalogAxis(string inputConfigName, string axisName, int joystick, int axis, float sensitivity, float deadZone)
 		{
 			InputConfiguration inputConfig = GetInputConfiguration(inputConfigName);
@@ -895,7 +895,7 @@ namespace TeamUtility.IO
 				Debug.LogError("Joystick is out of range. Cannot create new analog axis.");
 				return null;
 			}
-			
+
 			AxisConfiguration axisConfig = new AxisConfiguration(axisName);
 			axisConfig.type = InputType.AnalogAxis;
 			axisConfig.axis = axis;
@@ -904,13 +904,13 @@ namespace TeamUtility.IO
 			axisConfig.sensitivity = sensitivity;
 			axisConfig.Initialize();
 			inputConfig.axes.Add(axisConfig);
-			
+
 			var table = _instance._axesTable[inputConfigName];
 			table.Add(axisName, axisConfig);
-			
+
 			return axisConfig;
 		}
-		
+
 		public static AxisConfiguration CreateRemoteAxis(string inputConfigName, string axisName)
 		{
 			InputConfiguration inputConfig = GetInputConfiguration(inputConfigName);
@@ -924,7 +924,7 @@ namespace TeamUtility.IO
 				Debug.LogError(string.Format("The input configuration named {0} already contains an axis configuration named {1}", inputConfigName, axisName));
 				return null;
 			}
-			
+
 			AxisConfiguration axisConfig = new AxisConfiguration(axisName);
 			axisConfig.type = InputType.RemoteAxis;
 			axisConfig.positive = KeyCode.None;
@@ -933,13 +933,13 @@ namespace TeamUtility.IO
 			axisConfig.altNegative = KeyCode.None;
 			axisConfig.Initialize();
 			inputConfig.axes.Add(axisConfig);
-			
+
 			var table = _instance._axesTable[inputConfigName];
 			table.Add(axisName, axisConfig);
-			
+
 			return axisConfig;
 		}
-		
+
 		public static AxisConfiguration CreateRemoteButton(string inputConfigName, string buttonName)
 		{
 			InputConfiguration inputConfig = GetInputConfiguration(inputConfigName);
@@ -953,7 +953,7 @@ namespace TeamUtility.IO
 				Debug.LogError(string.Format("The input configuration named {0} already contains an axis configuration named {1}", inputConfigName, buttonName));
 				return null;
 			}
-			
+
 			AxisConfiguration axisConfig = new AxisConfiguration(buttonName);
 			axisConfig.type = InputType.RemoteButton;
 			axisConfig.positive = KeyCode.None;
@@ -962,13 +962,13 @@ namespace TeamUtility.IO
 			axisConfig.altNegative = KeyCode.None;
 			axisConfig.Initialize();
 			inputConfig.axes.Add(axisConfig);
-			
+
 			var table = _instance._axesTable[inputConfigName];
 			table.Add(buttonName, axisConfig);
-			
+
 			return axisConfig;
 		}
-		
+
 		public static AxisConfiguration CreateAnalogButton(string inputConfigName, string buttonName, int joystick, int axis)
 		{
 			InputConfiguration inputConfig = GetInputConfiguration(inputConfigName);
@@ -992,7 +992,7 @@ namespace TeamUtility.IO
 				Debug.LogError("Joystick is out of range. Cannot create new analog button.");
 				return null;
 			}
-			
+
 			AxisConfiguration axisConfig = new AxisConfiguration(buttonName);
 			axisConfig.type = InputType.AnalogButton;
 			axisConfig.joystick = joystick;
@@ -1003,13 +1003,13 @@ namespace TeamUtility.IO
 			axisConfig.altNegative = KeyCode.None;
 			axisConfig.Initialize();
 			inputConfig.axes.Add(axisConfig);
-			
+
 			var table = _instance._axesTable[inputConfigName];
 			table.Add(buttonName, axisConfig);
-			
+
 			return axisConfig;
 		}
-		
+
 		/// <summary>
 		/// Creates an uninitialized axis configuration. It's your responsability to configure the axis properly.
 		/// </summary>
@@ -1026,17 +1026,17 @@ namespace TeamUtility.IO
 				Debug.LogError(string.Format("The input configuration named {0} already contains an axis configuration named {1}", inputConfigName, axisName));
 				return null;
 			}
-			
+
 			AxisConfiguration axisConfig = new AxisConfiguration(axisName);
 			axisConfig.Initialize();
 			inputConfig.axes.Add(axisConfig);
-			
+
 			var table = _instance._axesTable[inputConfigName];
 			table.Add(axisName, axisConfig);
-			
+
 			return axisConfig;
 		}
-		
+
 		public static bool DeleteAxisConfiguration(string inputConfigName, string axisName)
 		{
 			InputConfiguration inputConfig = GetInputConfiguration(inputConfigName);
@@ -1047,10 +1047,10 @@ namespace TeamUtility.IO
 				inputConfig.axes.Remove(axisConfig);
 				return true;
 			}
-			
+
 			return false;
 		}
-		
+
 		/// <summary>
 		/// Scans for keyboard input and calls the handler with the result.
 		/// Returns KeyCode.None if timeout is reached or the scan is canceled.
@@ -1060,7 +1060,7 @@ namespace TeamUtility.IO
 		{
 			if(_instance._scanFlags != ScanFlags.None)
 				_instance.StopInputScan();
-			
+
 			_instance._scanTimeout = timeout;
 			_instance._scanFlags = ScanFlags.Key | ScanFlags.JoystickButton;
 			_instance._scanStartTime = _instance.ignoreTimescale ? Time.realtimeSinceStartup : Time.time;
@@ -1099,7 +1099,7 @@ namespace TeamUtility.IO
 		{
 			if(_instance._scanFlags != ScanFlags.None)
 				_instance.StopInputScan();
-			
+
 			_instance._scanTimeout = timeout;
 			_instance._scanFlags = ScanFlags.MouseAxis;
 			_instance._scanStartTime = _instance.ignoreTimescale ? Time.realtimeSinceStartup : Time.time;
@@ -1150,10 +1150,10 @@ namespace TeamUtility.IO
 				Debug.LogError("Joystick is out of range. Cannot start joystick axis scan.");
 				return;
 			}
-			
+
 			if(_instance._scanFlags != ScanFlags.None)
 				_instance.StopInputScan();
-			
+
 			_instance._scanTimeout = timeout;
 			_instance._scanFlags = ScanFlags.JoystickAxis;
 			_instance._scanStartTime = _instance.ignoreTimescale ? Time.realtimeSinceStartup : Time.time;
@@ -1164,7 +1164,7 @@ namespace TeamUtility.IO
 				return scanHandler(result.joystickAxis, (object[])result.userData);
 			};
 		}
-		
+
 		public static void StartScan(ScanSettings settings, ScanHandler scanHandler)
 		{
 			if(settings.joystick.HasValue && (settings.joystick < 0 || settings.joystick >= AxisConfiguration.MaxJoystickAxes))
@@ -1172,10 +1172,10 @@ namespace TeamUtility.IO
 				Debug.LogError("Joystick is out of range. Cannot start scan.");
 				return;
 			}
-			
+
 			if(_instance._scanFlags != ScanFlags.None)
 				_instance.StopInputScan();
-			
+
 			_instance._scanTimeout = settings.timeout;
 			_instance._scanFlags = settings.scanFlags;
 			_instance._scanStartTime = _instance.ignoreTimescale ? Time.realtimeSinceStartup : Time.time;
@@ -1184,13 +1184,13 @@ namespace TeamUtility.IO
 			_instance._scanUserData = settings.userData;
 			_instance._scanHandler = scanHandler;
 		}
-		
+
 		public static void CancelScan()
 		{
 			if(_instance._scanFlags != ScanFlags.None)
 				_instance.StopInputScan();
 		}
-		
+
 		/// <summary>
 		/// Triggers the ConfigurationDirty event.
 		/// </summary>
@@ -1198,7 +1198,7 @@ namespace TeamUtility.IO
 		{
 			_instance.RaiseConfigurationDirtyEvent(inputConfigName);
 		}
-		
+
 		/// <summary>
 		/// Saves the input configurations in the XML format, in Application.persistentDataPath.
 		/// </summary>
@@ -1211,7 +1211,7 @@ namespace TeamUtility.IO
 #endif
 			Save(new InputSaverXML(filename));
 		}
-		
+
 		/// <summary>
 		/// Saves the input configurations in the XML format, at the specified location.
 		/// </summary>
@@ -1219,7 +1219,7 @@ namespace TeamUtility.IO
 		{
 			Save(new InputSaverXML(filename));
 		}
-		
+
 		public static void Save(IInputSaver inputSaver)
 		{
 			if(inputSaver != null)
@@ -1252,7 +1252,7 @@ namespace TeamUtility.IO
 			}
 #endif
 		}
-		
+
 		/// <summary>
 		/// Loads the input configurations saved in the XML format, from the specified location.
 		/// </summary>
@@ -1260,7 +1260,7 @@ namespace TeamUtility.IO
 		{
 			Load(new InputLoaderXML(filename));
 		}
-		
+
 		public static void Load(IInputLoader inputLoader)
 		{
 			if(inputLoader != null)
@@ -1274,7 +1274,7 @@ namespace TeamUtility.IO
 				Debug.LogError("InputLoader is null. Cannot load input configurations.");
 			}
 		}
-		
+
 		#endregion
 	}
 }

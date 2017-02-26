@@ -29,5 +29,6 @@ public class InputManagerOSDetector : MonoBehaviour {
 				manager.playerFourDefault  = "Linux_Gamepad3";
 				break;
 		}
+		manager.Initialize();
 	}
 }
