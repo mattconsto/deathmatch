@@ -23,26 +23,39 @@ public class PlayerController : MonoBehaviour {
 	private Rigidbody rb;
 	private GameObject thecam;
 
+	public float health = 100;
+
 	// Use this for initialization
-	void Start () {
+	public void Start () {
 		rb = GetComponent<Rigidbody>();
 		thecam = transform.Find("Camera").gameObject;
 
 		_gunInstance = Instantiate(gun, transform.Find("Hand").transform.position, transform.Find("Hand").transform.rotation);
 		_gunInstance.transform.parent = transform.Find("Hand");
+
+		UpdateHUD();
 	}
 
-	void FixedUpdate() {
+	public void FixedUpdate() {
 		/* Gravity */
 		rb.AddForce((gravityOrigin - transform.position).normalized * gravityForce);
 		transform.rotation = Quaternion.FromToRotation(transform.up, transform.position - gravityOrigin) * transform.rotation;
 		// transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.FromToRotation(transform.up, transform.position - gravityOrigin) * transform.rotation, 30 * Time.deltaTime);
 	}
 
+	public void OnHurt(float value) {
+		UpdateHUD();
+	}
+
+	public void UpdateHUD() {
+		transform.Find("Player HUD/Health Text").GetComponent<Text>().text = Mathf.CeilToInt(health).ToString();
+		transform.Find("Player HUD/Ammo Text").GetComponent<Text>().text = _gunInstance.GetComponent<GunController>().ammo.ToString();
+	}
+
 	public void OnFire() {
-		print("Fire");
 		GunController gun = _gunInstance.GetComponent<GunController>();
 		if(gun != null) gun.Fire();
+		UpdateHUD();
 	}
 
 	public void OnLookHorizontal(float value) {
@@ -61,8 +74,8 @@ public class PlayerController : MonoBehaviour {
 		_smoothMouse.y = Mathf.Lerp(_smoothMouse.y, delta, 1f / smoothing.y);
 
 		thecam.transform.Rotate(-_smoothMouse.y / sensitivity.y, 0, 0);
-		thecam.transform.localEulerAngles = new Vector3((Mathf.Clamp((thecam.transform.localEulerAngles.x + 90) % 360, 80, 140) + 270) % 360, 0, 0);
-		_gunInstance.transform.localEulerAngles = new Vector3(0, 0, (Mathf.Clamp((thecam.transform.localEulerAngles.x + 90) % 360, 80, 140) + 270) % 360);
+		thecam.transform.localEulerAngles = new Vector3((Mathf.Clamp((thecam.transform.localEulerAngles.x + 90) % 360, 80, 160) + 270) % 360, 0, 0);
+		_gunInstance.transform.localEulerAngles = new Vector3(0, 0, (Mathf.Clamp((thecam.transform.localEulerAngles.x + 90) % 360, 80, 160) + 270) % 360);
 	}
 
 	public void OnMoveHorizontal(float value) {
@@ -74,7 +87,6 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void OnJump() {
-		print("Jump");
 		if (_canJump) rb.AddForce(transform.up * 500);
 	}
 

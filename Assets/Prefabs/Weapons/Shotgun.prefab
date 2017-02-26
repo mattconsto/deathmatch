@@ -151,10 +151,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9ecb3451eef4003947713f8fc53894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 1897031596938000, guid: 21e3041ae634d47598c48e42b187bf04,
+  bulletPrefab: {fileID: 1575296054628552, guid: 1e546b188d1b0244ba46f9b232196885,
     type: 2}
-  muzzleVelocity: 50
-  fireRate: 0.3
+  muzzleVelocity: 60
+  fireRate: 0.7
   shotCount: 10
   shotSpread: 9
   ammo: 100
