@@ -61,8 +61,8 @@ public class PlayerController : MonoBehaviour {
 		_smoothMouse.y = Mathf.Lerp(_smoothMouse.y, delta, 1f / smoothing.y);
 
 		thecam.transform.Rotate(-_smoothMouse.y / sensitivity.y, 0, 0);
-		thecam.transform.localEulerAngles = new Vector3((Mathf.Clamp((thecam.transform.localEulerAngles.x + 90) % 360, 80, 120) + 270) % 360, 0, 0);
-		_gunInstance.transform.localEulerAngles = new Vector3(0, 0, (Mathf.Clamp((thecam.transform.localEulerAngles.x + 90) % 360, 80, 120) + 270) % 360);
+		thecam.transform.localEulerAngles = new Vector3((Mathf.Clamp((thecam.transform.localEulerAngles.x + 90) % 360, 80, 140) + 270) % 360, 0, 0);
+		_gunInstance.transform.localEulerAngles = new Vector3(0, 0, (Mathf.Clamp((thecam.transform.localEulerAngles.x + 90) % 360, 80, 140) + 270) % 360);
 	}
 
 	public void OnMoveHorizontal(float value) {

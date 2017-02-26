@@ -782,7 +782,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1216776187065638}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 2.5, z: -4.5}
+  m_LocalPosition: {x: -0, y: 0.9, z: 0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4749517792554252}
@@ -1091,14 +1091,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1028890053260536}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4173843328759608}
   m_Father: {fileID: 4672896155606894}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
 --- !u!4 &4763341476794054
 Transform:
   m_ObjectHideFlags: 1
@@ -1692,8 +1692,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravityOrigin: {x: 0, y: 0, z: 0}
   gravityForce: 50
-  sensitivity: {x: 1, y: 1}
-  smoothing: {x: 5, y: 5}
+  sensitivity: {x: 0.5, y: 0.5}
+  smoothing: {x: 2, y: 2}
   burnTime: 0
   movementspeed: 50
   gun: {fileID: 1350577432705164, guid: e36cdd5c0b10a78439a30ef16115f505, type: 2}

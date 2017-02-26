@@ -1396,7 +1396,6 @@ GameObject:
   - component: {fileID: 413582204}
   - component: {fileID: 413582208}
   - component: {fileID: 413582207}
-  - component: {fileID: 413582210}
   m_Layer: 0
   m_Name: Planet
   m_TagString: Untagged
@@ -1471,7 +1470,7 @@ SphereCollider:
   m_GameObject: {fileID: 413582203}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -1490,20 +1489,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &413582210
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 413582203}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 1.00000005e-20
-  m_Mesh: {fileID: 4300000, guid: f7ac32c7bdc42154cb6d758ab9e6b092, type: 3}
 --- !u!1001 &429002432
 Prefab:
   m_ObjectHideFlags: 0
