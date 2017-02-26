@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void OnHurt(float value) {
+		health -= value;
 		UpdateHUD();
 	}
 

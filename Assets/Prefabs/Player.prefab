@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 114040627694127894}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1697,6 +1697,7 @@ MonoBehaviour:
   burnTime: 0
   movementspeed: 50
   gun: {fileID: 1350577432705164, guid: e36cdd5c0b10a78439a30ef16115f505, type: 2}
+  health: 100
 --- !u!114 &114525980172618814
 MonoBehaviour:
   m_ObjectHideFlags: 1
