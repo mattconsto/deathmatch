@@ -31,14 +31,14 @@ public class PlayerController : MonoBehaviour {
 
 		_gunInstance = Instantiate(gun, transform.Find("Hand").transform.position, transform.Find("Hand").transform.rotation);
 		_gunInstance.transform.parent = transform.Find("Hand");
-
-		UpdateHUD();
 	}
 
 	public void FixedUpdate() {
 		/* Gravity */
-		transform.rotation = Quaternion.FromToRotation(transform.up, transform.position - gravityOrigin) * transform.rotation;
+		transform.rotation = Quaternion.FromToRotation(transform.up, transform.position - GetComponent<GravityObject>().origin) * transform.rotation;
 		// transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.FromToRotation(transform.up, transform.position - gravityOrigin) * transform.rotation, 30 * Time.deltaTime);
+		// 
+		UpdateHUD();
 	}
 
 	public void OnHurt(float value) {
@@ -48,18 +48,20 @@ public class PlayerController : MonoBehaviour {
 			controller.respawnPlayer(transform.gameObject);
 			health = 100;
 		}
-		UpdateHUD();
 	}
 
 	public void UpdateHUD() {
 		transform.Find("Player HUD/Health Text").GetComponent<Text>().text = Mathf.CeilToInt(health).ToString();
-		transform.Find("Player HUD/Ammo Text").GetComponent<Text>().text = _gunInstance.GetComponent<GunController>().ammo.ToString();
+		if(_gunInstance.GetComponent<GunController>().ammo >= 0) {
+			transform.Find("Player HUD/Ammo Text").GetComponent<Text>().text = _gunInstance.GetComponent<GunController>().ammo.ToString();
+		} else {
+			transform.Find("Player HUD/Ammo Text").GetComponent<Text>().text = "";
+		}
 	}
 
 	public void OnFire() {
 		GunController gun = _gunInstance.GetComponent<GunController>();
 		if(gun != null) gun.Fire();
-		UpdateHUD();
 	}
 
 	public void OnLookHorizontal(float value) {

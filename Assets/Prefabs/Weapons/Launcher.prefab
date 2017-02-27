@@ -240,4 +240,4 @@ MonoBehaviour:
   shotSpread: 5
   clip: 5
   ammo: 5
-  reloadRate: 0.5
+  reloadRate: 1

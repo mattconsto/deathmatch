@@ -32,7 +32,7 @@ public class BulletController : MonoBehaviour {
 
 			if(decalPrefab != null) Instantiate(decalPrefab, col.contacts[0].point, Quaternion.Euler(col.contacts[0].normal));
 
-			print(gameObject.name + " hit " + col.gameObject.name);
+			// print(gameObject.name + " hit " + col.gameObject.name);
 		}
 
 		if(destroy) Destroy(gameObject);

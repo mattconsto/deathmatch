@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PhysicsObject : MonoBehaviour {
-	public Vector3 COG = new Vector3(0,0,0);
-	public float G = 9.8f;
+public class GravityObject : MonoBehaviour {
+	public Vector3 origin = new Vector3(0,0,0);
+	public float   force  = 9.81f;
 
 	private Rigidbody _body;
 
@@ -13,6 +13,6 @@ public class PhysicsObject : MonoBehaviour {
 	}
 
 	void Update () {
-		_body.AddForce((COG - transform.position).normalized * G);
+		_body.AddForce((origin - transform.position).normalized * force);
 	}
 }

@@ -24,9 +24,11 @@ public class GunController : MonoBehaviour {
 	public void Update() {
 		_fireTiming += Time.deltaTime;
 
-		if(_reloadTiming >= 0f) {
+		if(_reloadTiming >= 0f && ammo <= 0) {
 			_reloadTiming -= Time.deltaTime;
-		} else if(_reloadTiming <= 0f && ammo <= 0) {
+		} else if(_reloadTiming < 0f && ammo <= 0) {
+			print("Reloaded");
+			_reloadTiming = 0;
 			ammo = clip;
 		}
 	}

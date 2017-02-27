@@ -15,7 +15,6 @@ TODO
 * More models and better weapons
 * Let players switch guns
 * Sound effects
-* OW ammo mechanic
 
 ## Platform Specific
 
