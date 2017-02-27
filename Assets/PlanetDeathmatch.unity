@@ -540,9 +540,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 95707986}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 23.7, y: 31.4, z: -33.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1148942837}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
@@ -554,9 +555,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 95707986}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ebd526774cbfaf48964adbfdb421cb2, type: 3}
+  m_Script: {fileID: 11500000, guid: bef3c2fe5063d224e8d5240e8c83fb79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  origin: {x: 0, y: 0, z: 0}
 --- !u!1001 &117678721
 Prefab:
   m_ObjectHideFlags: 0
@@ -3624,6 +3626,75 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: cb194aff6d705944b817dfff92895824, type: 3}
   m_PrefabInternal: {fileID: 349553846}
+--- !u!1 &1148942833
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1148942837}
+  - component: {fileID: 1148942836}
+  - component: {fileID: 1148942835}
+  m_Layer: 0
+  m_Name: Sun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!23 &1148942835
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1148942833}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: e360ff6569328674782b4ebbdb36f4b7, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1148942836
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1148942833}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1148942837
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1148942833}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: -400}
+  m_LocalScale: {x: 50, y: 50, z: 50}
+  m_Children: []
+  m_Father: {fileID: 95707988}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1150339334
 Prefab:
   m_ObjectHideFlags: 0
@@ -4359,6 +4430,7 @@ GameObject:
   - component: {fileID: 1305499140}
   - component: {fileID: 1305499139}
   - component: {fileID: 1305499144}
+  - component: {fileID: 1305499145}
   m_Layer: 0
   m_Name: Spectator Camera
   m_TagString: Untagged
@@ -4448,6 +4520,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   origin: {x: 0, y: 0, z: 0}
+--- !u!114 &1305499145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1305499138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4975a6e437fc3b149a8cd508ce5bdd69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threshold: 1
+  intensity: 0.02
+  blurSize: 2
+  blurIterations: 1
+  blurType: 0
+  fastBloomShader: {fileID: 4800000, guid: 68a00c837b82e4c6d92e7da765dc5f1d, type: 3}
 --- !u!1001 &1313105935
 Prefab:
   m_ObjectHideFlags: 0
@@ -5138,7 +5227,7 @@ MonoBehaviour:
       type: 0
       axis: 0
       joystick: 0
-    isExpanded: 1
+    isExpanded: 0
   - name: Windows_Gamepad1
     axes:
     - name: Horizontal
@@ -5323,7 +5412,7 @@ MonoBehaviour:
       type: 3
       axis: 8
       joystick: 0
-    isExpanded: 1
+    isExpanded: 0
   - name: Windows_Gamepad2
     axes:
     - name: Horizontal
@@ -6631,7 +6720,7 @@ MonoBehaviour:
       gravity: 0
       sensitivity: 1
       snap: 0
-      invert: 0
+      invert: 1
       type: 3
       axis: 0
       joystick: 0
@@ -6659,7 +6748,7 @@ MonoBehaviour:
       gravity: 0
       sensitivity: 1
       snap: 0
-      invert: 0
+      invert: 1
       type: 3
       axis: 3
       joystick: 0
@@ -6816,7 +6905,7 @@ MonoBehaviour:
       gravity: 0
       sensitivity: 1
       snap: 0
-      invert: 0
+      invert: 1
       type: 3
       axis: 0
       joystick: 1
@@ -6844,7 +6933,7 @@ MonoBehaviour:
       gravity: 0
       sensitivity: 1
       snap: 0
-      invert: 0
+      invert: 1
       type: 3
       axis: 3
       joystick: 1
@@ -6988,7 +7077,7 @@ MonoBehaviour:
       type: 3
       axis: 2
       joystick: 1
-    isExpanded: 0
+    isExpanded: 1
   - name: Linux_Gamepad3
     axes:
     - name: Horizontal
@@ -7001,7 +7090,7 @@ MonoBehaviour:
       gravity: 0
       sensitivity: 1
       snap: 0
-      invert: 0
+      invert: 1
       type: 3
       axis: 0
       joystick: 2
@@ -7029,7 +7118,7 @@ MonoBehaviour:
       gravity: 0
       sensitivity: 1
       snap: 0
-      invert: 0
+      invert: 1
       type: 3
       axis: 3
       joystick: 2
@@ -7173,7 +7262,7 @@ MonoBehaviour:
       type: 3
       axis: 2
       joystick: 2
-    isExpanded: 0
+    isExpanded: 1
   - name: Linux_Gamepad4
     axes:
     - name: Horizontal
@@ -7186,7 +7275,7 @@ MonoBehaviour:
       gravity: 0
       sensitivity: 1
       snap: 0
-      invert: 0
+      invert: 1
       type: 3
       axis: 0
       joystick: 3
@@ -7214,7 +7303,7 @@ MonoBehaviour:
       gravity: 0
       sensitivity: 1
       snap: 0
-      invert: 0
+      invert: 1
       type: 3
       axis: 3
       joystick: 3
@@ -7358,7 +7447,7 @@ MonoBehaviour:
       type: 3
       axis: 2
       joystick: 3
-    isExpanded: 0
+    isExpanded: 1
   playerOneDefault: KeyboardAndMouse
   playerTwoDefault: Windows_Gamepad1
   playerThreeDefault: Windows_Gamepad2
@@ -7604,6 +7693,7 @@ GameObject:
   - component: {fileID: 1647084923}
   - component: {fileID: 1647084922}
   - component: {fileID: 1647084927}
+  - component: {fileID: 1647084928}
   m_Layer: 0
   m_Name: Title Camera
   m_TagString: Untagged
@@ -7693,6 +7783,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   origin: {x: 0, y: 0, z: 0}
+--- !u!114 &1647084928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1647084921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4975a6e437fc3b149a8cd508ce5bdd69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threshold: 1
+  intensity: 0.02
+  blurSize: 2
+  blurIterations: 1
+  blurType: 0
+  fastBloomShader: {fileID: 4800000, guid: 68a00c837b82e4c6d92e7da765dc5f1d, type: 3}
 --- !u!4 &1659060008 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400002, guid: 749f0fcee8899d14d9fc75a4b5997df6, type: 3}

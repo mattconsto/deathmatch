@@ -168,6 +168,7 @@ GameObject:
   - component: {fileID: 92124636278066058}
   - component: {fileID: 124326675722948800}
   - component: {fileID: 81017449484211654}
+  - component: {fileID: 114356649878048178}
   m_Layer: 0
   m_Name: CameraObject
   m_TagString: MainCamera
@@ -1269,7 +1270,7 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
-  m_HDR: 0
+  m_HDR: 1
   m_AllowMSAA: 1
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
@@ -1866,6 +1867,23 @@ MonoBehaviour:
   movementspeed: 50
   gun: {fileID: 1350577432705164, guid: e36cdd5c0b10a78439a30ef16115f505, type: 2}
   health: 100
+--- !u!114 &114356649878048178
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1216776187065638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4975a6e437fc3b149a8cd508ce5bdd69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threshold: 1
+  intensity: 0.02
+  blurSize: 2
+  blurIterations: 1
+  blurType: 0
+  fastBloomShader: {fileID: 4800000, guid: 68a00c837b82e4c6d92e7da765dc5f1d, type: 3}
 --- !u!114 &114525980172618814
 MonoBehaviour:
   m_ObjectHideFlags: 1
