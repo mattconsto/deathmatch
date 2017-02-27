@@ -238,4 +238,6 @@ MonoBehaviour:
   fireRate: 0.1
   shotCount: 10
   shotSpread: 5
-  ammo: 100
+  clip: 20
+  ammo: 20
+  reloadRate: 0.5

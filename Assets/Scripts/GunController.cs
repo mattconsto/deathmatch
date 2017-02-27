@@ -9,22 +9,32 @@ public class GunController : MonoBehaviour {
 	public int shotCount = 10;
 	public float shotSpread = 5;
 
+	public float clip = 10;
 	public float ammo = 10;
+	public float reloadRate = 0.5f;
 
 	private Transform _muzzle;
-	private float _timing = 0;
+	private float _fireTiming = 0;
+	private float _reloadTiming = 0;
 
 	public void Start() {
 		_muzzle = transform.Find("Muzzle");
 	}
 
 	public void Update() {
-		_timing += Time.deltaTime;
+		_fireTiming += Time.deltaTime;
+
+		if(_reloadTiming >= 0f) {
+			_reloadTiming -= Time.deltaTime;
+		} else if(_reloadTiming <= 0f && ammo <= 0) {
+			ammo = clip;
+		}
 	}
 
 	public bool Fire() {
-		if(_timing > fireRate && ammo != 0) {
+		if(_reloadTiming <= 0f && _fireTiming > fireRate && ammo > 0) {
 			for(int i = 0; i < shotCount; i++) {
+				// Calculate Spread
 				float xr = (0.5f - Random.value) * shotSpread;
 				float zr = Random.value * 360f;
 
@@ -36,9 +46,13 @@ public class GunController : MonoBehaviour {
 
 			GetComponent<AudioSource>().Play();
 
-			_timing = 0;
-			if(ammo > 0) ammo--;
+			_fireTiming = 0;
+			ammo--;
 			return true;
+		}
+
+		if(_reloadTiming <= 0 && ammo <= 0) {
+			_reloadTiming = reloadRate;
 		}
 
 		return false;

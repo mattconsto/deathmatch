@@ -6,9 +6,6 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour {
 	public GameController controller;
 
-	public Vector3 gravityOrigin;
-	public float gravityForce = 9.8f;
-
 	private Vector2 _smoothMouse;
 	private bool _canJump = false;
 
@@ -40,7 +37,6 @@ public class PlayerController : MonoBehaviour {
 
 	public void FixedUpdate() {
 		/* Gravity */
-		rb.AddForce((gravityOrigin - transform.position).normalized * gravityForce);
 		transform.rotation = Quaternion.FromToRotation(transform.up, transform.position - gravityOrigin) * transform.rotation;
 		// transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.FromToRotation(transform.up, transform.position - gravityOrigin) * transform.rotation, 30 * Time.deltaTime);
 	}
