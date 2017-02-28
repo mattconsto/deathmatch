@@ -1860,8 +1860,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
-  gravityOrigin: {x: 0, y: 0, z: 0}
-  gravityForce: 25
   sensitivity: {x: 0.5, y: 0.5}
   smoothing: {x: 2, y: 2}
   burnTime: 0
@@ -1945,8 +1943,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75eb18690dd324aa2b35ae1b2290ef1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  COG: {x: 0, y: 0, z: 0}
-  G: 25
+  origin: {x: 0, y: 0, z: 0}
+  force: 20
 --- !u!124 &124326675722948800
 Behaviour:
   m_ObjectHideFlags: 1
