@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GunController : MonoBehaviour {
+	public string name = "Gun";
+
 	public GameObject bulletPrefab;
 	public float muzzleVelocity = 10f;
 	public float fireRate = 0.1f;

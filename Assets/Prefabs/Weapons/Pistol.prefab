@@ -232,6 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9ecb3451eef4003947713f8fc53894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Pistol
   bulletPrefab: {fileID: 1575296054628552, guid: a2a44e9cee371ae42aa57de608c54204,
     type: 2}
   muzzleVelocity: 100

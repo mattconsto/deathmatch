@@ -232,6 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9ecb3451eef4003947713f8fc53894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Axe
   bulletPrefab: {fileID: 1575296054628552, guid: 9f96c38bef3e5564fa86f887d5e2b47f,
     type: 2}
   muzzleVelocity: 100

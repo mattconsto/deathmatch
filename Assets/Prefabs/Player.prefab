@@ -1864,7 +1864,9 @@ MonoBehaviour:
   smoothing: {x: 2, y: 2}
   burnTime: 0
   movementspeed: 50
-  gun: {fileID: 1350577432705164, guid: e36cdd5c0b10a78439a30ef16115f505, type: 2}
+  guns:
+  - {fileID: 1350577432705164, guid: e36cdd5c0b10a78439a30ef16115f505, type: 2}
+  - {fileID: 1350577432705164, guid: ad4a33a291338584b9a762e4f7b85f68, type: 2}
   health: 100
 --- !u!114 &114356649878048178
 MonoBehaviour:
