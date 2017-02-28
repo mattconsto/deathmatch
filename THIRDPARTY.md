@@ -4,6 +4,7 @@ Third Party Notices
 ## Art
 
 * Apollo Lunar Module by Michael Carbajal (NASA Public Domain): https://nasa3d.arc.nasa.gov/detail/lunarlandernofoil-c
+* Hubble Space Telescope by DigitalSpace Corporation (NASA Public Domain: https://nasa3d.arc.nasa.gov/detail/hst-3ds
 * Low Poly: Free Pack by AxeyWorks (Unity Asset Store): https://www.assetstore.unity3d.com/en/content/58821
 * StarNest Skybox by Ninjapretzel (Unity Asset Store): https://www.assetstore.unity3d.com/en/content/63726
 
