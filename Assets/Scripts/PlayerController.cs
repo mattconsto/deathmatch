@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour {
 
 		transform.Find("Player HUD/Health Text").GetComponent<Text>().text = Mathf.CeilToInt(health).ToString();
 
-		if(guns[_selectedGun].GetComponent<GunController>().ammo >= 0) {
+		if(guns[_selectedGun].GetComponent<GunController>().ammo >= 0 && guns[_selectedGun].GetComponent<GunController>().ammo != Mathf.Infinity) {
 			transform.Find("Player HUD/Ammo Text").GetComponent<Text>().text = guns[_selectedGun].GetComponent<GunController>().ammo.ToString();
 		} else {
 			transform.Find("Player HUD/Ammo Text").GetComponent<Text>().text = "";

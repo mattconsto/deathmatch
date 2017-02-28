@@ -14,7 +14,6 @@ TODO
 ## Weapons
 
 * More models and better weapons
-* Let players switch guns
 * Sound effects
 
 ## Platform Specific

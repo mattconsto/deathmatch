@@ -237,7 +237,7 @@ MonoBehaviour:
     type: 2}
   muzzleVelocity: 200
   fireRate: 0.1
-  shotCount: 10
+  shotCount: 3
   shotSpread: 5
   clip: 20
   ammo: 20

@@ -237,7 +237,7 @@ MonoBehaviour:
     type: 2}
   muzzleVelocity: 100
   fireRate: 0.5
-  shotCount: 10
+  shotCount: 1
   shotSpread: 5
   clip: Infinity
   ammo: Infinity

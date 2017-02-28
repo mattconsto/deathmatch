@@ -51,7 +51,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1575296054628552}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 1
@@ -124,8 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75eb18690dd324aa2b35ae1b2290ef1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  COG: {x: 0, y: 0, z: 0}
-  G: 0
+  origin: {x: 0, y: 0, z: 0}
+  force: 9.81
 --- !u!114 &114994411910225684
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -137,8 +137,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b4435e4dd9fd7345be2e2a1f0301e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifetime: 0.1
-  bulletDamage: 1
+  lifetime: 0.01
+  bulletDamage: 75
   explosionDamage: 0
   explosionRadius: 0
   incindiaryTime: 0

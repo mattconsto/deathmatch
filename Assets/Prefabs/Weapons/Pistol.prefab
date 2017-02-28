@@ -236,8 +236,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1575296054628552, guid: a2a44e9cee371ae42aa57de608c54204,
     type: 2}
   muzzleVelocity: 100
-  fireRate: 0.2
-  shotCount: 10
+  fireRate: 0.15
+  shotCount: 1
   shotSpread: 5
   clip: 10
   ammo: 10

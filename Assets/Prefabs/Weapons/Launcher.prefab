@@ -150,7 +150,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 6c82f6567e0c44f418c5b1a70a9e739f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -237,7 +237,7 @@ MonoBehaviour:
     type: 2}
   muzzleVelocity: 50
   fireRate: 0.4
-  shotCount: 10
+  shotCount: 1
   shotSpread: 5
   clip: 5
   ammo: 5
