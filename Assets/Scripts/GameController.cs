@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using TeamUtility.IO;
 
 public class GameController : MonoBehaviour {
-	public Camera titleCamera;
+	public Camera[] titleCamera;
 	public Camera spectatorCamera;
 	public GameObject playerPrefab;
 	public GameObject titlehud;
@@ -15,7 +15,10 @@ public class GameController : MonoBehaviour {
 	private PlayerID[] ids = new PlayerID[] {PlayerID.One, PlayerID.Two, PlayerID.Three, PlayerID.Four};
 
 	public void Start () {
-		titleCamera.gameObject.SetActive(true);
+		for(int i = 0; i < titleCamera.Length; i++) {
+			titleCamera[i].gameObject.SetActive(false);
+		}
+		titleCamera[Random.Range(0, titleCamera.Length)].gameObject.SetActive(true);
 
 		/* Get a list of spawns and shuffle, to prevent people spawning on top of each other */
 		respawns = GameObject.FindGameObjectsWithTag("Respawn");
@@ -35,7 +38,9 @@ public class GameController : MonoBehaviour {
 
 	public void SelectPlayers(int number) {
 		/* Init */
-		titleCamera.gameObject.SetActive(false);
+		for(int i = 0; i < titleCamera.Length; i++) {
+			titleCamera[i].gameObject.SetActive(false);
+		}
 		titlehud.gameObject.SetActive(false);
 		Cursor.visible = false;
 		Cursor.lockState = CursorLockMode.Locked;

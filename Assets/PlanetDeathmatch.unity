@@ -522,7 +522,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 277ec8b263fa66948ace8652a0de92aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  titleCamera: {fileID: 1647084925}
+  titleCamera:
+  - {fileID: 1647084925}
+  - {fileID: 580979237}
+  - {fileID: 1759285129}
   spectatorCamera: {fileID: 1305499142}
   playerPrefab: {fileID: 1090383527944902, guid: a1f590005e9c18f43860c82281454087,
     type: 2}
@@ -1981,7 +1984,7 @@ GameObject:
   - component: {fileID: 580979235}
   - component: {fileID: 580979234}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: Moon Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2050,13 +2053,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 580979233}
-  m_LocalRotation: {x: 0.083271384, y: 0.1505868, z: -0.1797607, w: 0.96854305}
+  m_LocalRotation: {x: 0.077221274, y: 0.13384905, z: -0.19171315, w: 0.9692097}
   m_LocalPosition: {x: 0.44709998, y: 0.7956997, z: 0.40010026}
   m_LocalScale: {x: 0.19230771, y: 0.1923077, z: 0.19230773}
   m_Children: []
   m_Father: {fileID: 1509546389}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 12.442, y: 15.549001, z: -19.324001}
+  m_LocalEulerAnglesHint: {x: 11.596001, y: 13.570001, z: -20.993002}
 --- !u!1001 &621701855
 Prefab:
   m_ObjectHideFlags: 0
@@ -8370,7 +8373,7 @@ GameObject:
   - component: {fileID: 1759285127}
   - component: {fileID: 1759285126}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: Hubble Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8382,13 +8385,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1759285124}
-  m_LocalRotation: {x: -0.040342342, y: -0.1849382, z: -0.3689937, w: 0.90995276}
-  m_LocalPosition: {x: 712.00006, y: -375.99957, z: -1085}
+  m_LocalRotation: {x: -0.06008651, y: -0.17720775, z: -0.38248762, w: 0.9048151}
+  m_LocalPosition: {x: 675.0001, y: -412.99963, z: -1085}
   m_LocalScale: {x: 200.00003, y: 200, z: 200.00002}
   m_Children: []
   m_Father: {fileID: 1823132053}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -12.117001, y: -18.288, z: -42.189003}
+  m_LocalEulerAnglesHint: {x: -14.14, y: -16.457, z: -43.775}
 --- !u!81 &1759285126
 AudioListener:
   m_ObjectHideFlags: 0
