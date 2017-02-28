@@ -38,6 +38,7 @@ public class GameController : MonoBehaviour {
 		titleCamera.gameObject.SetActive(false);
 		titlehud.gameObject.SetActive(false);
 		Cursor.visible = false;
+		Screen.lockCursor = true;
 
 		GameObject[] players = new GameObject[number];
 
