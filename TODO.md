@@ -10,6 +10,8 @@ TODO
 * Scoring
 * More verticality (jump pads and platforms)
 * Enable people to identify each other?
+* Blood splatter on hit
+* Hitsounds
 
 ## Weapons
 
