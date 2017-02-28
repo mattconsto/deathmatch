@@ -3,6 +3,7 @@ Third Party Notices
 
 ## Art
 
+* Apollo Lunar Module by Michael Carbajal (NASA Public Domain): https://nasa3d.arc.nasa.gov/detail/lunarlandernofoil-c
 * Low Poly: Free Pack by AxeyWorks (Unity Asset Store): https://www.assetstore.unity3d.com/en/content/58821
 * StarNest Skybox by Ninjapretzel (Unity Asset Store): https://www.assetstore.unity3d.com/en/content/63726
 
@@ -65,4 +66,5 @@ Third Party Notices
 * CC BY 3.0: https://creativecommons.org/licenses/by/3.0
 * CC BY NC 3.0: https://creativecommons.org/licenses/by-nc/3.0
 * MIT: https://opensource.org/licenses/MIT
+* NASA Public Domain: https://www.nasa.gov/multimedia/guidelines
 * Unity Asset Store: https://unity3d.com/legal/as_terms
