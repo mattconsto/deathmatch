@@ -9,6 +9,7 @@ TODO
 * Respawn on full hp
 * Scoring
 * More verticality (jump pads and platforms)
+* Enable people to identify each other?
 
 ## Weapons
 
@@ -23,5 +24,3 @@ TODO
 * Gamepad in WebGL
 * Quadratic controller input
 * User assignable inputs
-* Game Icon
-* Game Art on Launcher, hide inputs
