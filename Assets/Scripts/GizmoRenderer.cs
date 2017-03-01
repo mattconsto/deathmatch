@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+	Draw a Gizmo and it's collider
+*/
 public class GizmoRenderer : MonoBehaviour {
 	public string gizmoPath = "";
 

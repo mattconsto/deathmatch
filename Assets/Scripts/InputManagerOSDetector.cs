@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using TeamUtility.IO;
 
+/*
+	Load the appropriate Gamepad bindings
+*/
 public class InputManagerOSDetector : MonoBehaviour {
 	void Start () {
-		/* Load the appropriate Gamepad bindings */
-		Debug.Log("Found " + SystemInfo.operatingSystemFamily);
+		Debug.Log("Found OS: " + SystemInfo.operatingSystemFamily);
 
 		InputManager manager = GetComponent<InputManager>();
 		manager.playerOneDefault = "KeyboardAndMouse";

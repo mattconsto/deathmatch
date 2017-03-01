@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+	Bullet Controller
+*/
 public class BulletController : MonoBehaviour {
 	public float lifetime = 5;
 	public float bulletDamage = 1;
@@ -10,7 +13,6 @@ public class BulletController : MonoBehaviour {
 	public float incindiaryTime = 0;
 	public GameObject decalPrefab = null;
 
-	// Update is called once per frame
 	void Update () {
 		lifetime -= Time.deltaTime;
 

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+	Pull object towards origin
+*/
 public class GravityObject : MonoBehaviour {
 	public Vector3 origin = new Vector3(0,0,0);
 	public float   force  = 9.81f;
