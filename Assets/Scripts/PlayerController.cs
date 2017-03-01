@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour {
 	public string message = "";
 	private float _messageTimer = 0f;
 
+	private float _hurtOverlayTimer = 0f;
+
 	// Use this for initialization
 	public void Start () {
 		rb = GetComponent<Rigidbody>();
@@ -49,11 +51,15 @@ public class PlayerController : MonoBehaviour {
 
 	public void Update() {
 		if(_messageTimer > 0) _messageTimer -= Time.deltaTime;
+		if(_hurtOverlayTimer > 0) _hurtOverlayTimer -= Time.deltaTime;
 		if(invincibleTime > 0) invincibleTime -= Time.deltaTime;
 		UpdateHUD();
 	}
 
 	public void UpdateHUD() {
+		Color old = transform.Find("Player HUD/Hurt Overlay").GetComponent<RawImage>().color;
+		transform.Find("Player HUD/Hurt Overlay").GetComponent<RawImage>().color = new Color(old.r, old.g, old.b, _messageTimer);
+
 		if(_messageTimer > 0) {
 			transform.Find("Player HUD/Hint Text").GetComponent<Text>().text = message;
 		} else {
@@ -73,6 +79,7 @@ public class PlayerController : MonoBehaviour {
 		if(invincibleTime > 0) return;
 
 		health -= value;
+		_hurtOverlayTimer = 1f;
 		GetComponent<AudioSource>().Play();
 		if(health <= 0) {
 			controller.respawnPlayer(transform.gameObject);
