@@ -221,8 +221,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75eb18690dd324aa2b35ae1b2290ef1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  COG: {x: 0, y: 0, z: 0}
-  G: 25
+  origin: {x: 0, y: 0, z: 0}
+  force: 9.81
 --- !u!114 &114994411910225684
 MonoBehaviour:
   m_ObjectHideFlags: 1

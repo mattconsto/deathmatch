@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour {
 
 	private float _hurtOverlayTimer = 0f;
 
+	private float _respawnTimer = 0f;
+
 	// Use this for initialization
 	public void Start () {
 		rb = GetComponent<Rigidbody>();
@@ -38,10 +40,10 @@ public class PlayerController : MonoBehaviour {
 		Transform hand = transform.Find("Hand");
 		for(int i = 0; i < guns.Length; i++) {
 			guns[i] = Instantiate(guns[i], hand.transform.position, hand.transform.rotation);
-			guns[i].active = false;
+			guns[i].SetActive(false);
 			guns[i].transform.parent = hand;
 		}
-		guns[_selectedGun].active = true;
+		guns[_selectedGun].SetActive(true);
 	}
 
 	public void FixedUpdate() {
@@ -53,11 +55,23 @@ public class PlayerController : MonoBehaviour {
 		if(_messageTimer > 0) _messageTimer -= Time.deltaTime;
 		if(_hurtOverlayTimer > 0) _hurtOverlayTimer -= Time.deltaTime;
 		if(invincibleTime > 0) invincibleTime -= Time.deltaTime;
+		if(_respawnTimer > 0) _respawnTimer -= Time.deltaTime;
+
+		if(_respawnTimer < 0) {
+			_respawnTimer = 0f;
+			controller.respawnPlayer(transform.gameObject);
+			transform.Find("Model").gameObject.SetActive(true);
+			transform.Find("Hand").gameObject.SetActive(true);
+			health = 100;
+		}
 		UpdateHUD();
 	}
 
 	public void UpdateHUD() {
-		Color old = transform.Find("Player HUD/Hurt Overlay").GetComponent<RawImage>().color;
+		Color old = transform.Find("Player HUD/Dead Overlay").GetComponent<RawImage>().color;
+		transform.Find("Player HUD/Dead Overlay").GetComponent<RawImage>().color = new Color(old.r, old.g, old.b, Mathf.Clamp(_respawnTimer, 0, 1));
+
+		old = transform.Find("Player HUD/Hurt Overlay").GetComponent<RawImage>().color;
 		transform.Find("Player HUD/Hurt Overlay").GetComponent<RawImage>().color = new Color(old.r, old.g, old.b, _messageTimer);
 
 		if(_messageTimer > 0) {
@@ -82,8 +96,9 @@ public class PlayerController : MonoBehaviour {
 		_hurtOverlayTimer = 1f;
 		GetComponent<AudioSource>().Play();
 		if(health <= 0) {
-			controller.respawnPlayer(transform.gameObject);
-			health = 100;
+			_respawnTimer = 5f;
+			transform.Find("Model").gameObject.SetActive(false);
+			transform.Find("Hand").gameObject.SetActive(false);
 
 			message = "You have died.";
 			_messageTimer = 1f;
@@ -139,17 +154,17 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void OnSwitchLeft() {
-		guns[_selectedGun].active = false;
+		guns[_selectedGun].SetActive(false);
 		_selectedGun = (_selectedGun - 1 + guns.Length) % guns.Length;
-		guns[_selectedGun].active = true;
+		guns[_selectedGun].SetActive(true);
 		message = guns[_selectedGun].GetComponent<GunController>().name;
 		_messageTimer = 1f;
 	}
 
 	public void OnSwitchRight() {
-		guns[_selectedGun].active = false;
+		guns[_selectedGun].SetActive(false);
 		_selectedGun = (_selectedGun + 1 + guns.Length) % guns.Length;
-		guns[_selectedGun].active = true;
+		guns[_selectedGun].SetActive(true);
 		message = guns[_selectedGun].GetComponent<GunController>().name;
 		_messageTimer = 1f;
 	}

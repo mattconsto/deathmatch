@@ -12,6 +12,7 @@ TODO
 * Enable people to identify each other?
 * Blood splatter on hit
 * Hitsounds
+* red hurt overlay not wide enough for 2 player
 
 ## Weapons
 
@@ -25,3 +26,4 @@ TODO
 * Gamepad in WebGL
 * Quadratic controller input
 * User assignable inputs
+* Safari and Android chrome have magenta background
