@@ -26,10 +26,14 @@ public class PlayerController : MonoBehaviour {
 	public string message = "";
 	public Color color = Color.white;
 
-	private Rigidbody _body;
-	private GameObject _thecam;
+	public AudioClip footstepsAudio;
+	public AudioClip jumpAudio;
+	public AudioClip switchAudio;
 
 	/* Private Properties */
+
+	private Rigidbody _body;
+	private GameObject _thecam;
 
 	private Vector2 _smoothMouse;
 	private int _selectedGun = 0;
@@ -40,6 +44,8 @@ public class PlayerController : MonoBehaviour {
 	private float _fireTimer = 0f;
 	private float _damageBatchingTimer = 0f;
 	private float _damageBatchingDamage = 0;
+	private float _jumpEnableTimer = 0f; // Let someone jump again after 5 seconds just in case.
+	private float _stepTimer = 15f;
 
 	private Transform _hudDeadOverlay;
 	private Transform _hudHurtOverlay;
@@ -85,6 +91,7 @@ public class PlayerController : MonoBehaviour {
 		if(invincibleTime > 0) invincibleTime -= Time.deltaTime;
 		if(_respawnTimer > 0) _respawnTimer -= Time.deltaTime;
 		if(_damageBatchingTimer > 0) _damageBatchingTimer -= Time.deltaTime;
+		if(_jumpEnableTimer > 0) _jumpEnableTimer -= Time.deltaTime;
 
 		// Health regen
 		health = Mathf.Min(100, health + healthRegen * Time.deltaTime);
@@ -105,6 +112,16 @@ public class PlayerController : MonoBehaviour {
 			SetActive(true);
 			health = 100;
 		}
+
+		if(_jumpEnableTimer < 0) {
+			_canJump = true;
+		}
+
+		if(_stepTimer < 0) {
+			_stepTimer = 15f;
+			if(footstepsAudio != null) GetComponent<AudioSource>().PlayOneShot(footstepsAudio, 0.5f);
+		}
+
 		UpdateHUD();
 	}
 
@@ -122,7 +139,7 @@ public class PlayerController : MonoBehaviour {
 		_hudDeadOverlay.GetComponent<RawImage>().color = new Color(old.r, old.g, old.b, Mathf.Clamp(_respawnTimer * 4, 0, 1));
 
 		old = _hudHurtOverlay.GetComponent<RawImage>().color;
-		_hudHurtOverlay.GetComponent<RawImage>().color = new Color(old.r, old.g, old.b, _messageTimer);
+		_hudHurtOverlay.GetComponent<RawImage>().color = new Color(old.r, old.g, old.b, _hurtOverlayTimer);
 
 		_hudHintText.GetComponent<Text>().text = _messageTimer > 0 ? message : "";
 		_hudHealthText.GetComponent<Text>().text = Mathf.CeilToInt(health).ToString();
@@ -184,16 +201,21 @@ public class PlayerController : MonoBehaviour {
 	public void OnMoveHorizontal(float value) {
 		if(_respawnTimer > 0) return;
 		_body.AddForce(transform.right * value * movementspeed);
+		if(_canJump) _stepTimer -= Mathf.Abs(value);
 	}
 
 	public void OnMoveVertical(float value) {
-		if(_respawnTimer > 0) return ;
+		if(_respawnTimer > 0) return;
 		_body.AddForce(transform.forward * value * movementspeed);
+		if(_canJump) _stepTimer -= Mathf.Abs(value);
 	}
 
 	public void OnJump() {
 		if(_respawnTimer > 0) return;
-		if (_canJump) _body.AddForce(transform.up * 500);
+		if (_canJump) {
+			if(jumpAudio != null) GetComponent<AudioSource>().PlayOneShot(jumpAudio, 1f);
+			_body.AddForce(transform.up * 500);
+		}
 	}
 
 	public void OnCollisionEnter (Collision col) {
@@ -201,6 +223,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void OnCollisionExit (Collision col) {
+		_jumpEnableTimer = 5f;
 		_canJump = false;
 	}
 
@@ -211,5 +234,6 @@ public class PlayerController : MonoBehaviour {
 		guns[_selectedGun].SetActive(true);
 		message = guns[_selectedGun].GetComponent<GunController>().displayName;
 		_messageTimer = 1f;
+		if(switchAudio != null) GetComponent<AudioSource>().PlayOneShot(switchAudio, 1f);
 	}
 }

@@ -98,5 +98,7 @@ public class GameController : MonoBehaviour {
 		}
 
 		_started = true;
+
+		transform.Find("Music").GetComponent<AudioSource>().Play();
 	}
 }

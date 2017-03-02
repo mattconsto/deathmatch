@@ -15,6 +15,9 @@ public class GunController : MonoBehaviour {
 	public float reloadRate = 0.5f;
 	public float recoilForce = 0;
 
+	public AudioClip reloadAudio;
+	public AudioClip shotAudio;
+
 	private Transform _muzzle;
 	private float _fireTiming = 0;
 	private float _reloadTiming = 0;
@@ -47,7 +50,7 @@ public class GunController : MonoBehaviour {
 				bullet.GetComponent<Rigidbody>().velocity = velocity;
 			}
 
-			GetComponent<AudioSource>().Play();
+			if(shotAudio != null) GetComponent<AudioSource>().PlayOneShot(shotAudio, 1f);
 
 			_fireTiming = 0;
 			ammoCount--;
@@ -58,7 +61,10 @@ public class GunController : MonoBehaviour {
 			return true;
 		}
 
-		if(_reloadTiming <= 0 && ammoCount <= 0) _reloadTiming = reloadRate;
+		if(_reloadTiming <= 0 && ammoCount <= 0) {
+			_reloadTiming = reloadRate;
+			if(reloadAudio != null) GetComponent<AudioSource>().PlayOneShot(reloadAudio, 1f);
+		}
 
 		return false;
 	}

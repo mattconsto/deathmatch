@@ -33,7 +33,6 @@ Third Party Notices
 * flamethrower_noise by the_yura (CC0 1.0): https://freesound.org/people/the_yura/sounds/240594
 * flare_bang by j1987 (CC0 1.0): https://freesound.org/people/j1987/sounds/140726
 * flare_whistle by j1987 (CC0 1.0): https://freesound.org/people/j1987/sounds/140726
-* footsteps by InspectorJ (CC BY 3.0): https://freesound.org/people/InspectorJ/sounds/336598
 * hitsound_ding by JohnsonBrandEditing (CC0 1.0): https://freesound.org/people/JohnsonBrandEditing/sounds/173932
 * hitsound_pop by SmartWentCody (CC BY 3.0): https://freesound.org/people/SmartWentCody/sounds/179014
 * jump by kfatehi (CC0 1.0): https://freesound.org/people/kfatehi/sounds/363921
@@ -48,11 +47,10 @@ Third Party Notices
 * shotgun_reload by SpliceSound (CC0 1.0): https://freesound.org/people/SpliceSound/sounds/153560
 * shotgun_shot by Marregheriti (CC0 1.0): https://freesound.org/people/Marregheriti/sounds/266105
 * splat by yottasounds (CC0 1.0): https://freesound.org/people/yottasounds/sounds/232135
+* step by movingplaid (CC BY 3.0): https://freesound.org/people/movingplaid/sounds/76190/
 * thud by Bird_man (CC0 1.0): https://freesound.org/people/Bird_man/sounds/275160
 * water by Mafon2 (CC0 1.0): https://freesound.org/people/Mafon2/sounds/371274
-* wind_forest by Akacie (CC0 1.0): https://freesound.org/people/Akacie/sounds/73723
 * wind_space by Prosser (CC BY NC 3.0): https://freesound.org/people/Prosser/sounds/233995
-* whoosh_forest by Robinhood76 (CC BY NC 3.0): https://freesound.org/people/Robinhood76/sounds/135566
 * whoosh_space by Benboncan (CC BY 3.0): https://freesound.org/people/Benboncan/sounds/167563
 
 ## Licenses

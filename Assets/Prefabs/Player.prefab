@@ -1925,6 +1925,10 @@ MonoBehaviour:
   damageBatchingWindow: 0.2
   healthRegen: 0.5
   message: 
+  color: {r: 1, g: 1, b: 1, a: 1}
+  footstepsAudio: {fileID: 8300000, guid: 64985ad7cbb1dfc448269002d32bc199, type: 3}
+  jumpAudio: {fileID: 8300000, guid: c5f9a10ba284b314da1dfaf2a135d716, type: 3}
+  switchAudio: {fileID: 8300000, guid: 2f9f0be4980c2eb47986789b393a29a2, type: 3}
 --- !u!114 &114356649878048178
 MonoBehaviour:
   m_ObjectHideFlags: 1

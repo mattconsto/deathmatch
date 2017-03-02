@@ -18,6 +18,8 @@ public class BulletController : MonoBehaviour {
 	public float criticalChance = 0;
 	public float criticalMultiplier = 2;
 
+	public AudioClip hitSound;
+
 	private float _lifetime;
 
 	void Start() {

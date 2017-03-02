@@ -150,8 +150,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4404e6e5d2169f64283e2a0de771fd81, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -243,3 +243,5 @@ MonoBehaviour:
   ammoCount: 10
   reloadRate: 0.5
   recoilForce: 0
+  reloadAudio: {fileID: 8300000, guid: 6f2e08f4db386df45af0932ddf6a7c84, type: 3}
+  shotAudio: {fileID: 8300000, guid: 4404e6e5d2169f64283e2a0de771fd81, type: 3}
