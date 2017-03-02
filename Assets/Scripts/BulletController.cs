@@ -10,10 +10,13 @@ public class BulletController : MonoBehaviour {
 	public float lifetime = 5;
 	public float damageFalloff = 0;
 	public float damageMinimum = 0;
+	public float damageSpread = 0;
 	public float bulletDamage = 1;
-	public float explosionDamage = 0;
-	public float explosionRadius = 0;
+	// public float explosionDamage = 0;
+	// public float explosionRadius = 0;
 	public float incindiaryTime = 0;
+	public float criticalChance = 0;
+	public float criticalMultiplier = 2;
 
 	private float _lifetime;
 
@@ -35,8 +38,8 @@ public class BulletController : MonoBehaviour {
 
 			if(col.gameObject.tag == "Player") {
 				print("Hit Player");
-				float damage = Mathf.Max(damageMinimum, Mathf.Pow(_lifetime / lifetime, damageFalloff)) * bulletDamage;
-				col.gameObject.GetComponent<PlayerController>().OnHurt(damage);
+				float damage = Mathf.Max(damageMinimum, Mathf.Pow(_lifetime / lifetime, damageFalloff) + (Random.value - 0.5f) * damageSpread) * bulletDamage * (Random.value < criticalChance ? criticalMultiplier : 1);
+				col.gameObject.GetComponent<PlayerController>().OnHurt(damage, incindiaryTime);
 			}
 
 			if(decalPrefab != null) Instantiate(decalPrefab, col.contacts[0].point, Quaternion.Euler(col.contacts[0].normal));

@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour {
 	private float _hurtOverlayTimer = 0f;
 	private float _messageTimer = 0f;
 	private float _respawnTimer = 0f;
+	private float _fireTimer = 0f;
 
 	private Transform _hudDeadOverlay;
 	private Transform _hudHurtOverlay;
@@ -75,6 +76,11 @@ public class PlayerController : MonoBehaviour {
 		if(invincibleTime > 0) invincibleTime -= Time.deltaTime;
 		if(_respawnTimer > 0) _respawnTimer -= Time.deltaTime;
 
+		if(_fireTimer > 0) {
+			_fireTimer -= Time.deltaTime;
+			OnHurt(Time.deltaTime * 5, 0);
+		}
+
 		if(_respawnTimer < 0) {
 			_respawnTimer = 0f;
 			controller.respawnPlayer(transform.gameObject);
@@ -87,6 +93,7 @@ public class PlayerController : MonoBehaviour {
 	/* Misc. Methods */
 
 	public void SetActive(bool active) {
+		transform.GetComponent<Rigidbody>().isKinematic = !active;
 		transform.Find("Model").gameObject.SetActive(active);
 		transform.Find("Hand").gameObject.SetActive(active);
 		GetComponent<CapsuleCollider>().enabled = active;
@@ -112,10 +119,11 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	public void OnHurt(float value) {
+	public void OnHurt(float damage, float fire) {
 		if(invincibleTime > 0) return;
 
-		health -= value;
+		_fireTimer = Mathf.Max(fire, _fireTimer);
+		health -= damage;
 		_hurtOverlayTimer = 1f;
 		GetComponent<AudioSource>().Play();
 		if(health <= 0) {
@@ -125,7 +133,7 @@ public class PlayerController : MonoBehaviour {
 			message = "You have died.";
 			_messageTimer = 1f;
 		} else {
-			message = "Hit for " + Mathf.RoundToInt(value);
+			message = "Hit for " + Mathf.RoundToInt(damage);
 			_messageTimer = 1f;
 		}
 	}

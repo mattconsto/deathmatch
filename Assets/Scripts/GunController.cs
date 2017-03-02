@@ -13,6 +13,7 @@ public class GunController : MonoBehaviour {
 	public float clipSize = 10;
 	public float ammoCount = 10;
 	public float reloadRate = 0.5f;
+	public float recoilForce = 0;
 
 	private Transform _muzzle;
 	private float _fireTiming = 0;
@@ -50,6 +51,10 @@ public class GunController : MonoBehaviour {
 
 			_fireTiming = 0;
 			ammoCount--;
+
+			transform.parent.parent.Find("Camera").Rotate(-recoilForce, 0, 0);
+			transform.parent.parent.Find("Camera").localEulerAngles = new Vector3((Mathf.Clamp((transform.parent.parent.Find("Camera").localEulerAngles.x + 90) % 360, 80, 160) + 270) % 360, 0, 0);
+
 			return true;
 		}
 
