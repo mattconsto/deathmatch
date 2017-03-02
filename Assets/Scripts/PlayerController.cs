@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour {
 	public float invincibleTime = 1f;
 	public float movementspeed = 5f;
 	public float health = 100;
+	public float damageBatchingWindow = 0.2f;
 	public string message = "";
 
 	private Rigidbody _body;
@@ -35,6 +36,8 @@ public class PlayerController : MonoBehaviour {
 	private float _messageTimer = 0f;
 	private float _respawnTimer = 0f;
 	private float _fireTimer = 0f;
+	private float _damageBatchingTimer = 0f;
+	private float _damageBatchingDamage = 0;
 
 	private Transform _hudDeadOverlay;
 	private Transform _hudHurtOverlay;
@@ -75,10 +78,16 @@ public class PlayerController : MonoBehaviour {
 		if(_hurtOverlayTimer > 0) _hurtOverlayTimer -= Time.deltaTime;
 		if(invincibleTime > 0) invincibleTime -= Time.deltaTime;
 		if(_respawnTimer > 0) _respawnTimer -= Time.deltaTime;
+		if(_damageBatchingTimer > 0) _damageBatchingTimer -= Time.deltaTime;
 
 		if(_fireTimer > 0) {
 			_fireTimer -= Time.deltaTime;
 			OnHurt(Time.deltaTime * 5, 0);
+		}
+
+		if(_damageBatchingTimer < 0) {
+			_damageBatchingTimer = 0;
+			_damageBatchingDamage = 0;
 		}
 
 		if(_respawnTimer < 0) {
@@ -125,6 +134,9 @@ public class PlayerController : MonoBehaviour {
 		_fireTimer = Mathf.Max(fire, _fireTimer);
 		health -= damage;
 		_hurtOverlayTimer = 1f;
+		_damageBatchingTimer = damageBatchingWindow;
+		_damageBatchingDamage += damage;
+
 		GetComponent<AudioSource>().Play();
 		if(health <= 0) {
 			_respawnTimer = 5f;
@@ -133,7 +145,7 @@ public class PlayerController : MonoBehaviour {
 			message = "You have died.";
 			_messageTimer = 1f;
 		} else {
-			message = "Hit for " + Mathf.RoundToInt(damage);
+			message = "Hit for " + Mathf.RoundToInt(_damageBatchingDamage);
 			_messageTimer = 1f;
 		}
 	}
