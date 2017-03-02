@@ -181,7 +181,7 @@ TrailRenderer:
   m_Time: 0.15
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 1
+    widthMultiplier: 5
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -272,6 +272,8 @@ MonoBehaviour:
   damageMinimum: 0.2
   damageSpread: 0
   bulletDamage: 20
+  explosionDamage: 0
+  explosionRadius: 0
   incindiaryTime: 1
   criticalChance: 0
   criticalMultiplier: 2

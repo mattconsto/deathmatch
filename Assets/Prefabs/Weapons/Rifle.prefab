@@ -232,13 +232,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9ecb3451eef4003947713f8fc53894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Rifle
   bulletPrefab: {fileID: 1575296054628552, guid: 4761f471b38878748a5559357de7b1f8,
     type: 2}
+  displayName: Rifle
   muzzleVelocity: 200
   fireRate: 0.1
   shotCount: 3
   shotSpread: 5
-  clip: 20
-  ammo: 20
+  clipSize: 10
+  ammoCount: 10
   reloadRate: 0.5
+  recoilForce: 0

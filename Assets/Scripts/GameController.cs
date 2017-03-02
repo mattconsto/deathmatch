@@ -13,11 +13,17 @@ public class GameController : MonoBehaviour {
 	public Camera spectatorCamera;
 	public GameObject playerPrefab;
 	public GameObject titlehud;
+	public GameObject pausehud;
+	public bool paused = false;
+
+	private bool _started = false;
 
 	private GameObject[] _respawns;
 	private PlayerID[] _ids = new PlayerID[] {PlayerID.One, PlayerID.Two, PlayerID.Three, PlayerID.Four};
 
 	public void Start () {
+		Time.timeScale = 1;
+
 		/* Pick a camera for the title screen */
 		for(int i = 0; i < titleCamera.Length; i++) titleCamera[i].gameObject.SetActive(false);
 		titleCamera[Random.Range(0, titleCamera.Length)].gameObject.SetActive(true);
@@ -30,6 +36,17 @@ public class GameController : MonoBehaviour {
 			_respawns[0].transform.position = new Vector3(0f, 2f, 0f);
 		} else {
 			_respawns = _respawns.OrderBy(x => Random.value).ToArray();
+		}
+	}
+
+	public void Update() {
+		// Pause menu
+		if(_started && Input.GetKeyDown(KeyCode.Escape)) {
+			paused = !paused;
+			Time.timeScale = paused ? 0 : 1;
+			pausehud.SetActive(paused);
+			Cursor.visible = paused;
+			Cursor.lockState = paused ? CursorLockMode.None : CursorLockMode.Locked;
 		}
 	}
 
@@ -59,6 +76,7 @@ public class GameController : MonoBehaviour {
 
 			players[i] = Instantiate(playerPrefab, _respawns[i % _respawns.Length].transform.position, _respawns[i % _respawns.Length].transform.rotation);
 			players[i].GetComponent<PlayerController>().controller = this;
+			players[i].GetComponent<PlayerController>().color = Color.HSVToRGB((1.0f * i / (number + 1) + Random.value / (number + 1)) % 1, 0.75f, 0.75f);
 			Transform pc = players[i].transform.Find("Camera/CameraObject");
 			pc.GetComponent<Camera>().rect = new Rect(1f * x / width, (height - 1f) / height - 1f * y / height, 1f / width, 1f / height);
 
@@ -78,5 +96,7 @@ public class GameController : MonoBehaviour {
 			spectatorCamera.gameObject.SetActive(true);
 			spectatorCamera.GetComponent<Camera>().rect = new Rect(1f * (number % width) / width, 0f, 1f * (width * height - number) / width, 1f / height);
 		}
+
+		_started = true;
 	}
 }

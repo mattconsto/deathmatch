@@ -22,7 +22,9 @@ public class PlayerController : MonoBehaviour {
 	public float movementspeed = 5f;
 	public float health = 100;
 	public float damageBatchingWindow = 0.2f;
+	public float healthRegen = 0.5f;
 	public string message = "";
+	public Color color = Color.white;
 
 	private Rigidbody _body;
 	private GameObject _thecam;
@@ -66,6 +68,10 @@ public class PlayerController : MonoBehaviour {
 		_hudHealthText = transform.Find("Player HUD/Health Text");
 		_hudClipText = transform.Find("Player HUD/Clip Text");
 		_hudAmmoText = transform.Find("Player HUD/Ammo Text");
+
+		// Random colour
+		transform.Find("Model/Character").GetComponent<SkinnedMeshRenderer>().material.color = color;
+		_hudClipText.gameObject.GetComponent<Text>().color = color;
 	}
 
 	public void FixedUpdate() {
@@ -79,6 +85,9 @@ public class PlayerController : MonoBehaviour {
 		if(invincibleTime > 0) invincibleTime -= Time.deltaTime;
 		if(_respawnTimer > 0) _respawnTimer -= Time.deltaTime;
 		if(_damageBatchingTimer > 0) _damageBatchingTimer -= Time.deltaTime;
+
+		// Health regen
+		health = Mathf.Min(100, health + healthRegen * Time.deltaTime);
 
 		if(_fireTimer > 0) {
 			_fireTimer -= Time.deltaTime;
@@ -188,11 +197,11 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void OnCollisionEnter (Collision col) {
-		if(col.collider.name == "Planet") _canJump = true;
+		_canJump = true;
 	}
 
 	public void OnCollisionExit (Collision col) {
-		if(col.collider.name == "Planet") _canJump = false;
+		_canJump = false;
 	}
 
 	public void OnSwitch(int value) {

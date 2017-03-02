@@ -232,13 +232,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9ecb3451eef4003947713f8fc53894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Launcher
   bulletPrefab: {fileID: 1575296054628552, guid: 13d225bb3164c4b4d894f6929760a767,
     type: 2}
+  displayName: Launcher
   muzzleVelocity: 50
   fireRate: 0.4
   shotCount: 1
   shotSpread: 5
-  clip: 5
-  ammo: 5
+  clipSize: 10
+  ammoCount: 10
   reloadRate: 1
+  recoilForce: 0

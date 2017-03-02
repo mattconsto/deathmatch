@@ -232,13 +232,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9ecb3451eef4003947713f8fc53894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Shotgun
   bulletPrefab: {fileID: 1575296054628552, guid: 1e546b188d1b0244ba46f9b232196885,
     type: 2}
+  displayName: Shotgun
   muzzleVelocity: 60
   fireRate: 0.75
   shotCount: 10
   shotSpread: 5
-  clip: 6
-  ammo: 6
+  clipSize: 10
+  ammoCount: 10
   reloadRate: 1.5
+  recoilForce: 0
