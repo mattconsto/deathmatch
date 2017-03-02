@@ -7,6 +7,9 @@ using UnityEngine.UI;
 	Player Controller
 */
 public class PlayerController : MonoBehaviour {
+
+	/* Public Properties */
+
 	public GameController controller;
 
 	public GameObject[] guns;
@@ -23,6 +26,8 @@ public class PlayerController : MonoBehaviour {
 	private Rigidbody _body;
 	private GameObject _thecam;
 
+	/* Private Properties */
+
 	private Vector2 _smoothMouse;
 	private int _selectedGun = 0;
 	private bool _canJump = false;
@@ -37,7 +42,8 @@ public class PlayerController : MonoBehaviour {
 	private Transform _hudClipText;
 	private Transform _hudAmmoText;
 
-	// Use this for initialization
+	/* Unity Methods */
+
 	public void Start () {
 		_body = GetComponent<Rigidbody>();
 		_thecam = transform.Find("Camera").gameObject;
@@ -72,31 +78,34 @@ public class PlayerController : MonoBehaviour {
 		if(_respawnTimer < 0) {
 			_respawnTimer = 0f;
 			controller.respawnPlayer(transform.gameObject);
-			transform.Find("Model").gameObject.SetActive(true);
-			transform.Find("Hand").gameObject.SetActive(true);
+			SetActive(true);
 			health = 100;
 		}
 		UpdateHUD();
 	}
 
+	/* Misc. Methods */
+
+	public void SetActive(bool active) {
+		transform.Find("Model").gameObject.SetActive(active);
+		transform.Find("Hand").gameObject.SetActive(active);
+		GetComponent<CapsuleCollider>().enabled = active;
+	}
+
 	public void UpdateHUD() {
 		Color old = _hudDeadOverlay.GetComponent<RawImage>().color;
-		_hudDeadOverlay.GetComponent<RawImage>().color = new Color(old.r, old.g, old.b, Mathf.Clamp(_respawnTimer, 0, 1));
+		_hudDeadOverlay.GetComponent<RawImage>().color = new Color(old.r, old.g, old.b, Mathf.Clamp(_respawnTimer * 4, 0, 1));
 
 		old = _hudHurtOverlay.GetComponent<RawImage>().color;
 		_hudHurtOverlay.GetComponent<RawImage>().color = new Color(old.r, old.g, old.b, _messageTimer);
 
-		if(_messageTimer > 0) {
-			_hudHintText.GetComponent<Text>().text = message;
-		} else {
-			_hudHintText.GetComponent<Text>().text = "";
-		}
-
+		_hudHintText.GetComponent<Text>().text = _messageTimer > 0 ? message : "";
 		_hudHealthText.GetComponent<Text>().text = Mathf.CeilToInt(health).ToString();
 
-		if(guns[_selectedGun].GetComponent<GunController>().clipSize >= 0 && guns[_selectedGun].GetComponent<GunController>().clipSize != Mathf.Infinity) {
-			_hudClipText.GetComponent<Text>().text = guns[_selectedGun].GetComponent<GunController>().clipSize.ToString();
-			_hudAmmoText.GetComponent<Text>().text = guns[_selectedGun].GetComponent<GunController>().ammoCount.ToString();
+		GunController gc = guns[_selectedGun].GetComponent<GunController>();
+		if(gc.clipSize >= 0 && gc.clipSize != Mathf.Infinity) {
+			_hudClipText.GetComponent<Text>().text = gc.clipSize.ToString();
+			_hudAmmoText.GetComponent<Text>().text = gc.ammoCount.ToString();
 		} else {
 			_hudClipText.GetComponent<Text>().text = "";
 			_hudAmmoText.GetComponent<Text>().text = "";
@@ -111,8 +120,7 @@ public class PlayerController : MonoBehaviour {
 		GetComponent<AudioSource>().Play();
 		if(health <= 0) {
 			_respawnTimer = 5f;
-			transform.Find("Model").gameObject.SetActive(false);
-			transform.Find("Hand").gameObject.SetActive(false);
+			SetActive(false);
 
 			message = "You have died.";
 			_messageTimer = 1f;
@@ -122,7 +130,10 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+	/* Event Listeners */
+
 	public void OnFire() {
+		if(_respawnTimer > 0) return;
 		GunController controller = guns[_selectedGun].GetComponent<GunController>();
 		if(controller != null) controller.Fire();
 	}
@@ -142,14 +153,17 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void OnMoveHorizontal(float value) {
+		if(_respawnTimer > 0) return;
 		_body.AddForce(transform.right * value * movementspeed);
 	}
 
 	public void OnMoveVertical(float value) {
+		if(_respawnTimer > 0) return ;
 		_body.AddForce(transform.forward * value * movementspeed);
 	}
 
 	public void OnJump() {
+		if(_respawnTimer > 0) return;
 		if (_canJump) _body.AddForce(transform.up * 500);
 	}
 
@@ -162,6 +176,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void OnSwitch(int value) {
+		if(_respawnTimer > 0) return;
 		guns[_selectedGun].SetActive(false);
 		_selectedGun = (_selectedGun + value + guns.Length) % guns.Length;
 		guns[_selectedGun].SetActive(true);

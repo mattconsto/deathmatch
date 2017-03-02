@@ -12,7 +12,9 @@ TODO
 * Enable people to identify each other?
 * Blood splatter on hit
 * Hitsounds
-* red hurt overlay not wide enough for 2 player
+* Damage batching
+* Red hurt overlay not wide enough for 2 player
+* damage falloff
 
 ## Weapons
 

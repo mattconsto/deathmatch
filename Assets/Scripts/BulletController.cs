@@ -6,19 +6,25 @@ using UnityEngine;
 	Bullet Controller
 */
 public class BulletController : MonoBehaviour {
+	public GameObject decalPrefab = null;
 	public float lifetime = 5;
+	public float damageFalloff = 0;
+	public float damageMinimum = 0;
 	public float bulletDamage = 1;
 	public float explosionDamage = 0;
 	public float explosionRadius = 0;
 	public float incindiaryTime = 0;
-	public GameObject decalPrefab = null;
 
-	void Update () {
-		lifetime -= Time.deltaTime;
+	private float _lifetime;
 
-		if(lifetime < 0) {
-			Destroy(gameObject);
-		}
+	void Start() {
+		_lifetime = lifetime;
+	}
+
+	void Update() {
+		_lifetime -= Time.deltaTime;
+
+		if(_lifetime < 0) Destroy(gameObject);
 	}
 
 	void OnCollisionEnter(Collision col) {
@@ -29,7 +35,8 @@ public class BulletController : MonoBehaviour {
 
 			if(col.gameObject.tag == "Player") {
 				print("Hit Player");
-				col.gameObject.GetComponent<PlayerController>().OnHurt(bulletDamage);
+				float damage = Mathf.Max(damageMinimum, Mathf.Pow(_lifetime / lifetime, damageFalloff)) * bulletDamage;
+				col.gameObject.GetComponent<PlayerController>().OnHurt(damage);
 			}
 
 			if(decalPrefab != null) Instantiate(decalPrefab, col.contacts[0].point, Quaternion.Euler(col.contacts[0].normal));

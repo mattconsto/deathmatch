@@ -234,10 +234,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b4435e4dd9fd7345be2e2a1f0301e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  decalPrefab: {fileID: 1070317641154144, guid: 59491d05e6fe58a4dab182ca2a1097ee,
+    type: 2}
   lifetime: 5
+  damageFalloff: 5
+  damageMinimum: 0.25
   bulletDamage: 8
   explosionDamage: 0
   explosionRadius: 0
   incindiaryTime: 0
-  decalPrefab: {fileID: 1070317641154144, guid: 59491d05e6fe58a4dab182ca2a1097ee,
-    type: 2}
