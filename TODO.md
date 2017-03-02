@@ -7,7 +7,7 @@ TODO
 * Weapon and health pickups
 * Add pause + quit options
 * Scoring
-* More verticality (jump pads and platforms)
+* More verticality, add platforms
 * Enable people to identify each other?
 
 ## Weapons
@@ -15,7 +15,6 @@ TODO
 * More models
 * Sound effects
 * Blood splatter on hit
-* Damage batching
 
 ## Platform Specific
 

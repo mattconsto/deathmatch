@@ -16,6 +16,6 @@ public class GravityObject : MonoBehaviour {
 	}
 
 	void Update () {
-		_body.AddForce((origin - transform.position).normalized * force);
+		_body.AddForce((origin - transform.position).normalized * force, ForceMode.Acceleration);
 	}
 }

@@ -1911,17 +1911,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
-  sensitivity: {x: 0.5, y: 0.5}
-  smoothing: {x: 2, y: 2}
-  burnTime: 0
-  invincibleTime: 1
-  movementspeed: 50
   guns:
   - {fileID: 1350577432705164, guid: e36cdd5c0b10a78439a30ef16115f505, type: 2}
   - {fileID: 1350577432705164, guid: ad4a33a291338584b9a762e4f7b85f68, type: 2}
   - {fileID: 1350577432705164, guid: 1ffd17ef0d846294da4832dd26695850, type: 2}
   - {fileID: 1350577432705164, guid: c3208d125e032b9458d5e6dcfcd73228, type: 2}
+  sensitivity: {x: 0.5, y: 0.5}
+  smoothing: {x: 2, y: 2}
+  burnTime: 0
+  invincibleTime: 1
+  movementspeed: 50
   health: 100
+  damageBatchingWindow: 0.2
   message: 
 --- !u!114 &114356649878048178
 MonoBehaviour:
@@ -2086,7 +2087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   origin: {x: 0, y: 0, z: 0}
-  force: 20
+  force: 25
 --- !u!124 &124326675722948800
 Behaviour:
   m_ObjectHideFlags: 1
