@@ -6656,7 +6656,7 @@ MonoBehaviour:
       type: 3
       axis: 8
       joystick: 0
-    isExpanded: 0
+    isExpanded: 1
   - name: Windows_Gamepad2
     axes:
     - name: Horizontal

@@ -20,9 +20,11 @@ public class PlayerController : MonoBehaviour {
 	public float burnTime = 0f;
 	public float invincibleTime = 1f;
 	public float movementspeed = 5f;
+	public float baseHealth = 100;
 	public float health = 100;
 	public float damageBatchingWindow = 0.2f;
 	public float healthRegen = 0.5f;
+	public float healthDecay = 0.5f;
 	public string message = "";
 	public Color color = Color.white;
 
@@ -94,8 +96,12 @@ public class PlayerController : MonoBehaviour {
 		if(_damageBatchingTimer > 0) _damageBatchingTimer -= Time.deltaTime;
 		if(_jumpEnableTimer > 0) _jumpEnableTimer -= Time.deltaTime;
 
-		// Health regen
-		health = Mathf.Min(100, health + healthRegen * Time.deltaTime);
+		// Health regen and decay
+		if(health > baseHealth) {
+			health = Mathf.Max(baseHealth, health - healthDecay * Time.deltaTime);
+		} else {
+			health = Mathf.Min(baseHealth, health + healthRegen * Time.deltaTime);
+		}
 
 		if(_fireTimer > 0) {
 			_fireTimer -= Time.deltaTime;
@@ -111,7 +117,7 @@ public class PlayerController : MonoBehaviour {
 			_respawnTimer = 0f;
 			controller.respawnPlayer(transform.gameObject);
 			SetActive(true);
-			health = 100;
+			health = baseHealth;
 		}
 
 		if(_jumpEnableTimer < 0) _canJump = true;
@@ -143,6 +149,7 @@ public class PlayerController : MonoBehaviour {
 
 		_hudHintText.GetComponent<Text>().text = _messageTimer > 0 ? message : "";
 		_hudHealthText.GetComponent<Text>().text = Mathf.CeilToInt(health).ToString();
+		_hudHealthText.GetComponent<Text>().color = health > baseHealth ? new Color(0.565f, 0.855f, 0.882f) : Color.Lerp(new Color(0.808f, 0.196f, 0.0549f), new Color(0.804f, 0.741f, 0.678f), Mathf.Min(1.5f*health/baseHealth, 1));
 
 		GunController gc = guns[_selectedGun].GetComponent<GunController>();
 		if(gc.clipSize >= 0 && gc.clipSize != Mathf.Infinity) {
