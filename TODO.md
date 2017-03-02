@@ -7,15 +7,13 @@ TODO
 * Weapon and health pickups
 * Scoring
 * Controls popup
+* Particle effects
+* Lighting
 
 ## Weapons
 
 * More models
 * Blood splatter on hit
-* Manual reload
-* Partial reload
-* Knockback
-* Explosiontime
 * Weapons
 
 ## Platform Specific

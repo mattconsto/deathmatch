@@ -236,12 +236,13 @@ MonoBehaviour:
     type: 2}
   displayName: Launcher
   muzzleVelocity: 50
-  fireRate: 0.4
+  fireRate: 0.5
   shotCount: 1
   shotSpread: 5
-  clipSize: 10
-  ammoCount: 10
+  clipSize: 5
+  ammoCount: 5
   reloadRate: 1
+  partialReload: 1
   recoilForce: 0
   reloadAudio: {fileID: 8300000, guid: e79916d976578cd4a8f2a41551cb4ac8, type: 3}
   shotAudio: {fileID: 8300000, guid: 6c82f6567e0c44f418c5b1a70a9e739f, type: 3}

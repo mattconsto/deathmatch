@@ -86,9 +86,10 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void Update() {
-		if(_messageTimer > 0) _messageTimer -= Time.deltaTime;
-		if(_hurtOverlayTimer > 0) _hurtOverlayTimer -= Time.deltaTime;
-		if(invincibleTime > 0) invincibleTime -= Time.deltaTime;
+		// Timers
+		_messageTimer -= Time.deltaTime;
+		_hurtOverlayTimer -= Time.deltaTime;
+		invincibleTime -= Time.deltaTime;
 		if(_respawnTimer > 0) _respawnTimer -= Time.deltaTime;
 		if(_damageBatchingTimer > 0) _damageBatchingTimer -= Time.deltaTime;
 		if(_jumpEnableTimer > 0) _jumpEnableTimer -= Time.deltaTime;
@@ -113,9 +114,7 @@ public class PlayerController : MonoBehaviour {
 			health = 100;
 		}
 
-		if(_jumpEnableTimer < 0) {
-			_canJump = true;
-		}
+		if(_jumpEnableTimer < 0) _canJump = true;
 
 		if(_stepTimer < 0) {
 			_stepTimer = 15f;
@@ -128,6 +127,7 @@ public class PlayerController : MonoBehaviour {
 	/* Misc. Methods */
 
 	public void SetActive(bool active) {
+		// Enable/Disable player
 		transform.GetComponent<Rigidbody>().isKinematic = !active;
 		transform.Find("Model").gameObject.SetActive(active);
 		transform.Find("Hand").gameObject.SetActive(active);
@@ -139,7 +139,7 @@ public class PlayerController : MonoBehaviour {
 		_hudDeadOverlay.GetComponent<RawImage>().color = new Color(old.r, old.g, old.b, Mathf.Clamp(_respawnTimer * 4, 0, 1));
 
 		old = _hudHurtOverlay.GetComponent<RawImage>().color;
-		_hudHurtOverlay.GetComponent<RawImage>().color = new Color(old.r, old.g, old.b, _hurtOverlayTimer);
+		_hudHurtOverlay.GetComponent<RawImage>().color = new Color(old.r, old.g, old.b, Mathf.Clamp(_hurtOverlayTimer, 0, 1));
 
 		_hudHintText.GetComponent<Text>().text = _messageTimer > 0 ? message : "";
 		_hudHealthText.GetComponent<Text>().text = Mathf.CeilToInt(health).ToString();
@@ -235,5 +235,9 @@ public class PlayerController : MonoBehaviour {
 		message = guns[_selectedGun].GetComponent<GunController>().displayName;
 		_messageTimer = 1f;
 		if(switchAudio != null) GetComponent<AudioSource>().PlayOneShot(switchAudio, 1f);
+	}
+
+	public void OnReload() {
+		guns[_selectedGun].GetComponent<GunController>().Reload();
 	}
 }

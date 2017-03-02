@@ -7,18 +7,22 @@ using UnityEngine;
 */
 public class BulletController : MonoBehaviour {
 	public GameObject decalPrefab = null;
-	public float lifetime = 5;
-	public float damageFalloff = 0;
-	public float damageMinimum = 0;
-	public float damageSpread = 0;
-	public float bulletDamage = 1;
-	public float explosionDamage = 0;
-	public float explosionRadius = 0;
-	public float incindiaryTime = 0;
-	public float criticalChance = 0;
-	public float criticalMultiplier = 2;
+	public float lifetime = 5; // Seconds
 
-	public AudioClip hitSound;
+	public float bulletDamage = 1; // Damage per bullet
+	public float damageFalloff = 0; // damage = distance^falloff, so 0=constant, 1=linear, 2=quadratic
+	public float damageMinimum = 0; // Minimum damage after falloff
+	public float damageSpread = 0; // How far the bullet spreads
+
+	public float explosionDamage = 0; // Damage inside 
+	public float explosionFalloff = 0; // damage = distance^falloff, so 0=constant, 1=linear, 2=quadratic
+	public float explosionRadius = 0; // How wide to look
+	public bool  explosionFused = false; // pills/rockets
+
+	public float criticalChance = 0; // Chance to deal criticals
+	public float criticalMultiplier = 2; // Critical Multiplier
+
+	public float incindiaryTime = 0; // Time player ignited for
 
 	private float _lifetime;
 
@@ -29,19 +33,33 @@ public class BulletController : MonoBehaviour {
 	void Update() {
 		_lifetime -= Time.deltaTime;
 
-		if(_lifetime < 0) Destroy(gameObject);
+		if(_lifetime < 0) {
+			// Explode when they despawn.
+			if(explosionFused) {
+				GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+				foreach(GameObject player in players) {
+					float distance = (transform.position - player.transform.position).magnitude;
+					if(distance <= explosionRadius) {
+						float edamage = Mathf.Pow((explosionRadius - distance) / explosionRadius, explosionFalloff) * explosionDamage;
+						player.GetComponent<PlayerController>().OnHurt(edamage, 0);
+					}
+				}
+			}
+
+			Destroy(gameObject);
+		}
 	}
 
 	void OnCollisionEnter(Collision col) {
-		bool destroy = false;
-
+		// Don't hit other projectiles
 		if(col.gameObject.tag != "Projectiles") {
-			destroy = true;
+			bool destroy = false;
 
 			if(col.gameObject.tag == "Player") {
 				print("Hit Player");
-				float damage = Mathf.Max(damageMinimum, Mathf.Pow(_lifetime / lifetime, damageFalloff) + (Random.value - 0.5f) * damageSpread) * bulletDamage * (Random.value < criticalChance ? criticalMultiplier : 1);
-				col.gameObject.GetComponent<PlayerController>().OnHurt(damage, incindiaryTime);
+				destroy = true;
+				float bdamage = Mathf.Max(damageMinimum, Mathf.Pow(_lifetime / lifetime, damageFalloff) + (Random.value - 0.5f) * damageSpread) * bulletDamage * (Random.value < criticalChance ? criticalMultiplier : 1);
+				col.gameObject.GetComponent<PlayerController>().OnHurt(bdamage, incindiaryTime);
 
 				// TODO: test this when collisions are better.
 				if(explosionRadius > 0) {
@@ -50,7 +68,8 @@ public class BulletController : MonoBehaviour {
 					foreach(GameObject player in players) {
 						float distance = (col.contacts[0].point - player.transform.position).magnitude;
 						if(distance <= explosionRadius) {
-							player.GetComponent<PlayerController>().OnHurt((explosionRadius - distance) * explosionDamage, 0);
+							float edamage = Mathf.Pow((explosionRadius - distance) / explosionRadius, explosionFalloff) * explosionDamage;
+							player.GetComponent<PlayerController>().OnHurt(edamage, 0);
 						}
 					}
 				}
@@ -59,8 +78,8 @@ public class BulletController : MonoBehaviour {
 			if(decalPrefab != null) Instantiate(decalPrefab, col.contacts[0].point, Quaternion.Euler(col.contacts[0].normal));
 
 			// print(gameObject.name + " hit " + col.gameObject.name);
+			
+			if(destroy || !explosionFused) Destroy(gameObject);
 		}
-
-		if(destroy) Destroy(gameObject);
 	}
 }
