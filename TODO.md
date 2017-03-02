@@ -4,9 +4,7 @@ TODO
 ## General
 
 * Convert 1 player into tutorial level. Introduce movement, then jumping, pistol, shotgun, rocket launcher, flame thrower
-* Weapon and health pickups
 * Scoring
-* Controls popup
 * Particle effects
 * Lighting
 
@@ -14,13 +12,18 @@ TODO
 
 * More models
 * Blood splatter on hit
-* Weapons
+* Balance weapons
+* Fix recoil
+* Fix vertical aiming
+* Test explosions
+* Bullet decals
 
 ## Platform Specific
 
 * Linux full screen
-* Gamepad in WebGL
-* User assignable inputs
 * Safari and Android chrome have magenta background
-* Let people chose inputs
-* Can't switch weapons on controller
+* Test
+
+## Controls
+
+* Gamepad in WebGL

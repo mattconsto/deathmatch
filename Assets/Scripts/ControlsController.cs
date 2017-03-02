@@ -6,8 +6,10 @@ using UnityEngine.UI;
 
 public class ControlsController : MonoBehaviour, IPointerClickHandler {
 	public GameObject target;
+	public GameObject hidden;
 
 	public void OnPointerClick(PointerEventData ed) {
 		target.SetActive(!target.activeSelf);
+		hidden.SetActive(!target.activeSelf);
 	}
 }

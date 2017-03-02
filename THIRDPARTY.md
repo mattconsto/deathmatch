@@ -1,7 +1,12 @@
 Third Party Notices
 ===================
 
-## Art
+## Images
+
+* Common Controller by Rahazan (CC BY 3.0): http://opengameart.org/content/common-controller
+* Keyboard Keys by TRBRY (CC BY 3.0): http://opengameart.org/content/keyboard-keys
+
+## Models
 
 * Apollo Lunar Module by Michael Carbajal (NASA Public Domain): https://nasa3d.arc.nasa.gov/detail/lunarlandernofoil-c
 * Hubble Space Telescope by DigitalSpace Corporation (NASA Public Domain: https://nasa3d.arc.nasa.gov/detail/hst-3ds
