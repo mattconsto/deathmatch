@@ -236,12 +236,13 @@ MonoBehaviour:
     type: 2}
   displayName: Pistol
   muzzleVelocity: 100
-  fireRate: 0.15
+  fireRate: 0.3
   shotCount: 1
   shotSpread: 5
-  clipSize: 10
-  ammoCount: 10
+  clipSize: 16
+  ammoCount: 16
   reloadRate: 0.5
+  partialReload: 0
   recoilForce: 0
   reloadAudio: {fileID: 8300000, guid: 6f2e08f4db386df45af0932ddf6a7c84, type: 3}
   shotAudio: {fileID: 8300000, guid: 4404e6e5d2169f64283e2a0de771fd81, type: 3}

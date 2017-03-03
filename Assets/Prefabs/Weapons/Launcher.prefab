@@ -238,9 +238,9 @@ MonoBehaviour:
   muzzleVelocity: 50
   fireRate: 0.5
   shotCount: 1
-  shotSpread: 5
-  clipSize: 5
-  ammoCount: 5
+  shotSpread: 4
+  clipSize: 4
+  ammoCount: 4
   reloadRate: 1
   partialReload: 1
   recoilForce: 0
