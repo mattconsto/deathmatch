@@ -237,12 +237,14 @@ MonoBehaviour:
   decalPrefab: {fileID: 1070317641154144, guid: 59491d05e6fe58a4dab182ca2a1097ee,
     type: 2}
   lifetime: 5
+  bulletDamage: 20
   damageFalloff: 5
   damageMinimum: 0.5
   damageSpread: 0
-  bulletDamage: 20
   explosionDamage: 0
+  explosionFalloff: 0
   explosionRadius: 0
-  incindiaryTime: 0
+  explosionFused: 0
   criticalChance: 0
   criticalMultiplier: 2
+  incindiaryTime: 1

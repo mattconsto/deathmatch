@@ -99,6 +99,8 @@ public class GameController : MonoBehaviour {
 
 		_started = true;
 
-		transform.Find("Music").GetComponent<AudioSource>().Play();
+		#if (!UNITY_EDITOR)
+			transform.Find("Music").GetComponent<AudioSource>().Play();
+		#endif
 	}
 }

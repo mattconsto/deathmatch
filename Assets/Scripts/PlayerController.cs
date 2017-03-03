@@ -201,8 +201,8 @@ public class PlayerController : MonoBehaviour {
 		// Interpolate mouse movement over time to apply smoothing delta.
 		_smoothMouse.y = Mathf.Lerp(_smoothMouse.y, value * sensitivity.y * smoothing.y, 1f / smoothing.y);
 		_thecam.transform.Rotate(-_smoothMouse.y / sensitivity.y, 0, 0);
-		_thecam.transform.localEulerAngles = new Vector3((Mathf.Clamp((_thecam.transform.localEulerAngles.x + 90) % 360, 80, 160) + 270) % 360, 0, 0);
-		guns[_selectedGun].transform.localEulerAngles = new Vector3(0, 0, (Mathf.Clamp((_thecam.transform.localEulerAngles.x + 90) % 360, 80, 160) + 270) % 360);
+		_thecam.transform.localEulerAngles = new Vector3((Mathf.Clamp((_thecam.transform.localEulerAngles.x + 90) % 360, 50, 160) + 270) % 360, 0, 0);
+		guns[_selectedGun].transform.localEulerAngles = new Vector3(0, 0, (Mathf.Clamp((_thecam.transform.localEulerAngles.x + 90) % 360, 50, 160) + 270) % 360);
 	}
 
 	public void OnMoveHorizontal(float value) {

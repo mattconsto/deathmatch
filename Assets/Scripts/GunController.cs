@@ -90,7 +90,7 @@ public class GunController : MonoBehaviour {
 
 			// Recoil
 			transform.parent.parent.Find("Camera").Rotate(-recoilForce, 0, 0);
-			transform.parent.parent.Find("Camera").localEulerAngles = new Vector3((Mathf.Clamp((transform.parent.parent.Find("Camera").localEulerAngles.x + 90) % 360, 80, 160) + 270) % 360, 0, 0);
+			transform.parent.parent.Find("Camera").localEulerAngles = new Vector3((Mathf.Clamp((transform.parent.parent.Find("Camera").localEulerAngles.x + 90) % 360, 50, 160) + 270) % 360, 0, 0);
 
 			return true;
 		}
