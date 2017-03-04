@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour {
 
 	/* Public Properties */
 	public GameController controller;
-	public GameObject[] guns;
+	public List<GameObject> guns = new List<GameObject>();
 
 	public float burnTime = 0f;
 	public float invincibleTime = 1f;
@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour {
 		_body = GetComponent<Rigidbody>();
 
 		Transform hand = transform.Find("Hand");
-		for(int i = 0; i < guns.Length; i++) {
+		for(int i = 0; i < guns.Count; i++) {
 			guns[i] = Instantiate(guns[i], hand.transform.position, hand.transform.rotation);
 			guns[i].SetActive(false);
 			guns[i].transform.parent = hand;
@@ -177,14 +177,38 @@ public class PlayerController : MonoBehaviour {
 	public void OnSwitch(int value) {
 		if(_respawnTimer > 0) return;
 		guns[_selectedGun].SetActive(false);
-		_selectedGun = (_selectedGun + value + guns.Length) % guns.Length;
+		_selectedGun = (_selectedGun + value + guns.Count) % guns.Count;
 		guns[_selectedGun].SetActive(true);
-		message = guns[_selectedGun].GetComponent<GunController>().displayName;
+		SetMesage(guns[_selectedGun].GetComponent<GunController>().displayName, 1f);
 		_messageTimer = 1f;
 		if(switchAudio != null) GetComponent<AudioSource>().PlayOneShot(switchAudio, 1f);
 	}
 
 	public void OnReload() {
 		guns[_selectedGun].GetComponent<GunController>().Reload();
+	}
+
+	public void AddGun(GameObject prefab) {
+	    Transform hand = transform.Find("Hand");
+
+	    for(int i = 0; i < guns.Count; i++) guns[i].SetActive(false);
+
+	    guns.Add(Instantiate(prefab, hand.transform.position, hand.transform.rotation));
+	    guns[guns.Count - 1].transform.parent = hand;
+	    _selectedGun = guns.Count - 1;
+
+	    SetMesage(guns[_selectedGun].GetComponent<GunController>().displayName, 1f);
+	    if(switchAudio != null) GetComponent<AudioSource>().PlayOneShot(switchAudio, 1f);
+  	}
+
+	public void SetMesage(string text, float time) {
+	    message = text;
+	    _messageTimer = time;
+	    Debug.Log(message);
+	}
+
+	public void OnCollisionEnter (Collision col) {
+		if(col.gameObject.tag == "Unjumpable")
+			return;
 	}
 }
