@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour {
 
 	public GameController controller;
 
-	public GameObject[] guns;
+	public List<GameObject> guns = new List<GameObject>();
 
 	public Vector2 sensitivity = new Vector2(3, 3);
 	public Vector2 smoothing = new Vector2(3, 3);
@@ -58,12 +58,25 @@ public class PlayerController : MonoBehaviour {
 
 	/* Unity Methods */
 
+	public void AddGun(GameObject prefab) {
+		Transform hand = transform.Find("Hand");
+
+		for(int i = 0; i < guns.Count; i++) guns[i].SetActive(false);
+
+		guns.Add(Instantiate(prefab, hand.transform.position, hand.transform.rotation));
+		guns[guns.Count - 1].transform.parent = hand;
+		_selectedGun = guns.Count - 1;
+
+		SetMesage(guns[_selectedGun].GetComponent<GunController>().displayName, 1f);
+		if(switchAudio != null) GetComponent<AudioSource>().PlayOneShot(switchAudio, 1f);
+	}
+
 	public void Start () {
 		_body = GetComponent<Rigidbody>();
 		_thecam = transform.Find("Camera").gameObject;
 
 		Transform hand = transform.Find("Hand");
-		for(int i = 0; i < guns.Length; i++) {
+		for(int i = 0; i < guns.Count; i++) {
 			guns[i] = Instantiate(guns[i], hand.transform.position, hand.transform.rotation);
 			guns[i].SetActive(false);
 			guns[i].transform.parent = hand;
@@ -183,6 +196,12 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+	public void SetMesage(string text, float time) {
+		message = text;
+		_messageTimer = time;
+		Debug.Log(message);
+	}
+
 	/* Event Listeners */
 
 	public void OnFire() {
@@ -226,6 +245,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void OnCollisionEnter (Collision col) {
+		if(col.gameObject.tag == "Unjumpable") return;
 		_canJump = true;
 	}
 
@@ -237,10 +257,9 @@ public class PlayerController : MonoBehaviour {
 	public void OnSwitch(int value) {
 		if(_respawnTimer > 0) return;
 		guns[_selectedGun].SetActive(false);
-		_selectedGun = (_selectedGun + value + guns.Length) % guns.Length;
+		_selectedGun = (_selectedGun + value + guns.Count) % guns.Count;
 		guns[_selectedGun].SetActive(true);
-		message = guns[_selectedGun].GetComponent<GunController>().displayName;
-		_messageTimer = 1f;
+		SetMesage(guns[_selectedGun].GetComponent<GunController>().displayName, 1f);
 		if(switchAudio != null) GetComponent<AudioSource>().PlayOneShot(switchAudio, 1f);
 	}
 

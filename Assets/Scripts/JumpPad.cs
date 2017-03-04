@@ -5,8 +5,10 @@ using UnityEngine;
 public class JumpPad : MonoBehaviour {
 	public float force = 1;
 
-	void OnCollisionEnter(Collision col) {
-		col.gameObject.GetComponent<Rigidbody>().AddForce(transform.up * force);
-		GetComponent<AudioSource>().Play();
+	void OnTriggerEnter(Collider col) {
+		if(col.gameObject.tag == "Player") {
+			col.gameObject.GetComponent<Rigidbody>().AddForce(transform.up * force);
+			GetComponent<AudioSource>().Play();
+		}
 	}
 }
