@@ -43,8 +43,8 @@ TODO
 ## Weapons
 
 * More models
+* Fix vertical aiming and recoil, then test explosions
 * Bullet decals
-* knockback
 
 ## Platform Specific
 
