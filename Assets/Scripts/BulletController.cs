@@ -36,15 +36,12 @@ public class BulletController : MonoBehaviour {
 		if(_lifetime < 0) {
 			// Explode when they despawn.
 			if(explosionFused) {
-				if(explosionRadius > 0) {
-					// Find players within radius
-					GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-					foreach(GameObject player in players) {
-						float distance = (transform.position - player.transform.position).magnitude;
-						if(distance <= explosionRadius) {
-							float edamage = Mathf.Pow((explosionRadius - distance) / explosionRadius, explosionFalloff) * explosionDamage;
-							player.GetComponent<PlayerController>().OnHurt(edamage, 0);
-						}
+				GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+				foreach(GameObject player in players) {
+					float distance = (transform.position - player.transform.position).magnitude;
+					if(distance <= explosionRadius) {
+						float edamage = Mathf.Pow((explosionRadius - distance) / explosionRadius, explosionFalloff) * explosionDamage;
+						player.GetComponent<PlayerController>().OnHurt(edamage, 0);
 					}
 				}
 			}
@@ -64,22 +61,7 @@ public class BulletController : MonoBehaviour {
 				float bdamage = Mathf.Max(damageMinimum, Mathf.Pow(_lifetime / lifetime, damageFalloff) + (Random.value - 0.5f) * damageSpread) * bulletDamage * (Random.value < criticalChance ? criticalMultiplier : 1);
 				col.gameObject.GetComponent<PlayerController>().OnHurt(bdamage, incindiaryTime);
 
-				if(explosionRadius > 0) {
-					// Find players within radius
-					GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-					foreach(GameObject player in players) {
-						float distance = (col.contacts[0].point - player.transform.position).magnitude;
-						if(distance <= explosionRadius) {
-							float edamage = Mathf.Pow((explosionRadius - distance) / explosionRadius, explosionFalloff) * explosionDamage;
-							player.GetComponent<PlayerController>().OnHurt(edamage, 0);
-						}
-					}
-				}
-			}
-
-			if(!explosionFused) {
-				destroy = true;
-
+				// TODO: test this when collisions are better.
 				if(explosionRadius > 0) {
 					// Find players within radius
 					GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
