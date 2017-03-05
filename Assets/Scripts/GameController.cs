@@ -14,6 +14,8 @@ public class GameController : MonoBehaviour {
 	public GameObject playerPrefab;
 	public GameObject titlehud;
 	public GameObject pausehud;
+	public GameObject tutorialStuff;
+	public GameObject tutorialSpawn;
 	public bool paused = false;
 
 	private bool _started = false;
@@ -62,6 +64,12 @@ public class GameController : MonoBehaviour {
 		titlehud.gameObject.SetActive(false);
 		Cursor.visible = false;
 		Cursor.lockState = CursorLockMode.Locked;
+
+		// Tutorial Respawn
+		if(number == 1) {
+			_respawns = new GameObject[] {tutorialSpawn};
+			tutorialStuff.SetActive(true);
+		}
 
 		GameObject[] players = new GameObject[number];
 
