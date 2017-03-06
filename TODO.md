@@ -3,8 +3,11 @@ TODO
 
 ## General
 
+* multiple planets
 * Scoring
+* Aim raycast
 * Particle effects
+* Hand IK (maybe)
 
 ## Tutorial
 
