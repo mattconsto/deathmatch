@@ -126,6 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   origin: {x: 0, y: 0, z: 0}
   force: 9.81
+  align_to_origin: 0
 --- !u!114 &114994411910225684
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -137,9 +138,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b4435e4dd9fd7345be2e2a1f0301e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  decalPrefab: {fileID: 0}
   lifetime: 0.01
   bulletDamage: 75
+  damageFalloff: 0
+  damageMinimum: 0
+  damageSpread: 0
   explosionDamage: 0
+  explosionFalloff: 0
   explosionRadius: 0
+  explosionFused: 0
+  criticalChance: 0
+  criticalMultiplier: 2
   incindiaryTime: 0
-  decalPrefab: {fileID: 0}

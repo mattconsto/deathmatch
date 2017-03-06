@@ -70,7 +70,8 @@ public class GunController : MonoBehaviour {
 				Vector3 velocity = Quaternion.AngleAxis(zr, -transform.right) * Quaternion.AngleAxis(xr, transform.forward) * (-transform.right * muzzleVelocity);
 
 				// Fire bullet
-				var bullet = Instantiate(bulletPrefab, _muzzle.transform.position, Quaternion.Euler(velocity));
+				var bullet = Instantiate(bulletPrefab, _muzzle.transform.position, _muzzle.transform.rotation);
+				bullet.transform.Rotate(new Vector3(0, -90, 0)); // Align correctly.
 				bullet.GetComponent<Rigidbody>().velocity = velocity;
 			}
 

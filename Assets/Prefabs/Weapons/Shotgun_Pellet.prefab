@@ -24,8 +24,8 @@ GameObject:
   - component: {fileID: 54165491192095366}
   - component: {fileID: 114782895343473330}
   - component: {fileID: 114994411910225684}
-  - component: {fileID: 64094018385317236}
   - component: {fileID: 96524505465363400}
+  - component: {fileID: 136987047933331706}
   m_Layer: 0
   m_Name: Shotgun_Pellet
   m_TagString: Projectiles
@@ -40,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1575296054628552}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.9208074, y: 9.950766, z: -0.36659282}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children: []
   m_Father: {fileID: 0}
@@ -84,7 +84,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1575296054628552}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!54 &54165491192095366
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -100,20 +100,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!64 &64094018385317236
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1575296054628552}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 1
-  m_InflateMesh: 1
-  m_SkinWidth: 0.05
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!96 &96524505465363400
 TrailRenderer:
   serializedVersion: 2
@@ -223,6 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   origin: {x: 0, y: 0, z: 0}
   force: 9.81
+  align_to_origin: 0
 --- !u!114 &114994411910225684
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -237,12 +224,27 @@ MonoBehaviour:
   decalPrefab: {fileID: 1070317641154144, guid: 59491d05e6fe58a4dab182ca2a1097ee,
     type: 2}
   lifetime: 5
+  bulletDamage: 8
   damageFalloff: 5
   damageMinimum: 0.25
   damageSpread: 0
-  bulletDamage: 8
   explosionDamage: 0
+  explosionFalloff: 0
   explosionRadius: 0
-  incindiaryTime: 0
+  explosionFused: 0
   criticalChance: 0
   criticalMultiplier: 2
+  incindiaryTime: 0
+--- !u!136 &136987047933331706
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1575296054628552}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 0.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
