@@ -94,6 +94,12 @@ public class GameController : MonoBehaviour {
 
 			CanvasScaler scaler = players[i].transform.Find("Player HUD").GetComponent<CanvasScaler>();
 			scaler.scaleFactor = Screen.currentResolution.width / scaler.referenceResolution.x / Mathf.Max(width, height) / 2;
+
+			if(number == 1) {
+				players[i].GetComponent<PlayerController>().guns.RemoveAt(0);
+				players[i].GetComponent<PlayerController>().guns.RemoveAt(0);
+				players[i].GetComponent<PlayerController>().guns.RemoveAt(0);
+			}
 		}
 
 		players[0].transform.Find("Camera/CameraObject").GetComponent<AudioListener>().enabled = true;

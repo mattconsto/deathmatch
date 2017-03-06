@@ -5,17 +5,11 @@ TODO
 
 * multiple planets
 * Scoring
-* Aim raycast
 * Particle effects
-* Hand IK (maybe)
 
 ## Tutorial
 
 * TextTrigger Node, needs a timer. play sound
-* Stationary Target
-* Moving Target
-* Gate, triggerable, invisible wall.
-* Weapon pickup
 
 ### Dialogue
  1. Greetings Soldier, you've been invited to join Planet Deathmatch. Where the best compete in one on one combat.
