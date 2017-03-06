@@ -68,7 +68,6 @@ public class BulletController : MonoBehaviour {
 				GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
 				foreach(GameObject player in players) {
 					float distance = (col.contacts[0].point - player.transform.position).magnitude;
-					print(distance);
 					if(distance <= explosionRadius) {
 						float edamage = Mathf.Pow((explosionRadius - distance) / explosionRadius, explosionFalloff) * explosionDamage;
 						player.GetComponent<PlayerController>().OnHurt(edamage, 0);
@@ -76,7 +75,10 @@ public class BulletController : MonoBehaviour {
 				}
 			}
 
-			if(decalPrefab != null) Instantiate(decalPrefab, col.contacts[0].point, Quaternion.Euler(col.contacts[0].normal));
+			if(decalPrefab != null) {
+				GameObject decal = Instantiate(decalPrefab, col.contacts[0].point, Quaternion.Euler(col.contacts[0].normal));
+				DecalDynamic.BuildDecal(decal.GetComponent<Decal>());
+			}
 
 			// print(gameObject.name + " hit " + col.gameObject.name);
 			

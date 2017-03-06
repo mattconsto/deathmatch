@@ -8,7 +8,6 @@ public class DecalBuilder {
 	private static List<Vector2> bufTexCoords = new List<Vector2>();
 	private static List<int> bufIndices = new List<int>();
 
-
 	public static void BuildDecalForObject(Decal decal, GameObject affectedObject) {
 		Mesh affectedMesh = affectedObject.GetComponent<MeshFilter>().sharedMesh;
 		if(affectedMesh == null) return;
