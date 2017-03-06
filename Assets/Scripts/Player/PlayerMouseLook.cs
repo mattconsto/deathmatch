@@ -3,18 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMouseLook : MonoBehaviour {
-
 	public float sensitivity = 3;
 	public float smoothing = 3;
 	public GameObject player_camera;
 
 	private Vector2 _smoothMouse;
 
-	// Use this for initialization
-	void Start () {}
+	private float _recoilForce = 0;
+	private float _recoilTime = 0;
+	private float _recoilFallOff = 3;
 
-	// Update is called once per frame
-	void Update () {}
+	public void Recoil(float force, float time, float falloff) {
+		_recoilForce = force;
+		_recoilTime = time;
+		_recoilFallOff = falloff;
+	}
+
+	public void Update() {
+		// Handle recoil
+		if(_recoilTime > 0) {
+			OnLookVertical(Mathf.Pow(_recoilTime, _recoilFallOff) * _recoilForce);
+			_recoilTime -= Time.deltaTime;
+		}
+	}
 
 	public void OnLookHorizontal(float value) {
 		// Interpolate mouse movement over time to apply smoothing delta.

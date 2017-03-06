@@ -243,6 +243,8 @@ MonoBehaviour:
   ammoCount: 30
   reloadRate: 0.5
   partialReload: 0
-  recoilForce: 0
+  recoilForce: 10
+  recoilTime: 0.25
+  recoilFalloff: 5
   reloadAudio: {fileID: 8300000, guid: f9c9199453c9608458c7c50d468517d6, type: 3}
   shotAudio: {fileID: 8300000, guid: 812d1a21a6423cb428d3ef680d811916, type: 3}

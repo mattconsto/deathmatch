@@ -8,8 +8,6 @@ TODO
 
 ## Tutorial
 
-* Convert 1 player into tutorial level.
-
 * TextTrigger Node, needs a timer. play sound
 * Stationary Target
 * Moving Target
@@ -33,10 +31,6 @@ TODO
 14. Now, use it to burn down the walls of crates.
 15. We're free, you did it! Either continue shooting Robots, or open the menu with Esc (Start on Gamepad) to start fighting other players.
 16. If you ever forget the controls, open the menu with Esc (Start on Gamepad) and select Controls.
-
-## Weapons
-
-* Add Knockback and fix recoil
 
 ## Platform Specific
 
