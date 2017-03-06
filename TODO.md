@@ -37,7 +37,6 @@ TODO
 ## Weapons
 
 * More models
-* Improve Bullet decals
 * Add Knockback and fix recoil
 
 ## Platform Specific

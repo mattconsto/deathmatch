@@ -236,7 +236,7 @@ MonoBehaviour:
     type: 2}
   displayName: Pistol
   muzzleVelocity: 100
-  fireRate: 0.3
+  fireRate: 0.2
   shotCount: 1
   shotSpread: 5
   clipSize: 16

@@ -53,6 +53,8 @@ public class BulletController : MonoBehaviour {
 	void OnCollisionEnter(Collision col) {
 		// Don't hit other projectiles
 		if(col.gameObject.tag != "Projectiles") {
+			// print(gameObject.name + " hit " + col.gameObject.name);
+
 			bool destroy = false;
 
 			if(col.gameObject.tag == "Player") {
@@ -62,7 +64,6 @@ public class BulletController : MonoBehaviour {
 				col.gameObject.GetComponent<PlayerController>().OnHurt(bdamage, incindiaryTime);
 			}
 
-			// TODO: test this when collisions are better.
 			if(explosionRadius > 0) {
 				// Find players within radius
 				GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
@@ -75,14 +76,12 @@ public class BulletController : MonoBehaviour {
 				}
 			}
 
-			if(decalPrefab != null) {
-				GameObject decal = Instantiate(decalPrefab, col.contacts[0].point, Quaternion.Euler(col.contacts[0].normal));
+			if(decalPrefab != null && col.gameObject.tag != "Unjumpable" && !explosionFused) {
+				Destroy(gameObject);
+				GameObject decal = Instantiate(decalPrefab, col.contacts[0].point, Quaternion.FromToRotation(Vector3.forward, col.contacts[0].normal));
+				// GameObject decal = Instantiate(decalPrefab, col.contacts[0].point, Quaternion.FromToRotation(Vector3.up, col.contacts[0].normal));
 				DecalDynamic.BuildDecal(decal.GetComponent<Decal>());
-			}
-
-			// print(gameObject.name + " hit " + col.gameObject.name);
-			
-			if(destroy || !explosionFused) Destroy(gameObject);
+			} else if(destroy || !explosionFused) Destroy(gameObject);
 		}
 	}
 }
