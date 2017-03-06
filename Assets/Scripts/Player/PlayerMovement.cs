@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-
 	/* Public Properties */
 	public float speed = 5f;
 	public AudioClip footsteps;
@@ -55,6 +54,6 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	public void OnCollisionExit (Collision col) {
-		_canJump = false;
+		if(col.gameObject.tag != "Unjumpable") _canJump = false;
 	}
 }

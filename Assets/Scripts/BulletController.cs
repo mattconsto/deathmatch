@@ -19,6 +19,8 @@ public class BulletController : MonoBehaviour {
 	public float explosionRadius = 0; // How wide to look
 	public bool  explosionFused = false; // pills/rockets
 
+	public float knockbackForce = 0;
+
 	public float criticalChance = 0; // Chance to deal criticals
 	public float criticalMultiplier = 2; // Critical Multiplier
 
@@ -42,6 +44,7 @@ public class BulletController : MonoBehaviour {
 					if(distance <= explosionRadius) {
 						float edamage = Mathf.Pow((explosionRadius - distance) / explosionRadius, explosionFalloff) * explosionDamage;
 						player.GetComponent<PlayerController>().OnHurt(edamage, 0);
+						player.GetComponent<Rigidbody>().AddForce(Vector3.up * knockbackForce);
 					}
 				}
 			}
@@ -72,6 +75,7 @@ public class BulletController : MonoBehaviour {
 					if(distance <= explosionRadius) {
 						float edamage = Mathf.Pow((explosionRadius - distance) / explosionRadius, explosionFalloff) * explosionDamage;
 						player.GetComponent<PlayerController>().OnHurt(edamage, 0);
+						player.GetComponent<Rigidbody>().AddForce(Vector3.up * knockbackForce);
 					}
 				}
 			}

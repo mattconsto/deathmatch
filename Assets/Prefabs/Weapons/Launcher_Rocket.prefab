@@ -403,6 +403,7 @@ MonoBehaviour:
   explosionFalloff: 1
   explosionRadius: 3
   explosionFused: 0
+  knockbackForce: 1000
   criticalChance: 0
   criticalMultiplier: 2
   incindiaryTime: 0
