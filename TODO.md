@@ -36,7 +36,6 @@ TODO
 
 ## Weapons
 
-* More models
 * Add Knockback and fix recoil
 
 ## Platform Specific
