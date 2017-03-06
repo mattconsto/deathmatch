@@ -6,6 +6,8 @@ using UnityEngine;
 	Bullet Controller
 */
 public class BulletController : MonoBehaviour {
+	public GameObject decalPrefab = null;
+
 	public float lifetime = 5; // Seconds
 
 	public float bulletDamage = 1; // Damage per bullet
@@ -80,6 +82,9 @@ public class BulletController : MonoBehaviour {
 			}
 
 			if(destroy || col.gameObject.tag != "Unjumpable" && !explosionFused) {
+				if(decalPrefab != null) {
+					Instantiate(decalPrefab, col.contacts[0].point, Quaternion.FromToRotation(Vector3.forward, col.contacts[0].normal));
+				}
 				Destroy(gameObject);
 			}
 		}

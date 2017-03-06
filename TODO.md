@@ -3,13 +3,12 @@ TODO
 
 ## General
 
-* multiple planets
 * Scoring
-* Particle effects
+* Refactoring and Optimisation
 
 ## Tutorial
 
-* TextTrigger Node, needs a timer. play sound
+* TextTrigger Node sound triggers?
 
 ### Dialogue
  1. Greetings Soldier, you've been invited to join Planet Deathmatch. Where the best compete in one on one combat.
@@ -33,4 +32,4 @@ TODO
 
 * Linux full screen
 * Gamepad bindings everywhere, but especially WebGL
-* Menu controlable with gamepad.
+* Menu controllable with gamepad.

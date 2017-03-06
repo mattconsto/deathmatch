@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour {
 	private float _fireTimer = 0f;
 	private float _damageBatchingTimer = 0f;
 	private float _damageBatchingDamage = 0;
+	private float _bloodTimer = 0f;
 
 	private Transform _hudDeadOverlay;
 	private Transform _hudHurtOverlay;
@@ -43,6 +44,9 @@ public class PlayerController : MonoBehaviour {
 	private Transform _hudHealthText;
 	private Transform _hudClipText;
 	private Transform _hudAmmoText;
+
+	private GameObject _fireParticles;
+	private GameObject _bloodParticles;
 
 	/* Unity Methods */
 
@@ -63,6 +67,9 @@ public class PlayerController : MonoBehaviour {
 		_hudHealthText = transform.Find("Player HUD/Health Text");
 		_hudClipText = transform.Find("Player HUD/Clip Text");
 		_hudAmmoText = transform.Find("Player HUD/Ammo Text");
+
+		_fireParticles = transform.Find("Fire Particles").gameObject;
+		_bloodParticles = transform.Find("Blood Particles").gameObject;
 
 		// Random colour
 		transform.Find("Model/Character").GetComponent<SkinnedMeshRenderer>().material.color = color;
@@ -87,6 +94,25 @@ public class PlayerController : MonoBehaviour {
 		if(_fireTimer > 0) {
 			_fireTimer -= Time.deltaTime;
 			OnHurt(Time.deltaTime * 5, 0);
+
+			var emission = _fireParticles.GetComponent<ParticleSystem>().emission;
+			var rate = emission.rate;
+			rate.constantMax = 10;
+			emission.rate = rate;
+		} else {
+			var emission = _fireParticles.GetComponent<ParticleSystem>().emission;
+			var rate = emission.rate;
+			rate.constantMax = 0;
+			emission.rate = rate;
+		}
+
+		if(_bloodTimer > 0) {
+			_bloodTimer -= Time.deltaTime;
+		} else {
+			var emission = _bloodParticles.GetComponent<ParticleSystem>().emission;
+			var rate = emission.rate;
+			rate.constantMax = 0;
+			emission.rate = rate;
 		}
 
 		if(_damageBatchingTimer < 0) {
@@ -156,6 +182,12 @@ public class PlayerController : MonoBehaviour {
 		} else {
 			message = "Hit for " + Mathf.RoundToInt(_damageBatchingDamage);
 			_messageTimer = 1f;
+
+			var emission = _bloodParticles.GetComponent<ParticleSystem>().emission;
+			var rate = emission.rate;
+			rate.constantMax = 10;
+			emission.rate = rate;
+			_bloodTimer = 0.25f;
 		}
 	}
 
