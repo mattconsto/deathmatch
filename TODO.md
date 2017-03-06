@@ -4,14 +4,13 @@ TODO
 ## General
 
 * Scoring
-* More planets
 * Particle effects
 
 ## Tutorial
 
 * Convert 1 player into tutorial level.
 
-* TextTrigger Node, needs a timer.
+* TextTrigger Node, needs a timer. play sound
 * Stationary Target
 * Moving Target
 * Gate, triggerable, invisible wall.
@@ -44,9 +43,5 @@ TODO
 ## Platform Specific
 
 * Linux full screen
-* Safari and Android chrome have magenta background
-
-## Controls
-
 * Gamepad bindings everywhere, but especially WebGL
 * Menu controlable with gamepad.

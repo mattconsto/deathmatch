@@ -32,14 +32,10 @@ public class DecalDynamic {
 	public static GameObject[] GetAffectedObjects(Bounds bounds, LayerMask affectedLayers) {
 		MeshRenderer[] renderers = (MeshRenderer[])GameObject.FindObjectsOfType<MeshRenderer>();
 		List<GameObject> objects = new List<GameObject>();
+		
 		foreach (Renderer r in renderers) {
-			if (!r.enabled) continue;
-			// if (!IsLayerContains(affectedLayers, r.gameObject.layer)) continue;
-			if (r.GetComponent<Decal>() != null) continue;
-
-			if (bounds.Intersects(r.bounds)) {
-				objects.Add(r.gameObject);
-			}
+			if (!r.enabled || r.GetComponent<Decal>() != null) continue;
+			if (bounds.Intersects(r.bounds)) objects.Add(r.gameObject);
 		}
 		return objects.ToArray();
 	}

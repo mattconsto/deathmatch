@@ -13,7 +13,6 @@ public class PlayerMovement : MonoBehaviour {
 	private Rigidbody _rb;
 	private bool _canJump = false;
 	private float _step_timer = 15f;
-	private float _jumpEnableTimer = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -22,14 +21,6 @@ public class PlayerMovement : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if(_jumpEnableTimer > 0) {
-			_jumpEnableTimer -= Time.deltaTime;
-		}
-
-		if(_jumpEnableTimer < 0) {
-			_canJump = true;
-		}
-
 		if(_step_timer < 0) {
 			_step_timer = 15f;
 			if(footsteps != null) {
@@ -56,14 +47,11 @@ public class PlayerMovement : MonoBehaviour {
 		if (_canJump) {
 			if(jump != null) GetComponent<AudioSource>().PlayOneShot(jump, 1f);
 			_rb.AddForce(transform.up * 500);
-			_jumpEnableTimer = 5f;
-			_canJump = false;
 		}
 	}
 
 	public void OnCollisionEnter (Collision col) {
-		_jumpEnableTimer = 0f;
-		_canJump = true;
+		if(col.gameObject.tag != "Unjumpable") _canJump = true;
 	}
 
 	public void OnCollisionExit (Collision col) {

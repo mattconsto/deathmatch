@@ -12,6 +12,7 @@ Third Party Notices
 * Hubble Space Telescope by DigitalSpace Corporation (NASA Public Domain: https://nasa3d.arc.nasa.gov/detail/hst-3ds
 * Low Poly: Free Pack by AxeyWorks (Unity Asset Store): https://www.assetstore.unity3d.com/en/content/58821
 * StarNest Skybox by Ninjapretzel (Unity Asset Store): https://www.assetstore.unity3d.com/en/content/63726
+* Weapon Pack by Kenney (CC0 1.0): https://kenney.nl/assets/weapon-pack
 
 ## Fonts
 
