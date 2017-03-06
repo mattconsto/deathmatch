@@ -70,11 +70,6 @@ public class PlayerController : MonoBehaviour {
 		_hudClipText.gameObject.GetComponent<Text>().color = color;
 	}
 
-	public void FixedUpdate() {
-		/* Force upright */
-		transform.rotation = Quaternion.FromToRotation(transform.up, transform.position - GetComponent<GravityObject>().origin) * transform.rotation;
-	}
-
 	public void Update() {
 		// Timers
 		_messageTimer -= Time.deltaTime;

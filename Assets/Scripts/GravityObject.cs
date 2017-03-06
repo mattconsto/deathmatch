@@ -22,7 +22,7 @@ public class GravityObject : MonoBehaviour {
 	void FixedUpdate () {
 		_rb.AddForce((origin - transform.position).normalized * force, ForceMode.Acceleration);
 		if(align_to_origin) {
-			transform.rotation = Quaternion.FromToRotation(transform.up, transform.position - GetComponent<GravityObject>().origin) * transform.rotation;
+			transform.rotation = Quaternion.FromToRotation(transform.up, transform.position - origin) * transform.rotation;
 		}
 	}
 }
