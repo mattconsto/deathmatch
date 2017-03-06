@@ -3,12 +3,9 @@ TODO
 
 ## General
 
-* Refactoring and Optimisation
-* Axe hurts player (usually)
-* Shotgun doesn't seem to work very well
+* Refactoring, Optimisation and Bug Fixes
 * Linux full screen
-* Gamepad bindings everywhere, but especially WebGL
-* Menu controllable with gamepad.
+* Gamepad bindings everywhere and everyplatform, but especially WebGL
 
 ## Tutorial
 

@@ -83,7 +83,7 @@ public class GunController : MonoBehaviour {
 
 			// Limits
 			_fireTiming = 0;
-			ammoCount--;
+			if(clipSize != Mathf.Infinity) ammoCount--;
 
 			// Start reloading if needed
 			if(ammoCount <= 0) {

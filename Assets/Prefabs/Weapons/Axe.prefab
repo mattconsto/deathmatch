@@ -146,7 +146,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1350577432705164}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5209963, y: 9.720419, z: -2.289546}
+  m_LocalPosition: {x: 0.062419314, y: 10.019664, z: 1.5866815}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4329448586974554}
@@ -191,7 +191,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1700739310094784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.655, y: 0.087, z: 0}
+  m_LocalPosition: {x: -1, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4227209396925238}
@@ -473,7 +473,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1575296054628552, guid: 9f96c38bef3e5564fa86f887d5e2b47f,
     type: 2}
   displayName: Axe
-  muzzleVelocity: 100
+  muzzleVelocity: 150
   fireRate: 0.5
   shotCount: 1
   shotSpread: 5
@@ -482,5 +482,7 @@ MonoBehaviour:
   reloadRate: 0.5
   partialReload: 0
   recoilForce: 0
+  recoilTime: 0
+  recoilFalloff: 0
   reloadAudio: {fileID: 0}
   shotAudio: {fileID: 8300000, guid: 74ffce943936e34489a6fcf1e8d91b6e, type: 3}

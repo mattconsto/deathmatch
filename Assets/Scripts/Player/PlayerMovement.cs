@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	/* Private Properties */
 	private Rigidbody _rb;
-	private bool _canJump = false;
+	private int _canJump = 0;
 	private float _step_timer = 15f;
 
 	// Use this for initialization
@@ -30,30 +30,26 @@ public class PlayerMovement : MonoBehaviour {
 
 	public void OnMoveHorizontal(float value) {
 		_rb.AddForce(transform.right * value * speed);
-		if(_canJump) {
-			_step_timer -= Mathf.Abs(value);
-		}
+		if(_canJump > 0) _step_timer -= Mathf.Abs(value);
 	}
 
 	public void OnMoveVertical(float value) {
 		_rb.AddForce(transform.forward * value * speed);
-		if(_canJump) {
-			_step_timer -= Mathf.Abs(value);
-		}
+		if(_canJump > 0) _step_timer -= Mathf.Abs(value);
 	}
 
 	public void OnJump() {
-		if (_canJump) {
+		if (_canJump > 0) {
 			if(jump != null) GetComponent<AudioSource>().PlayOneShot(jump, 1f);
 			_rb.AddForce(transform.up * 500);
 		}
 	}
 
 	public void OnCollisionEnter (Collision col) {
-		if(col.gameObject.tag != "Unjumpable") _canJump = true;
+		if(col.gameObject.tag != "Unjumpable") _canJump++;
 	}
 
 	public void OnCollisionExit (Collision col) {
-		if(col.gameObject.tag != "Unjumpable") _canJump = false;
+		if(col.gameObject.tag != "Unjumpable") _canJump--;
 	}
 }
