@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour {
 	public string message = "";
 	public Color color = Color.white;
 	public int selectedGun = 0;
+	public int killCount = 0;
 
 	public AudioClip switchAudio;
 
@@ -44,6 +45,7 @@ public class PlayerController : MonoBehaviour {
 	private Transform _hudHealthText;
 	private Transform _hudClipText;
 	private Transform _hudAmmoText;
+	private Transform _hudKillStreak;
 
 	private GameObject _fireParticles;
 	private GameObject _bloodParticles;
@@ -67,6 +69,7 @@ public class PlayerController : MonoBehaviour {
 		_hudHealthText = transform.Find("Player HUD/Health Text");
 		_hudClipText = transform.Find("Player HUD/Clip Text");
 		_hudAmmoText = transform.Find("Player HUD/Ammo Text");
+		_hudKillStreak = transform.Find("Player HUD/Killstreak Text");
 
 		_fireParticles = transform.Find("Fire Particles").gameObject;
 		_bloodParticles = transform.Find("Blood Particles").gameObject;
@@ -125,6 +128,7 @@ public class PlayerController : MonoBehaviour {
 			controller.respawnPlayer(transform.gameObject);
 			SetActive(true);
 			health = baseHealth;
+			killCount = 0;
 		}
 
 		UpdateHUD();
@@ -161,6 +165,8 @@ public class PlayerController : MonoBehaviour {
 			_hudClipText.GetComponent<Text>().text = "";
 			_hudAmmoText.GetComponent<Text>().text = "";
 		}
+
+		_hudKillStreak.GetComponent<Text>().text = killCount > 0 ? killCount.ToString() + (killCount == 1 ? " kill" : " kills") : "";
 	}
 
 	public void OnHurt(float damage, float fire) {

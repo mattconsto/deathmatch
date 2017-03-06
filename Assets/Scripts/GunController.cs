@@ -75,6 +75,7 @@ public class GunController : MonoBehaviour {
 				var bullet = Instantiate(bulletPrefab, _muzzle.transform.position, _muzzle.transform.rotation);
 				bullet.transform.Rotate(new Vector3(0, -90, 0)); // Align correctly.
 				bullet.GetComponent<Rigidbody>().velocity = velocity;
+				bullet.GetComponent<BulletController>().parent = transform.gameObject;
 			}
 
 			// One sound per shot

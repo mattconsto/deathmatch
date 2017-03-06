@@ -3,14 +3,15 @@ TODO
 
 ## General
 
-* Scoring
 * Refactoring and Optimisation
+* Linux full screen
+* Gamepad bindings everywhere, but especially WebGL
+* Menu controllable with gamepad.
 
 ## Tutorial
 
 * TextTrigger Node sound triggers?
 
-### Dialogue
  1. Greetings Soldier, you've been invited to join Planet Deathmatch. Where the best compete in one on one combat.
  2. To start, I'm obliged to teach you a few things.
  3. Using WASD and your Mouse (Analogue Sticks on Gamepad), walk over to the target.
@@ -27,9 +28,3 @@ TODO
 14. Now, use it to burn down the walls of crates.
 15. We're free, you did it! Either continue shooting Robots, or open the menu with Esc (Start on Gamepad) to start fighting other players.
 16. If you ever forget the controls, open the menu with Esc (Start on Gamepad) and select Controls.
-
-## Platform Specific
-
-* Linux full screen
-* Gamepad bindings everywhere, but especially WebGL
-* Menu controllable with gamepad.
