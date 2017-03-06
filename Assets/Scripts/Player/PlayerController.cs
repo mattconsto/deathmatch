@@ -7,7 +7,6 @@ using UnityEngine.UI;
 	Player Controller
 */
 public class PlayerController : MonoBehaviour {
-
 	/* Public Properties */
 	public GameController controller;
 	public List<GameObject> guns = new List<GameObject>();
