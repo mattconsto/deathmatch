@@ -768,13 +768,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1887404750692044}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0.024243223, y: 0.6942352, z: 0.025104595, w: 0.71890163}
   m_LocalPosition: {x: 0.348, y: 0.244, z: -0.012}
   m_LocalScale: {x: 1.8931329, y: 0.7931048, z: 1.9315014}
   m_Children: []
   m_Father: {fileID: 4672896155606894}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 88, z: 4}
 --- !u!4 &4045301573147038
 Transform:
   m_ObjectHideFlags: 1
@@ -1105,7 +1105,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1090383527944902}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5651586, y: 9.871426, z: 1.495178}
+  m_LocalPosition: {x: 3.2715375, y: 8.757592, z: 3.5498762}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224509041552482698}
@@ -1980,6 +1980,7 @@ MonoBehaviour:
   healthDecay: 0.5
   message: 
   color: {r: 1, g: 1, b: 1, a: 1}
+  selectedGun: 0
   switchAudio: {fileID: 8300000, guid: 2f9f0be4980c2eb47986789b393a29a2, type: 3}
   movement_script: {fileID: 114235379144279314}
   mouselook_script: {fileID: 114901416164422840}
@@ -2147,6 +2148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   origin: {x: 0, y: 0, z: 0}
   force: 25
+  align_to_origin: 1
 --- !u!114 &114901416164422840
 MonoBehaviour:
   m_ObjectHideFlags: 1

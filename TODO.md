@@ -3,11 +3,9 @@ TODO
 
 ## General
 
-* Scoring and game-modes
+* Scoring
 * More planets
 * Particle effects
-* Misc. Testing and re-factoring
-* Gunplay raycast
 
 ## Tutorial
 
@@ -40,7 +38,6 @@ TODO
 ## Weapons
 
 * More models
-* Fix vertical aiming and recoil, then test explosions
 * Bullet decals
 * Knockback
 

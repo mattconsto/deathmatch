@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour {
 	public float healthDecay = 0.5f;
 	public string message = "";
 	public Color color = Color.white;
+	public int selectedGun = 0;
 
 	public AudioClip switchAudio;
 
@@ -30,14 +31,12 @@ public class PlayerController : MonoBehaviour {
 	/* Private Properties */
 	private Rigidbody _body;
 
-	private int _selectedGun = 0;
 	private float _hurtOverlayTimer = 0f;
 	private float _messageTimer = 0f;
 	private float _respawnTimer = 0f;
 	private float _fireTimer = 0f;
 	private float _damageBatchingTimer = 0f;
 	private float _damageBatchingDamage = 0;
-	private float _jumpEnableTimer = 0f; // Let someone jump again after 5 seconds just in case.
 
 	private Transform _hudDeadOverlay;
 	private Transform _hudHurtOverlay;
@@ -57,7 +56,7 @@ public class PlayerController : MonoBehaviour {
 			guns[i].SetActive(false);
 			guns[i].transform.parent = hand;
 		}
-		guns[_selectedGun].SetActive(true);
+		guns[selectedGun].SetActive(true);
 
 		_hudDeadOverlay = transform.Find("Player HUD/Dead Overlay");
 		_hudHurtOverlay = transform.Find("Player HUD/Hurt Overlay");
@@ -134,7 +133,7 @@ public class PlayerController : MonoBehaviour {
 		_hudHealthText.GetComponent<Text>().text = Mathf.CeilToInt(health).ToString();
 		_hudHealthText.GetComponent<Text>().color = health > baseHealth ? new Color(0.565f, 0.855f, 0.882f) : Color.Lerp(new Color(0.808f, 0.196f, 0.0549f), new Color(0.804f, 0.741f, 0.678f), Mathf.Min(1.5f*health/baseHealth, 1));
 
-		GunController gc = guns[_selectedGun].GetComponent<GunController>();
+		GunController gc = guns[selectedGun].GetComponent<GunController>();
 		if(gc.clipSize >= 0 && gc.clipSize != Mathf.Infinity) {
 			_hudClipText.GetComponent<Text>().text = gc.clipSize.ToString();
 			_hudAmmoText.GetComponent<Text>().text = gc.ammoCount.ToString();
@@ -170,22 +169,22 @@ public class PlayerController : MonoBehaviour {
 
 	public void OnFire() {
 		if(_respawnTimer > 0) return;
-		GunController controller = guns[_selectedGun].GetComponent<GunController>();
+		GunController controller = guns[selectedGun].GetComponent<GunController>();
 		if(controller != null) controller.Fire();
 	}
 
 	public void OnSwitch(int value) {
 		if(_respawnTimer > 0) return;
-		guns[_selectedGun].SetActive(false);
-		_selectedGun = (_selectedGun + value + guns.Count) % guns.Count;
-		guns[_selectedGun].SetActive(true);
-		SetMesage(guns[_selectedGun].GetComponent<GunController>().displayName, 1f);
+		guns[selectedGun].SetActive(false);
+		selectedGun = (selectedGun + value + guns.Count) % guns.Count;
+		guns[selectedGun].SetActive(true);
+		SetMesage(guns[selectedGun].GetComponent<GunController>().displayName, 1f);
 		_messageTimer = 1f;
 		if(switchAudio != null) GetComponent<AudioSource>().PlayOneShot(switchAudio, 1f);
 	}
 
 	public void OnReload() {
-		guns[_selectedGun].GetComponent<GunController>().Reload();
+		guns[selectedGun].GetComponent<GunController>().Reload();
 	}
 
 	public void AddGun(GameObject prefab) {
@@ -195,9 +194,9 @@ public class PlayerController : MonoBehaviour {
 
 	    guns.Add(Instantiate(prefab, hand.transform.position, hand.transform.rotation));
 	    guns[guns.Count - 1].transform.parent = hand;
-	    _selectedGun = guns.Count - 1;
+	    selectedGun = guns.Count - 1;
 
-	    SetMesage(guns[_selectedGun].GetComponent<GunController>().displayName, 1f);
+	    SetMesage(guns[selectedGun].GetComponent<GunController>().displayName, 1f);
 	    if(switchAudio != null) GetComponent<AudioSource>().PlayOneShot(switchAudio, 1f);
   	}
 

@@ -60,17 +60,18 @@ public class BulletController : MonoBehaviour {
 				destroy = true;
 				float bdamage = Mathf.Max(damageMinimum, Mathf.Pow(_lifetime / lifetime, damageFalloff) + (Random.value - 0.5f) * damageSpread) * bulletDamage * (Random.value < criticalChance ? criticalMultiplier : 1);
 				col.gameObject.GetComponent<PlayerController>().OnHurt(bdamage, incindiaryTime);
+			}
 
-				// TODO: test this when collisions are better.
-				if(explosionRadius > 0) {
-					// Find players within radius
-					GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-					foreach(GameObject player in players) {
-						float distance = (col.contacts[0].point - player.transform.position).magnitude;
-						if(distance <= explosionRadius) {
-							float edamage = Mathf.Pow((explosionRadius - distance) / explosionRadius, explosionFalloff) * explosionDamage;
-							player.GetComponent<PlayerController>().OnHurt(edamage, 0);
-						}
+			// TODO: test this when collisions are better.
+			if(explosionRadius > 0) {
+				// Find players within radius
+				GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+				foreach(GameObject player in players) {
+					float distance = (col.contacts[0].point - player.transform.position).magnitude;
+					print(distance);
+					if(distance <= explosionRadius) {
+						float edamage = Mathf.Pow((explosionRadius - distance) / explosionRadius, explosionFalloff) * explosionDamage;
+						player.GetComponent<PlayerController>().OnHurt(edamage, 0);
 					}
 				}
 			}

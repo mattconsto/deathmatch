@@ -27,6 +27,6 @@ public class PlayerMouseLook : MonoBehaviour {
 		_smoothMouse.y = Mathf.Lerp(_smoothMouse.y, value * sensitivity * smoothing, 1f / smoothing);
 		player_camera.transform.Rotate(-_smoothMouse.y / sensitivity, 0, 0);
 		player_camera.transform.localEulerAngles = new Vector3((Mathf.Clamp((player_camera.transform.localEulerAngles.x + 90) % 360, 10, 170) + 270) % 360, 0, 0);
-    	// guns[_selectedGun].transform.localEulerAngles = new Vector3(0, 0, (Mathf.Clamp((_thecam.transform.localEulerAngles.x + 90) % 360, 10, 170) + 270) % 360);
+		GetComponent<PlayerController>().guns[GetComponent<PlayerController>().selectedGun].transform.localEulerAngles = new Vector3(0, 0, ((Mathf.Clamp((player_camera.transform.localEulerAngles.x + 90) % 360, 10, 170) + 270) % 360) + 10);
 	}
 }
