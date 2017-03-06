@@ -4,13 +4,15 @@ TODO
 ## General
 
 * Refactoring and Optimisation
+* Axe hurts player (usually)
+* Shotgun doesn't seem to work very well
 * Linux full screen
 * Gamepad bindings everywhere, but especially WebGL
 * Menu controllable with gamepad.
 
 ## Tutorial
 
-* TextTrigger Node sound triggers?
+* Re-record audio, it sounds bad.
 
  1. Greetings Soldier, you've been invited to join Planet Deathmatch. Where the best compete in one on one combat.
  2. To start, I'm obliged to teach you a few things.

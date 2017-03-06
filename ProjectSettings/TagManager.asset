@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Projectiles
   - Unjumpable
+  - Target
   layers:
   - Default
   - TransparentFX

@@ -69,6 +69,8 @@ public class GameController : MonoBehaviour {
 		if(number == 1) {
 			_respawns = new GameObject[] {tutorialSpawn};
 			tutorialStuff.SetActive(true);
+		} else {
+			tutorialStuff.SetActive(false);
 		}
 
 		GameObject[] players = new GameObject[number];

@@ -71,6 +71,14 @@ public class BulletController : MonoBehaviour {
 				if(col.gameObject.GetComponent<PlayerController>().health < 0) parent.transform.parent.parent.GetComponent<PlayerController>().killCount++;
 			}
 
+			if(col.gameObject.tag == "Target") {
+				print("Hit Target");
+				destroy = true;
+				float bdamage = Mathf.Max(damageMinimum, Mathf.Pow(_lifetime / lifetime, damageFalloff) + (Random.value - 0.5f) * damageSpread) * bulletDamage * (Random.value < criticalChance ? criticalMultiplier : 1);
+				col.gameObject.GetComponent<Destructable>().OnHurt(bdamage, incindiaryTime);
+				if(col.gameObject.GetComponent<Destructable>().health < 0) parent.transform.parent.parent.GetComponent<PlayerController>().killCount++;
+			}
+
 			if(explosionRadius > 0) {
 				// Find players within radius
 				GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
