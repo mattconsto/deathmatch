@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4020784655606388}
   - component: {fileID: 33971715329331252}
   - component: {fileID: 23004933461038240}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mesh1_Group1_Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4953484754173594}
   - component: {fileID: 198803590919394266}
   - component: {fileID: 199657913157720900}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 114994411910225684}
   - component: {fileID: 96240791562555662}
   - component: {fileID: 82599415104615014}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Launcher_Rocket
   m_TagString: Projectiles
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4950408333785946}
   - component: {fileID: 136923586641853262}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ammo_rocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,11 +396,11 @@ MonoBehaviour:
   decalPrefab: {fileID: 1343007229538212, guid: d5e52becaeac2ec4c95862fe405931d2,
     type: 2}
   lifetime: 5
-  bulletDamage: 30
+  bulletDamage: 20
   damageFalloff: 0.5
   damageMinimum: 0.2
   damageSpread: 0
-  explosionDamage: 20
+  explosionDamage: 30
   explosionFalloff: 1
   explosionRadius: 3
   explosionFused: 0

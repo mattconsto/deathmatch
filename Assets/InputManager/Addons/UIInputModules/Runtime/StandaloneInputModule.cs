@@ -207,8 +207,8 @@ namespace TeamUtility.IO
 				if(!usedEvent)
 					usedEvent |= SendMoveEventToSelectedObject();
 
-				if(!usedEvent)
-					SendSubmitEventToSelectedObject();
+				// if(!usedEvent)
+					// SendSubmitEventToSelectedObject();
 			}
 
 			// touch needs to take precedence because of the mouse emulation layer
@@ -356,11 +356,11 @@ namespace TeamUtility.IO
 				return false;
 
 			var data = GetBaseEventData();
-			if(InputManager.GetButtonDown(m_SubmitButton))
-				ExecuteEvents.Execute(eventSystem.currentSelectedGameObject, data, ExecuteEvents.submitHandler);
+			// if(InputManager.GetButtonDown(m_SubmitButton))
+				// ExecuteEvents.Execute(eventSystem.currentSelectedGameObject, data, ExecuteEvents.submitHandler);
 
-			if(InputManager.GetButtonDown(m_CancelButton))
-				ExecuteEvents.Execute(eventSystem.currentSelectedGameObject, data, ExecuteEvents.cancelHandler);
+			// if(InputManager.GetButtonDown(m_CancelButton))
+				// ExecuteEvents.Execute(eventSystem.currentSelectedGameObject, data, ExecuteEvents.cancelHandler);
 			return data.used;
 		}
 

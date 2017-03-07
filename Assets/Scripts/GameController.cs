@@ -17,8 +17,7 @@ public class GameController : MonoBehaviour {
 	public GameObject tutorialStuff;
 	public GameObject tutorialSpawn;
 	public bool paused = false;
-
-	private bool _started = false;
+	private bool started = false;
 
 	private GameObject[] _respawns;
 	private PlayerID[] _ids = new PlayerID[] {PlayerID.One, PlayerID.Two, PlayerID.Three, PlayerID.Four};
@@ -43,7 +42,7 @@ public class GameController : MonoBehaviour {
 
 	public void OnPause() {
 		// Pause menu
-		if(_started) {
+		if(started) {
 			paused = !paused;
 			Time.timeScale = paused ? 0 : 1;
 			pausehud.SetActive(paused);
@@ -113,7 +112,7 @@ public class GameController : MonoBehaviour {
 			spectatorCamera.GetComponent<Camera>().rect = new Rect(1f * (number % width) / width, 0f, 1f * (width * height - number) / width, 1f / height);
 		}
 
-		_started = true;
+		started = true;
 		
 		#if !UNITY_EDITOR
 			transform.Find("Music").GetComponent<AudioSource>().Play();

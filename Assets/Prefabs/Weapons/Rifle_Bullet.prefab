@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4837542529717574}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ammo_machinegun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 114994411910225684}
   - component: {fileID: 96628255741006276}
   - component: {fileID: 136267213942871786}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rifle_Bullet
   m_TagString: Projectiles
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 4163319692757676}
   - component: {fileID: 33190539569902148}
   - component: {fileID: 23028937866578420}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mesh2_Group3_Group1_Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 4371100831813478}
   - component: {fileID: 33175168195520676}
   - component: {fileID: 23840676753172652}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mesh1_Group2_Group1_Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -350,6 +350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b4435e4dd9fd7345be2e2a1f0301e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: {fileID: 0}
   decalPrefab: {fileID: 1070317641154144, guid: 59491d05e6fe58a4dab182ca2a1097ee,
     type: 2}
   lifetime: 5
@@ -361,6 +362,7 @@ MonoBehaviour:
   explosionFalloff: 0
   explosionRadius: 0
   explosionFused: 0
+  knockbackForce: 0
   criticalChance: 0
   criticalMultiplier: 2
   incindiaryTime: 0

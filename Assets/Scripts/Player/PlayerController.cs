@@ -129,6 +129,7 @@ public class PlayerController : MonoBehaviour {
 			SetActive(true);
 			health = baseHealth;
 			killCount = 0;
+			GetComponent<PlayerMovement>().canJump = 0;
 		}
 
 		UpdateHUD();

@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114782895343473330}
   - component: {fileID: 114994411910225684}
   - component: {fileID: 64070288123564262}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Axe_Weapon
   m_TagString: Projectiles
   m_Icon: {fileID: 0}
@@ -138,6 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b4435e4dd9fd7345be2e2a1f0301e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: {fileID: 0}
   decalPrefab: {fileID: 0}
   lifetime: 0.01
   bulletDamage: 75
@@ -148,6 +149,7 @@ MonoBehaviour:
   explosionFalloff: 0
   explosionRadius: 0
   explosionFused: 0
+  knockbackForce: 0
   criticalChance: 0
   criticalMultiplier: 2
   incindiaryTime: 0

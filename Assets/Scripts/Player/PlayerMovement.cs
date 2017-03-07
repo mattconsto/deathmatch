@@ -5,12 +5,12 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 	/* Public Properties */
 	public float speed = 5f;
+	public int canJump = 0;
 	public AudioClip footsteps;
 	public AudioClip jump;
 
 	/* Private Properties */
 	private Rigidbody _rb;
-	private int _canJump = 0;
 	private float _step_timer = 15f;
 
 	// Use this for initialization
@@ -30,26 +30,30 @@ public class PlayerMovement : MonoBehaviour {
 
 	public void OnMoveHorizontal(float value) {
 		_rb.AddForce(transform.right * value * speed);
-		if(_canJump > 0) _step_timer -= Mathf.Abs(value);
+		if(canJump > 0) _step_timer -= Mathf.Abs(value);
 	}
 
 	public void OnMoveVertical(float value) {
 		_rb.AddForce(transform.forward * value * speed);
-		if(_canJump > 0) _step_timer -= Mathf.Abs(value);
+		if(canJump > 0) _step_timer -= Mathf.Abs(value);
 	}
 
 	public void OnJump(float value) {
-		if (value > 0 && _canJump > 0) {
+		if (value > 0 && canJump > 0) {
 			if(jump != null) GetComponent<AudioSource>().PlayOneShot(jump, 1f);
 			_rb.AddForce(transform.up * 500);
 		}
 	}
 
 	public void OnCollisionEnter (Collision col) {
-		if(col.gameObject.tag != "Unjumpable") _canJump++;
+		if(col.gameObject.tag != "Unjumpable" && col.gameObject.tag != "Projectiles") {
+			canJump++;
+		}
 	}
 
 	public void OnCollisionExit (Collision col) {
-		if(col.gameObject.tag != "Unjumpable") _canJump--;
+		if(col.gameObject.tag != "Unjumpable" && col.gameObject.tag != "Projectiles") {
+			canJump--;
+		}
 	}
 }

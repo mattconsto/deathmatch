@@ -57,51 +57,48 @@ public class BulletController : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision col) {
-		// Don't hit other projectiles
-		if(col.gameObject.tag != "Projectiles") {
-			// print(gameObject.name + " hit " + col.gameObject.name);
+		// print(gameObject.name + " hit " + col.gameObject.name);
 
-			bool destroy = false;
+		bool destroy = false;
 
-			if(col.gameObject.tag == "Player") {
-				print("Hit Player");
-				destroy = true;
-				float bdamage = Mathf.Max(damageMinimum, Mathf.Pow(_lifetime / lifetime, damageFalloff) + (Random.value - 0.5f) * damageSpread) * bulletDamage * (Random.value < criticalChance ? criticalMultiplier : 1);
-				if(col.gameObject.GetComponent<PlayerController>().health > 0) {
-					col.gameObject.GetComponent<PlayerController>().OnHurt(bdamage, incindiaryTime);
-					if(col.gameObject.GetComponent<PlayerController>().health < 0) parent.transform.parent.parent.GetComponent<PlayerController>().killCount++;
+		if(col.gameObject.tag == "Player") {
+			print("Hit Player");
+			destroy = true;
+			float bdamage = Mathf.Max(damageMinimum, Mathf.Pow(_lifetime / lifetime, damageFalloff) + (Random.value - 0.5f) * damageSpread) * bulletDamage * (Random.value < criticalChance ? criticalMultiplier : 1);
+			if(col.gameObject.GetComponent<PlayerController>().health > 0) {
+				col.gameObject.GetComponent<PlayerController>().OnHurt(bdamage, incindiaryTime);
+				if(col.gameObject.GetComponent<PlayerController>().health < 0) parent.transform.parent.parent.GetComponent<PlayerController>().killCount++;
+			}
+		}
+
+		if(col.gameObject.tag == "Target") {
+			print("Hit Target");
+			destroy = true;
+			float bdamage = Mathf.Max(damageMinimum, Mathf.Pow(_lifetime / lifetime, damageFalloff) + (Random.value - 0.5f) * damageSpread) * bulletDamage * (Random.value < criticalChance ? criticalMultiplier : 1);
+			if(col.gameObject.GetComponent<Destructable>().health > 0) {
+				col.gameObject.GetComponent<Destructable>().OnHurt(bdamage, incindiaryTime);
+				if(col.gameObject.GetComponent<Destructable>().health < 0) parent.transform.parent.parent.GetComponent<PlayerController>().killCount++;
+			}
+		}
+
+		if(explosionRadius > 0) {
+			// Find players within radius
+			GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+			foreach(GameObject player in players) {
+				float distance = (col.contacts[0].point - player.transform.position).magnitude;
+				if(distance <= explosionRadius) {
+					float edamage = Mathf.Pow((explosionRadius - distance) / explosionRadius, explosionFalloff) * explosionDamage;
+					player.GetComponent<PlayerController>().OnHurt(edamage, 0);
+					player.GetComponent<Rigidbody>().AddForce(Vector3.up * knockbackForce);
 				}
 			}
+		}
 
-			if(col.gameObject.tag == "Target") {
-				print("Hit Target");
-				destroy = true;
-				float bdamage = Mathf.Max(damageMinimum, Mathf.Pow(_lifetime / lifetime, damageFalloff) + (Random.value - 0.5f) * damageSpread) * bulletDamage * (Random.value < criticalChance ? criticalMultiplier : 1);
-				if(col.gameObject.GetComponent<Destructable>().health > 0) {
-					col.gameObject.GetComponent<Destructable>().OnHurt(bdamage, incindiaryTime);
-					if(col.gameObject.GetComponent<Destructable>().health < 0) parent.transform.parent.parent.GetComponent<PlayerController>().killCount++;
-				}
+		if(destroy || col.gameObject.tag != "Unjumpable" && !explosionFused) {
+			if(decalPrefab != null) {
+				Instantiate(decalPrefab, col.contacts[0].point, Quaternion.FromToRotation(Vector3.forward, col.contacts[0].normal));
 			}
-
-			if(explosionRadius > 0) {
-				// Find players within radius
-				GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-				foreach(GameObject player in players) {
-					float distance = (col.contacts[0].point - player.transform.position).magnitude;
-					if(distance <= explosionRadius) {
-						float edamage = Mathf.Pow((explosionRadius - distance) / explosionRadius, explosionFalloff) * explosionDamage;
-						player.GetComponent<PlayerController>().OnHurt(edamage, 0);
-						player.GetComponent<Rigidbody>().AddForce(Vector3.up * knockbackForce);
-					}
-				}
-			}
-
-			if(destroy || col.gameObject.tag != "Unjumpable" && !explosionFused) {
-				if(decalPrefab != null) {
-					Instantiate(decalPrefab, col.contacts[0].point, Quaternion.FromToRotation(Vector3.forward, col.contacts[0].normal));
-				}
-				Destroy(gameObject);
-			}
+			Destroy(gameObject);
 		}
 	}
 }
