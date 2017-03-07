@@ -9,6 +9,10 @@ public class ControlsController : MonoBehaviour, IPointerClickHandler {
 	public GameObject hidden;
 
 	public void OnPointerClick(PointerEventData ed) {
+		OnToggle();
+	}
+
+	public void OnToggle() {
 		target.SetActive(!target.activeSelf);
 		hidden.SetActive(!target.activeSelf);
 	}

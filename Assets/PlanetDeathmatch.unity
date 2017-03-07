@@ -15346,6 +15346,7 @@ GameObject:
   - component: {fileID: 604306086}
   - component: {fileID: 604306085}
   - component: {fileID: 604306088}
+  - component: {fileID: 604306089}
   m_Layer: 5
   m_Name: Controls Image
   m_TagString: Untagged
@@ -15430,6 +15431,242 @@ MonoBehaviour:
   controller: {fileID: 83929446}
   clip: {fileID: 8300000, guid: 7705de226f5f93142b1fc7f046d07fa2, type: 3}
   volume: 1
+--- !u!114 &604306089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 604306083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 720638557317ea344940e75788ad4061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inputEvents:
+  - name: FireOne
+    axisName: 
+    buttonName: Fire
+    keyCode: 0
+    eventType: 1
+    inputState: 0
+    playerID: 0
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 604306085}
+          m_MethodName: OnToggle
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+      m_TypeName: TeamUtility.IO.InputEvent+ActionEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onAxis:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: TeamUtility.IO.InputEvent+AxisEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - name: ReloadOne
+    axisName: 
+    buttonName: Reload
+    keyCode: 0
+    eventType: 1
+    inputState: 0
+    playerID: 0
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 604306085}
+          m_MethodName: OnToggle
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+      m_TypeName: TeamUtility.IO.InputEvent+ActionEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onAxis:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: TeamUtility.IO.InputEvent+AxisEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - name: FireTwo
+    axisName: 
+    buttonName: Fire
+    keyCode: 0
+    eventType: 1
+    inputState: 0
+    playerID: 1
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 604306085}
+          m_MethodName: OnToggle
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+      m_TypeName: TeamUtility.IO.InputEvent+ActionEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onAxis:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: TeamUtility.IO.InputEvent+AxisEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - name: ReloadTwo
+    axisName: 
+    buttonName: Reload
+    keyCode: 0
+    eventType: 1
+    inputState: 0
+    playerID: 1
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 604306085}
+          m_MethodName: OnToggle
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+      m_TypeName: TeamUtility.IO.InputEvent+ActionEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onAxis:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: TeamUtility.IO.InputEvent+AxisEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - name: FireThree
+    axisName: 
+    buttonName: Fire
+    keyCode: 0
+    eventType: 1
+    inputState: 0
+    playerID: 2
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 604306085}
+          m_MethodName: OnToggle
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+      m_TypeName: TeamUtility.IO.InputEvent+ActionEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onAxis:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: TeamUtility.IO.InputEvent+AxisEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - name: ReloadThree
+    axisName: 
+    buttonName: Reload
+    keyCode: 0
+    eventType: 1
+    inputState: 0
+    playerID: 2
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 604306085}
+          m_MethodName: OnToggle
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+      m_TypeName: TeamUtility.IO.InputEvent+ActionEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onAxis:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: TeamUtility.IO.InputEvent+AxisEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - name: FireFour
+    axisName: 
+    buttonName: Fire
+    keyCode: 0
+    eventType: 1
+    inputState: 0
+    playerID: 3
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 604306085}
+          m_MethodName: OnToggle
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+      m_TypeName: TeamUtility.IO.InputEvent+ActionEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onAxis:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: TeamUtility.IO.InputEvent+AxisEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - name: ReloadFour
+    axisName: 
+    buttonName: Reload
+    keyCode: 0
+    eventType: 1
+    inputState: 0
+    playerID: 3
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 604306085}
+          m_MethodName: OnToggle
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+      m_TypeName: TeamUtility.IO.InputEvent+ActionEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onAxis:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: TeamUtility.IO.InputEvent+AxisEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
 --- !u!1001 &616112714
 Prefab:
   m_ObjectHideFlags: 0
@@ -19175,19 +19412,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4863882679251060, guid: 19f6d43265213bb4e810ddd25d371d1f, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.13426788
+      value: 0.1342679
       objectReference: {fileID: 0}
     - target: {fileID: 4863882679251060, guid: 19f6d43265213bb4e810ddd25d371d1f, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0.22663891
+      value: 0.22663893
       objectReference: {fileID: 0}
     - target: {fileID: 4863882679251060, guid: 19f6d43265213bb4e810ddd25d371d1f, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0.07640652
+      value: 0.07640653
       objectReference: {fileID: 0}
     - target: {fileID: 4863882679251060, guid: 19f6d43265213bb4e810ddd25d371d1f, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.96164906
+      value: 0.9616491
       objectReference: {fileID: 0}
     - target: {fileID: 4863882679251060, guid: 19f6d43265213bb4e810ddd25d371d1f, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -20534,6 +20771,7 @@ GameObject:
   - component: {fileID: 833142530}
   - component: {fileID: 833142532}
   - component: {fileID: 833142533}
+  - component: {fileID: 833142534}
   m_Layer: 5
   m_Name: Controls Image
   m_TagString: Untagged
@@ -20618,6 +20856,242 @@ MonoBehaviour:
   controller: {fileID: 83929446}
   clip: {fileID: 8300000, guid: 7705de226f5f93142b1fc7f046d07fa2, type: 3}
   volume: 1
+--- !u!114 &833142534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 833142528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 720638557317ea344940e75788ad4061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inputEvents:
+  - name: FireOne
+    axisName: 
+    buttonName: Fire
+    keyCode: 0
+    eventType: 1
+    inputState: 0
+    playerID: 0
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 833142532}
+          m_MethodName: OnToggle
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+      m_TypeName: TeamUtility.IO.InputEvent+ActionEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onAxis:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: TeamUtility.IO.InputEvent+AxisEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - name: ReloadOne
+    axisName: 
+    buttonName: Reload
+    keyCode: 0
+    eventType: 1
+    inputState: 0
+    playerID: 0
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 833142532}
+          m_MethodName: OnToggle
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+      m_TypeName: TeamUtility.IO.InputEvent+ActionEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onAxis:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: TeamUtility.IO.InputEvent+AxisEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - name: FireTwo
+    axisName: 
+    buttonName: Fire
+    keyCode: 0
+    eventType: 1
+    inputState: 0
+    playerID: 1
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 833142532}
+          m_MethodName: OnToggle
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+      m_TypeName: TeamUtility.IO.InputEvent+ActionEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onAxis:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: TeamUtility.IO.InputEvent+AxisEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - name: ReloadTwo
+    axisName: 
+    buttonName: Reload
+    keyCode: 0
+    eventType: 1
+    inputState: 0
+    playerID: 1
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 833142532}
+          m_MethodName: OnToggle
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+      m_TypeName: TeamUtility.IO.InputEvent+ActionEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onAxis:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: TeamUtility.IO.InputEvent+AxisEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - name: FireThree
+    axisName: 
+    buttonName: Fire
+    keyCode: 0
+    eventType: 1
+    inputState: 0
+    playerID: 2
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 833142532}
+          m_MethodName: OnToggle
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+      m_TypeName: TeamUtility.IO.InputEvent+ActionEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onAxis:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: TeamUtility.IO.InputEvent+AxisEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - name: ReloadThree
+    axisName: 
+    buttonName: Reload
+    keyCode: 0
+    eventType: 1
+    inputState: 0
+    playerID: 2
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 833142532}
+          m_MethodName: OnToggle
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+      m_TypeName: TeamUtility.IO.InputEvent+ActionEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onAxis:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: TeamUtility.IO.InputEvent+AxisEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - name: FireFour
+    axisName: 
+    buttonName: Fire
+    keyCode: 0
+    eventType: 1
+    inputState: 0
+    playerID: 3
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 833142532}
+          m_MethodName: OnToggle
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+      m_TypeName: TeamUtility.IO.InputEvent+ActionEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onAxis:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: TeamUtility.IO.InputEvent+AxisEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - name: ReloadFour
+    axisName: 
+    buttonName: Reload
+    keyCode: 0
+    eventType: 1
+    inputState: 0
+    playerID: 3
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 833142532}
+          m_MethodName: OnToggle
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+      m_TypeName: TeamUtility.IO.InputEvent+ActionEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onAxis:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: TeamUtility.IO.InputEvent+AxisEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
 --- !u!1001 &833583231
 Prefab:
   m_ObjectHideFlags: 0
@@ -29822,11 +30296,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4863882679251060, guid: 19f6d43265213bb4e810ddd25d371d1f, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.12161574
+      value: 0.12161573
       objectReference: {fileID: 0}
     - target: {fileID: 4863882679251060, guid: 19f6d43265213bb4e810ddd25d371d1f, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0.11805521
+      value: 0.1180552
       objectReference: {fileID: 0}
     - target: {fileID: 4863882679251060, guid: 19f6d43265213bb4e810ddd25d371d1f, type: 2}
       propertyPath: m_LocalRotation.z
@@ -29834,7 +30308,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4863882679251060, guid: 19f6d43265213bb4e810ddd25d371d1f, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.97635925
+      value: 0.9763592
       objectReference: {fileID: 0}
     - target: {fileID: 4863882679251060, guid: 19f6d43265213bb4e810ddd25d371d1f, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
