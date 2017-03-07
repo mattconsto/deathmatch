@@ -94,8 +94,6 @@ public class GunController : MonoBehaviour {
 
 			// Recoil
 			transform.parent.parent.GetComponent<PlayerMouseLook>().Recoil(recoilForce, recoilTime, recoilFalloff);
-			// transform.parent.parent.Find("Camera").Rotate(-recoilForce, 0, 0);
-			// transform.parent.parent.Find("Camera").localEulerAngles = new Vector3((Mathf.Clamp((transform.parent.parent.Find("Camera").localEulerAngles.x + 90) % 360, 10, 170) + 270) % 360, 0, 0);
 
 			return true;
 		}

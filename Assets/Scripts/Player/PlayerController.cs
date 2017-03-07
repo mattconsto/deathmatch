@@ -29,7 +29,6 @@ public class PlayerController : MonoBehaviour {
 	public PlayerMouseLook mouselook_script;
 
 	/* Private Properties */
-	private Rigidbody _body;
 
 	private float _hurtOverlayTimer = 0f;
 	private float _messageTimer = 0f;
@@ -53,8 +52,6 @@ public class PlayerController : MonoBehaviour {
 	/* Unity Methods */
 
 	public void Start () {
-		_body = GetComponent<Rigidbody>();
-
 		Transform hand = transform.Find("Hand");
 		for(int i = 0; i < guns.Count; i++) {
 			guns[i] = Instantiate(guns[i], hand.transform.position, hand.transform.rotation);
@@ -99,23 +96,17 @@ public class PlayerController : MonoBehaviour {
 			OnHurt(Time.deltaTime * 5, 0);
 
 			var emission = _fireParticles.GetComponent<ParticleSystem>().emission;
-			var rate = emission.rate;
-			rate.constantMax = 10;
-			emission.rate = rate;
+			emission.rateOverTime = 10;
 		} else {
 			var emission = _fireParticles.GetComponent<ParticleSystem>().emission;
-			var rate = emission.rate;
-			rate.constantMax = 0;
-			emission.rate = rate;
+			emission.rateOverTime = 0;
 		}
 
 		if(_bloodTimer > 0) {
 			_bloodTimer -= Time.deltaTime;
 		} else {
 			var emission = _bloodParticles.GetComponent<ParticleSystem>().emission;
-			var rate = emission.rate;
-			rate.constantMax = 0;
-			emission.rate = rate;
+			emission.rateOverTime = 0;
 		}
 
 		if(_damageBatchingTimer < 0) {
@@ -191,9 +182,7 @@ public class PlayerController : MonoBehaviour {
 			_messageTimer = 1f;
 
 			var emission = _bloodParticles.GetComponent<ParticleSystem>().emission;
-			var rate = emission.rate;
-			rate.constantMax = 10;
-			emission.rate = rate;
+			emission.rateOverTime = 10;
 			_bloodTimer = 0.25f;
 		}
 	}
@@ -240,10 +229,5 @@ public class PlayerController : MonoBehaviour {
 		message = text;
 		_messageTimer = time;
 		Debug.Log(message);
-	}
-
-	public void OnCollisionEnter (Collision col) {
-		if(col.gameObject.tag == "Unjumpable")
-			return;
 	}
 }

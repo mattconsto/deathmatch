@@ -50,6 +50,16 @@ public class BulletController : MonoBehaviour {
 						player.GetComponent<Rigidbody>().AddForce(Vector3.up * knockbackForce);
 					}
 				}
+
+				GameObject[] targets = GameObject.FindGameObjectsWithTag("Target");
+				foreach(GameObject player in targets) {
+					float distance = (transform.position - player.transform.position).magnitude;
+					if(distance <= explosionRadius) {
+						float edamage = Mathf.Pow((explosionRadius - distance) / explosionRadius, explosionFalloff) * explosionDamage;
+						player.GetComponent<PlayerController>().OnHurt(edamage, 0);
+						player.GetComponent<Rigidbody>().AddForce(Vector3.up * knockbackForce);
+					}
+				}
 			}
 
 			Destroy(gameObject);
@@ -85,6 +95,16 @@ public class BulletController : MonoBehaviour {
 			// Find players within radius
 			GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
 			foreach(GameObject player in players) {
+				float distance = (col.contacts[0].point - player.transform.position).magnitude;
+				if(distance <= explosionRadius) {
+					float edamage = Mathf.Pow((explosionRadius - distance) / explosionRadius, explosionFalloff) * explosionDamage;
+					player.GetComponent<PlayerController>().OnHurt(edamage, 0);
+					player.GetComponent<Rigidbody>().AddForce(Vector3.up * knockbackForce);
+				}
+			}
+
+			GameObject[] targets = GameObject.FindGameObjectsWithTag("Target");
+			foreach(GameObject player in targets) {
 				float distance = (col.contacts[0].point - player.transform.position).magnitude;
 				if(distance <= explosionRadius) {
 					float edamage = Mathf.Pow((explosionRadius - distance) / explosionRadius, explosionFalloff) * explosionDamage;

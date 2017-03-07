@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	/* Private Properties */
 	private Rigidbody _rb;
-	private float _step_timer = 15f;
+	private float _stepTimer = 15f;
 
 	// Use this for initialization
 	void Start () {
@@ -20,8 +20,8 @@ public class PlayerMovement : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if(_step_timer < 0) {
-			_step_timer = 15f;
+		if(_stepTimer < 0) {
+			_stepTimer = 15f;
 			if(footsteps != null) {
 				GetComponent<AudioSource>().PlayOneShot(footsteps, 0.5f);
 			}
@@ -30,12 +30,12 @@ public class PlayerMovement : MonoBehaviour {
 
 	public void OnMoveHorizontal(float value) {
 		_rb.AddForce(transform.right * value * speed);
-		if(canJump > 0) _step_timer -= Mathf.Abs(value);
+		if(canJump > 0) _stepTimer -= Mathf.Abs(value);
 	}
 
 	public void OnMoveVertical(float value) {
 		_rb.AddForce(transform.forward * value * speed);
-		if(canJump > 0) _step_timer -= Mathf.Abs(value);
+		if(canJump > 0) _stepTimer -= Mathf.Abs(value);
 	}
 
 	public void OnJump(float value) {
@@ -46,14 +46,10 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	public void OnCollisionEnter (Collision col) {
-		if(col.gameObject.tag != "Unjumpable" && col.gameObject.tag != "Projectiles") {
-			canJump++;
-		}
+		if(col.gameObject.tag != "Unjumpable" && col.gameObject.tag != "Projectiles") canJump++;
 	}
 
 	public void OnCollisionExit (Collision col) {
-		if(col.gameObject.tag != "Unjumpable" && col.gameObject.tag != "Projectiles") {
-			canJump--;
-		}
+		if(col.gameObject.tag != "Unjumpable" && col.gameObject.tag != "Projectiles") canJump--;
 	}
 }

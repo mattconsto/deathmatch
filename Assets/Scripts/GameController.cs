@@ -46,8 +46,8 @@ public class GameController : MonoBehaviour {
 	}
 
 	public void Update() {
-		titleSelected.GetComponent<IPointerEnterHandler>().OnPointerEnter(null);
-		pauseSelected.GetComponent<IPointerEnterHandler>().OnPointerEnter(null);
+		if(!started) titleSelected.GetComponent<IPointerEnterHandler>().OnPointerEnter(null);
+		if(paused)   pauseSelected.GetComponent<IPointerEnterHandler>().OnPointerEnter(null);
 	}
 
 	public IEnumerator WaitForRealSeconds(float time) {

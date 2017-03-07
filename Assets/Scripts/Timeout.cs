@@ -6,6 +6,7 @@ public class Timeout : MonoBehaviour {
 	public float lifetime = 5.0f;
 
 	private ParticleSystem _ps = null;
+	private bool _emitting = true;
 
 	public void Start() {
 		_ps = GetComponent<ParticleSystem>();
@@ -13,12 +14,14 @@ public class Timeout : MonoBehaviour {
 	
 	public void Update () {
 		lifetime -= Time.deltaTime;
-		if (lifetime < 1) {
+
+		// Stop emissions 1s before deleting the object, so it looks better. 
+		if (_emitting && lifetime < 1 && _ps != null) {
 			var emission = _ps.emission;
-			var rate = emission.rate;
-			rate.constantMax = 0;
-			emission.rate = rate;
+			emission.rateOverTime = 0;
+			_emitting = false;
 		}
+
 		if (lifetime < 0) Destroy(gameObject);
 	}
 }

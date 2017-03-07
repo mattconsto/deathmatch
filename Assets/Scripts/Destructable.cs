@@ -23,23 +23,17 @@ public class Destructable : MonoBehaviour {
 			OnHurt(Time.deltaTime * 5, 0);
 
 			var emission = _fireParticles.GetComponent<ParticleSystem>().emission;
-			var rate = emission.rate;
-			rate.constantMax = 10;
-			emission.rate = rate;
+			emission.rateOverTime = 10;
 		} else {
 			var emission = _fireParticles.GetComponent<ParticleSystem>().emission;
-			var rate = emission.rate;
-			rate.constantMax = 0;
-			emission.rate = rate;
+			emission.rateOverTime = 0;
 		}
 
 		if(_bloodTimer > 0) {
 			_bloodTimer -= Time.deltaTime;
 		} else {
 			var emission = _bloodParticles.GetComponent<ParticleSystem>().emission;
-			var rate = emission.rate;
-			rate.constantMax = 0;
-			emission.rate = rate;
+			emission.rateOverTime = 0;
 		}
 	}
 
@@ -51,9 +45,7 @@ public class Destructable : MonoBehaviour {
 			gameObject.SetActive(false);
 		} else {
 			var emission = _bloodParticles.GetComponent<ParticleSystem>().emission;
-			var rate = emission.rate;
-			rate.constantMax = 10;
-			emission.rate = rate;
+			emission.rateOverTime = 10;
 			_bloodTimer = 0.25f;
 		}
 	}
