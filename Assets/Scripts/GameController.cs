@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using TeamUtility.IO;
+using UnityEngine.EventSystems;
 
 /*
 	Game Controller
@@ -13,7 +14,9 @@ public class GameController : MonoBehaviour {
 	public Camera spectatorCamera;
 	public GameObject playerPrefab;
 	public GameObject titlehud;
+	public GameObject titleSelected;
 	public GameObject pausehud;
+	public GameObject pauseSelected;
 	public GameObject tutorialStuff;
 	public GameObject tutorialSpawn;
 	public bool paused = false;
@@ -21,8 +24,9 @@ public class GameController : MonoBehaviour {
 
 	private GameObject[] _respawns;
 	private PlayerID[] _ids = new PlayerID[] {PlayerID.One, PlayerID.Two, PlayerID.Three, PlayerID.Four};
+	private bool _moveSelector = true;
 
-	public void Start () {
+	public void Start() {
 		Time.timeScale = 1;
 
 		/* Pick a camera for the title screen */
@@ -37,6 +41,83 @@ public class GameController : MonoBehaviour {
 			_respawns[0].transform.position = new Vector3(0f, 2f, 0f);
 		} else {
 			_respawns = _respawns.OrderBy(x => Random.value).ToArray();
+		}
+
+	}
+
+	public void Update() {
+		titleSelected.GetComponent<IPointerEnterHandler>().OnPointerEnter(null);
+		pauseSelected.GetComponent<IPointerEnterHandler>().OnPointerEnter(null);
+	}
+
+	public IEnumerator WaitForRealSeconds(float time) {
+		float start = Time.realtimeSinceStartup;
+		while (Time.realtimeSinceStartup < start + time) yield return null;
+	}
+
+	IEnumerator LateCall() {
+		_moveSelector = false;
+		yield return StartCoroutine(WaitForRealSeconds(0.2f));
+		_moveSelector = true;
+	}
+
+	public void OnMoveVertical(float value) {
+		if(!_moveSelector) return;
+
+		if(!started) {
+			if(value > 0) {
+				if(titleSelected.GetComponent<Selectable>().navigation.selectOnUp != null) {
+					titleSelected.GetComponent<IPointerExitHandler>().OnPointerExit(null);
+					titleSelected = titleSelected.GetComponent<Selectable>().navigation.selectOnUp.gameObject;
+				}
+				StartCoroutine(LateCall());
+			} else if(value < 0) {
+				if(titleSelected.GetComponent<Selectable>().navigation.selectOnDown != null) {
+					titleSelected.GetComponent<IPointerExitHandler>().OnPointerExit(null);
+					titleSelected = titleSelected.GetComponent<Selectable>().navigation.selectOnDown.gameObject;
+				}
+				StartCoroutine(LateCall());
+			}
+		} else if(paused) {
+			if(value > 0) {
+				if(pauseSelected.GetComponent<Selectable>().navigation.selectOnUp != null) {
+					pauseSelected.GetComponent<IPointerExitHandler>().OnPointerExit(null);
+					pauseSelected = pauseSelected.GetComponent<Selectable>().navigation.selectOnUp.gameObject;
+				}
+				StartCoroutine(LateCall());
+			} else if(value < 0) {
+				if(pauseSelected.GetComponent<Selectable>().navigation.selectOnDown != null) {
+					pauseSelected.GetComponent<IPointerExitHandler>().OnPointerExit(null);
+					pauseSelected = pauseSelected.GetComponent<Selectable>().navigation.selectOnDown.gameObject;
+				}
+				StartCoroutine(LateCall());
+			}
+		}
+	}
+
+	public void OnMoveHorizontal(float value) {
+		if(!_moveSelector && (!started && !paused)) return;
+
+		if(value > 0) {
+			if(titleSelected.GetComponent<Selectable>().navigation.selectOnRight != null) {
+				titleSelected.GetComponent<IPointerExitHandler>().OnPointerExit(null);
+				titleSelected = titleSelected.GetComponent<Selectable>().navigation.selectOnRight.gameObject;
+			}
+			StartCoroutine(LateCall());
+		} else if(value < 0) {
+			if(titleSelected.GetComponent<Selectable>().navigation.selectOnLeft != null) {
+				titleSelected.GetComponent<IPointerExitHandler>().OnPointerExit(null);
+				titleSelected = titleSelected.GetComponent<Selectable>().navigation.selectOnLeft.gameObject;
+			}
+			StartCoroutine(LateCall());
+		}
+	}
+
+	public void OnSelect() {
+		if(!started) {
+			titleSelected.GetComponent<IPointerClickHandler>().OnPointerClick(null);
+		} else if(paused) {
+			pauseSelected.GetComponent<IPointerClickHandler>().OnPointerClick(null);
 		}
 	}
 
