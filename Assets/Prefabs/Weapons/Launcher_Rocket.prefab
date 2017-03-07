@@ -392,6 +392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b4435e4dd9fd7345be2e2a1f0301e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: {fileID: 0}
   decalPrefab: {fileID: 1343007229538212, guid: d5e52becaeac2ec4c95862fe405931d2,
     type: 2}
   lifetime: 5
@@ -403,7 +404,7 @@ MonoBehaviour:
   explosionFalloff: 1
   explosionRadius: 3
   explosionFused: 0
-  knockbackForce: 1000
+  knockbackForce: 2000
   criticalChance: 0
   criticalMultiplier: 2
   incindiaryTime: 0

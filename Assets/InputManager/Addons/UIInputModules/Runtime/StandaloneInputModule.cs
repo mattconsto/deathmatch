@@ -166,8 +166,8 @@ namespace TeamUtility.IO
 				return false;
 
 			var shouldActivate = m_ForceModuleActive;
-			shouldActivate |= InputManager.GetButtonDown(m_SubmitButton);
-			shouldActivate |= InputManager.GetButtonDown(m_CancelButton);
+			//shouldActivate |= InputManager.GetButtonDown(m_SubmitButton);
+			//shouldActivate |= InputManager.GetButtonDown(m_CancelButton);
 			shouldActivate |= !Mathf.Approximately(InputManager.GetAxisRaw(m_HorizontalAxis), 0.0f);
 			shouldActivate |= !Mathf.Approximately(InputManager.GetAxisRaw(m_VerticalAxis), 0.0f);
 			shouldActivate |= (m_MousePosition - m_LastMousePosition).sqrMagnitude > 0.0f;

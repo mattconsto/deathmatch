@@ -199,10 +199,13 @@ public class PlayerController : MonoBehaviour {
 
 	/* Event Listeners */
 
-	public void OnFire() {
+	public void OnFire(float value) {
 		if(_respawnTimer > 0) return;
-		GunController controller = guns[selectedGun].GetComponent<GunController>();
-		if(controller != null) controller.Fire();
+		
+		if(value > 0) {
+			GunController controller = guns[selectedGun].GetComponent<GunController>();
+			if(controller != null) controller.Fire();
+		}
 	}
 
 	public void OnSwitch(int value) {
@@ -233,9 +236,9 @@ public class PlayerController : MonoBehaviour {
   	}
 
 	public void SetMesage(string text, float time) {
-	    message = text;
-	    _messageTimer = time;
-	    Debug.Log(message);
+		message = text;
+		_messageTimer = time;
+		Debug.Log(message);
 	}
 
 	public void OnCollisionEnter (Collision col) {

@@ -1182,7 +1182,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1090383527944902}
   m_LocalRotation: {x: 0.06493943, y: -0.24026018, z: -0.089895725, w: 0.96435297}
-  m_LocalPosition: {x: -0.72952926, y: 9.925032, z: 0.9805887}
+  m_LocalPosition: {x: -0.5149131, y: 9.919017, z: 1.1610277}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224509041552482698}
@@ -1549,10 +1549,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputEvents:
   - name: Jump
-    axisName: 
+    axisName: Jump
     buttonName: Jump
     keyCode: 0
-    eventType: 1
+    eventType: 0
     inputState: 2
     playerID: 0
     onAction:
@@ -1573,7 +1573,18 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=null
     onAxis:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 114235379144279314}
+          m_MethodName: OnJump
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
       m_TypeName: TeamUtility.IO.InputEvent+AxisEvent, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   - name: MoveHorizontal
@@ -1733,10 +1744,10 @@ MonoBehaviour:
       m_TypeName: TeamUtility.IO.InputEvent+AxisEvent, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   - name: Fire
-    axisName: Submit
-    buttonName: Submit
+    axisName: Fire
+    buttonName: Fire
     keyCode: 0
-    eventType: 1
+    eventType: 0
     inputState: 2
     playerID: 0
     onAction:
@@ -1759,7 +1770,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 114352781272293048}
-          m_MethodName: OnMoveVertical
+          m_MethodName: OnFire
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1773,7 +1784,7 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=null
   - name: SwitchLeft
     axisName: Submit
-    buttonName: LeftTrigger
+    buttonName: LeftBumper
     keyCode: 0
     eventType: 1
     inputState: 0
@@ -1812,7 +1823,7 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=null
   - name: SwitchRight
     axisName: Submit
-    buttonName: RightTrigger
+    buttonName: RightBumper
     keyCode: 0
     eventType: 1
     inputState: 0
@@ -1851,7 +1862,7 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=null
   - name: Reload
     axisName: Submit
-    buttonName: Cancel
+    buttonName: Reload
     keyCode: 0
     eventType: 1
     inputState: 0

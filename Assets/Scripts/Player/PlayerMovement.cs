@@ -38,8 +38,8 @@ public class PlayerMovement : MonoBehaviour {
 		if(_canJump > 0) _step_timer -= Mathf.Abs(value);
 	}
 
-	public void OnJump() {
-		if (_canJump > 0) {
+	public void OnJump(float value) {
+		if (value > 0 && _canJump > 0) {
 			if(jump != null) GetComponent<AudioSource>().PlayOneShot(jump, 1f);
 			_rb.AddForce(transform.up * 500);
 		}

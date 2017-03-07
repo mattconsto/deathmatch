@@ -5,7 +5,7 @@ TODO
 
 * Refactoring, Optimisation and Bug Fixes
 * Linux full screen
-* Gamepad bindings everywhere and everyplatform, but especially WebGL
+* Movement at low framerates
 
 ## Tutorial
 

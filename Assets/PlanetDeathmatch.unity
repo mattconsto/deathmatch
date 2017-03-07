@@ -882,11 +882,11 @@ MonoBehaviour:
   inputDeviceChecksPerSecond: 30
   updateJoystickCountInterval: 1
   keyboardConfiguration: KeyboardAndMouse
-  windowsJoystickConfiguration: Windows_Gamepad
-  osxJoystickConfiguration: OSX_Gamepad
-  linuxJoystickConfiguration: Linux_Gamepad
-  leftTriggerAxis: LeftTrigger
-  rightTriggerAxis: RightTrigger
+  windowsJoystickConfiguration: Windows_Gamepad4
+  osxJoystickConfiguration: OSX_Gamepad4
+  linuxJoystickConfiguration: Linux_Gamepad4
+  leftTriggerAxis: Jump
+  rightTriggerAxis: Fire
   dpadHorizontalAxis: DPADHorizontal
   dpadVerticalAxis: DPADVertical
 --- !u!4 &63075180
@@ -4049,6 +4049,7 @@ GameObject:
   - component: {fileID: 83929448}
   - component: {fileID: 83929447}
   - component: {fileID: 83929449}
+  - component: {fileID: 83929450}
   m_Layer: 0
   m_Name: Game Controller
   m_TagString: Untagged
@@ -4174,6 +4175,130 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &83929450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 83929446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 720638557317ea344940e75788ad4061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inputEvents:
+  - name: MenuOne
+    axisName: 
+    buttonName: Menu
+    keyCode: 0
+    eventType: 1
+    inputState: 0
+    playerID: 0
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 83929447}
+          m_MethodName: OnPause
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 1
+      m_TypeName: TeamUtility.IO.InputEvent+ActionEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onAxis:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: TeamUtility.IO.InputEvent+AxisEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - name: MenuTwo
+    axisName: 
+    buttonName: Menu
+    keyCode: 0
+    eventType: 1
+    inputState: 0
+    playerID: 1
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 83929447}
+          m_MethodName: OnPause
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 1
+      m_TypeName: TeamUtility.IO.InputEvent+ActionEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onAxis:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: TeamUtility.IO.InputEvent+AxisEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - name: MenuThree
+    axisName: 
+    buttonName: Menu
+    keyCode: 0
+    eventType: 1
+    inputState: 0
+    playerID: 2
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 83929447}
+          m_MethodName: OnPause
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 1
+      m_TypeName: TeamUtility.IO.InputEvent+ActionEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onAxis:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: TeamUtility.IO.InputEvent+AxisEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - name: MenuFour
+    axisName: 
+    buttonName: Menu
+    keyCode: 0
+    eventType: 1
+    inputState: 0
+    playerID: 3
+    onAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 83929447}
+          m_MethodName: OnPause
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 1
+      m_TypeName: TeamUtility.IO.InputEvent+ActionEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onAxis:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: TeamUtility.IO.InputEvent+AxisEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
 --- !u!1001 &91156952
 Prefab:
   m_ObjectHideFlags: 0
@@ -34311,34 +34436,6 @@ MonoBehaviour:
       type: 1
       axis: 1
       joystick: 0
-    - name: MenuHorizontal
-      description: 
-      positive: 100
-      negative: 97
-      altPositive: 275
-      altNegative: 276
-      deadZone: 0
-      gravity: 3
-      sensitivity: 3
-      snap: 1
-      invert: 0
-      type: 2
-      axis: 0
-      joystick: 0
-    - name: MenuVertical
-      description: 
-      positive: 119
-      negative: 115
-      altPositive: 273
-      altNegative: 274
-      deadZone: 0
-      gravity: 3
-      sensitivity: 3
-      snap: 1
-      invert: 0
-      type: 2
-      axis: 0
-      joystick: 0
     - name: Jump
       description: 
       positive: 32
@@ -34346,16 +34443,30 @@ MonoBehaviour:
       altPositive: 0
       altNegative: 0
       deadZone: 0
-      gravity: 0
-      sensitivity: 0
-      snap: 0
+      gravity: 3
+      sensitivity: 3
+      snap: 1
       invert: 0
-      type: 0
+      type: 2
       axis: 0
       joystick: 0
-    - name: Submit
+    - name: Fire
       description: 
       positive: 323
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 3
+      sensitivity: 3
+      snap: 1
+      invert: 0
+      type: 2
+      axis: 0
+      joystick: 0
+    - name: Reload
+      description: 
+      positive: 114
       negative: 0
       altPositive: 0
       altNegative: 0
@@ -34367,9 +34478,9 @@ MonoBehaviour:
       type: 0
       axis: 0
       joystick: 0
-    - name: Cancel
+    - name: Menu
       description: 
-      positive: 114
+      positive: 27
       negative: 0
       altPositive: 0
       altNegative: 0
@@ -34409,7 +34520,7 @@ MonoBehaviour:
       type: 2
       axis: 0
       joystick: 0
-    - name: RightTrigger
+    - name: RightBumper
       description: 
       positive: 101
       negative: 0
@@ -34423,7 +34534,7 @@ MonoBehaviour:
       type: 0
       axis: 0
       joystick: 0
-    - name: LeftTrigger
+    - name: LeftBumper
       description: 
       positive: 113
       negative: 0
@@ -34496,37 +34607,37 @@ MonoBehaviour:
       type: 3
       axis: 4
       joystick: 0
-    - name: MenuHorizontal
-      description: 
-      positive: 0
-      negative: 0
-      altPositive: 0
-      altNegative: 0
-      deadZone: 0.2
-      gravity: 0
-      sensitivity: 1
-      snap: 0
-      invert: 0
-      type: 3
-      axis: 0
-      joystick: 0
-    - name: MenuVertical
-      description: 
-      positive: 0
-      negative: 0
-      altPositive: 0
-      altNegative: 0
-      deadZone: 0.2
-      gravity: 0
-      sensitivity: 1
-      snap: 0
-      invert: 1
-      type: 3
-      axis: 1
-      joystick: 0
     - name: Jump
       description: 
-      positive: 354
+      positive: 0
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 0
+      sensitivity: 1000
+      snap: 1
+      invert: 0
+      type: 3
+      axis: 8
+      joystick: 0
+    - name: Fire
+      description: 
+      positive: 0
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 0
+      sensitivity: 1000
+      snap: 1
+      invert: 0
+      type: 3
+      axis: 9
+      joystick: 0
+    - name: Reload
+      description: 
+      positive: 350
       negative: 0
       altPositive: 0
       altNegative: 0
@@ -34538,23 +34649,9 @@ MonoBehaviour:
       type: 0
       axis: 0
       joystick: 0
-    - name: Submit
+    - name: Menu
       description: 
-      positive: 355
-      negative: 0
-      altPositive: 0
-      altNegative: 0
-      deadZone: 0
-      gravity: 0
-      sensitivity: 0
-      snap: 0
-      invert: 0
-      type: 0
-      axis: 0
-      joystick: 0
-    - name: Cancel
-      description: 
-      positive: 356
+      positive: 357
       negative: 0
       altPositive: 0
       altNegative: 0
@@ -34594,33 +34691,33 @@ MonoBehaviour:
       type: 3
       axis: 6
       joystick: 0
-    - name: RightTrigger
+    - name: RightBumper
       description: 
-      positive: 0
+      positive: 355
       negative: 0
       altPositive: 0
       altNegative: 0
       deadZone: 0
       gravity: 0
-      sensitivity: 1000
-      snap: 1
+      sensitivity: 0
+      snap: 0
       invert: 0
-      type: 3
-      axis: 9
+      type: 0
+      axis: 0
       joystick: 0
-    - name: LeftTrigger
+    - name: LeftBumper
       description: 
-      positive: 0
+      positive: 354
       negative: 0
       altPositive: 0
       altNegative: 0
       deadZone: 0
       gravity: 0
-      sensitivity: 1000
-      snap: 1
+      sensitivity: 0
+      snap: 0
       invert: 0
-      type: 3
-      axis: 8
+      type: 0
+      axis: 0
       joystick: 0
     isExpanded: 1
   - name: Windows_Gamepad2
@@ -34681,37 +34778,37 @@ MonoBehaviour:
       type: 3
       axis: 4
       joystick: 1
-    - name: MenuHorizontal
-      description: 
-      positive: 0
-      negative: 0
-      altPositive: 0
-      altNegative: 0
-      deadZone: 0.2
-      gravity: 0
-      sensitivity: 1
-      snap: 0
-      invert: 0
-      type: 3
-      axis: 0
-      joystick: 1
-    - name: MenuVertical
-      description: 
-      positive: 0
-      negative: 0
-      altPositive: 0
-      altNegative: 0
-      deadZone: 0.2
-      gravity: 0
-      sensitivity: 1
-      snap: 0
-      invert: 1
-      type: 3
-      axis: 1
-      joystick: 1
     - name: Jump
       description: 
-      positive: 374
+      positive: 0
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 0
+      sensitivity: 1000
+      snap: 1
+      invert: 0
+      type: 3
+      axis: 8
+      joystick: 1
+    - name: Fire
+      description: 
+      positive: 0
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 0
+      sensitivity: 1000
+      snap: 1
+      invert: 0
+      type: 3
+      axis: 9
+      joystick: 1
+    - name: Reload
+      description: 
+      positive: 370
       negative: 0
       altPositive: 0
       altNegative: 0
@@ -34723,23 +34820,9 @@ MonoBehaviour:
       type: 0
       axis: 0
       joystick: 1
-    - name: Submit
+    - name: Menu
       description: 
-      positive: 375
-      negative: 0
-      altPositive: 0
-      altNegative: 0
-      deadZone: 0
-      gravity: 0
-      sensitivity: 0
-      snap: 0
-      invert: 0
-      type: 0
-      axis: 0
-      joystick: 1
-    - name: Cancel
-      description: 
-      positive: 376
+      positive: 377
       negative: 0
       altPositive: 0
       altNegative: 0
@@ -34779,35 +34862,35 @@ MonoBehaviour:
       type: 3
       axis: 6
       joystick: 1
-    - name: RightTrigger
+    - name: RightBumper
       description: 
-      positive: 0
+      positive: 375
       negative: 0
       altPositive: 0
       altNegative: 0
       deadZone: 0
       gravity: 0
-      sensitivity: 1000
-      snap: 1
+      sensitivity: 0
+      snap: 0
       invert: 0
-      type: 3
-      axis: 9
+      type: 0
+      axis: 0
       joystick: 1
-    - name: LeftTrigger
+    - name: LeftBumper
       description: 
-      positive: 0
+      positive: 374
       negative: 0
       altPositive: 0
       altNegative: 0
       deadZone: 0
       gravity: 0
-      sensitivity: 1000
-      snap: 1
+      sensitivity: 0
+      snap: 0
       invert: 0
-      type: 3
-      axis: 8
+      type: 0
+      axis: 0
       joystick: 1
-    isExpanded: 0
+    isExpanded: 1
   - name: Windows_Gamepad3
     axes:
     - name: Horizontal
@@ -34866,37 +34949,37 @@ MonoBehaviour:
       type: 3
       axis: 4
       joystick: 2
-    - name: MenuHorizontal
-      description: 
-      positive: 0
-      negative: 0
-      altPositive: 0
-      altNegative: 0
-      deadZone: 0.2
-      gravity: 0
-      sensitivity: 1
-      snap: 0
-      invert: 0
-      type: 3
-      axis: 0
-      joystick: 2
-    - name: MenuVertical
-      description: 
-      positive: 0
-      negative: 0
-      altPositive: 0
-      altNegative: 0
-      deadZone: 0.2
-      gravity: 0
-      sensitivity: 1
-      snap: 0
-      invert: 1
-      type: 3
-      axis: 1
-      joystick: 2
     - name: Jump
       description: 
-      positive: 394
+      positive: 0
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 0
+      sensitivity: 1000
+      snap: 1
+      invert: 0
+      type: 3
+      axis: 8
+      joystick: 2
+    - name: Fire
+      description: 
+      positive: 0
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 0
+      sensitivity: 1000
+      snap: 1
+      invert: 0
+      type: 3
+      axis: 9
+      joystick: 2
+    - name: Reload
+      description: 
+      positive: 390
       negative: 0
       altPositive: 0
       altNegative: 0
@@ -34908,23 +34991,9 @@ MonoBehaviour:
       type: 0
       axis: 0
       joystick: 2
-    - name: Submit
+    - name: Menu
       description: 
-      positive: 395
-      negative: 0
-      altPositive: 0
-      altNegative: 0
-      deadZone: 0
-      gravity: 0
-      sensitivity: 0
-      snap: 0
-      invert: 0
-      type: 0
-      axis: 0
-      joystick: 2
-    - name: Cancel
-      description: 
-      positive: 396
+      positive: 397
       negative: 0
       altPositive: 0
       altNegative: 0
@@ -34964,35 +35033,35 @@ MonoBehaviour:
       type: 3
       axis: 6
       joystick: 2
-    - name: RightTrigger
+    - name: RightBumper
       description: 
-      positive: 0
+      positive: 395
       negative: 0
       altPositive: 0
       altNegative: 0
       deadZone: 0
       gravity: 0
-      sensitivity: 1000
-      snap: 1
+      sensitivity: 0
+      snap: 0
       invert: 0
-      type: 3
-      axis: 9
+      type: 0
+      axis: 0
       joystick: 2
-    - name: LeftTrigger
+    - name: LeftBumper
       description: 
-      positive: 0
+      positive: 394
       negative: 0
       altPositive: 0
       altNegative: 0
       deadZone: 0
       gravity: 0
-      sensitivity: 1000
-      snap: 1
+      sensitivity: 0
+      snap: 0
       invert: 0
-      type: 3
-      axis: 8
+      type: 0
+      axis: 0
       joystick: 2
-    isExpanded: 0
+    isExpanded: 1
   - name: Windows_Gamepad4
     axes:
     - name: Horizontal
@@ -35051,37 +35120,37 @@ MonoBehaviour:
       type: 3
       axis: 4
       joystick: 3
-    - name: MenuHorizontal
-      description: 
-      positive: 0
-      negative: 0
-      altPositive: 0
-      altNegative: 0
-      deadZone: 0.2
-      gravity: 0
-      sensitivity: 1
-      snap: 0
-      invert: 0
-      type: 3
-      axis: 0
-      joystick: 3
-    - name: MenuVertical
-      description: 
-      positive: 0
-      negative: 0
-      altPositive: 0
-      altNegative: 0
-      deadZone: 0.2
-      gravity: 0
-      sensitivity: 1
-      snap: 0
-      invert: 1
-      type: 3
-      axis: 1
-      joystick: 3
     - name: Jump
       description: 
-      positive: 414
+      positive: 0
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 0
+      sensitivity: 1000
+      snap: 1
+      invert: 0
+      type: 3
+      axis: 8
+      joystick: 3
+    - name: Fire
+      description: 
+      positive: 0
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 0
+      sensitivity: 1000
+      snap: 1
+      invert: 0
+      type: 3
+      axis: 9
+      joystick: 3
+    - name: Reload
+      description: 
+      positive: 410
       negative: 0
       altPositive: 0
       altNegative: 0
@@ -35093,23 +35162,9 @@ MonoBehaviour:
       type: 0
       axis: 0
       joystick: 3
-    - name: Submit
+    - name: Menu
       description: 
-      positive: 415
-      negative: 0
-      altPositive: 0
-      altNegative: 0
-      deadZone: 0
-      gravity: 0
-      sensitivity: 0
-      snap: 0
-      invert: 0
-      type: 0
-      axis: 0
-      joystick: 3
-    - name: Cancel
-      description: 
-      positive: 416
+      positive: 417
       negative: 0
       altPositive: 0
       altNegative: 0
@@ -35149,35 +35204,35 @@ MonoBehaviour:
       type: 3
       axis: 6
       joystick: 3
-    - name: RightTrigger
+    - name: RightBumper
       description: 
-      positive: 0
+      positive: 415
       negative: 0
       altPositive: 0
       altNegative: 0
       deadZone: 0
       gravity: 0
-      sensitivity: 1000
-      snap: 1
+      sensitivity: 0
+      snap: 0
       invert: 0
-      type: 3
-      axis: 9
+      type: 0
+      axis: 0
       joystick: 3
-    - name: LeftTrigger
+    - name: LeftBumper
       description: 
-      positive: 0
+      positive: 414
       negative: 0
       altPositive: 0
       altNegative: 0
       deadZone: 0
       gravity: 0
-      sensitivity: 1000
-      snap: 1
+      sensitivity: 0
+      snap: 0
       invert: 0
-      type: 3
-      axis: 8
+      type: 0
+      axis: 0
       joystick: 3
-    isExpanded: 0
+    isExpanded: 1
   - name: OSX_Gamepad1
     axes:
     - name: Horizontal
@@ -35232,55 +35287,41 @@ MonoBehaviour:
       gravity: 0
       sensitivity: 1
       snap: 0
-      invert: 0
+      invert: 1
       type: 3
       axis: 3
       joystick: 0
-    - name: MenuHorizontal
-      description: 
-      positive: 0
-      negative: 0
-      altPositive: 0
-      altNegative: 0
-      deadZone: 0.2
-      gravity: 0
-      sensitivity: 1
-      snap: 0
-      invert: 0
-      type: 3
-      axis: 0
-      joystick: 0
-    - name: MenuVertical
-      description: 
-      positive: 0
-      negative: 0
-      altPositive: 0
-      altNegative: 0
-      deadZone: 0.2
-      gravity: 0
-      sensitivity: 1
-      snap: 0
-      invert: 0
-      type: 3
-      axis: 1
-      joystick: 0
     - name: Jump
       description: 
-      positive: 363
+      positive: 0
       negative: 0
       altPositive: 0
       altNegative: 0
       deadZone: 0
       gravity: 0
-      sensitivity: 0
-      snap: 0
+      sensitivity: 1000
+      snap: 1
       invert: 0
-      type: 0
-      axis: 0
+      type: 3
+      axis: 4
       joystick: 0
-    - name: Submit
+    - name: Fire
       description: 
-      positive: 364
+      positive: 0
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 0
+      sensitivity: 1000
+      snap: 1
+      invert: 0
+      type: 3
+      axis: 5
+      joystick: 0
+    - name: Reload
+      description: 
+      positive: 366
       negative: 0
       altPositive: 0
       altNegative: 0
@@ -35292,7 +35333,7 @@ MonoBehaviour:
       type: 0
       axis: 0
       joystick: 0
-    - name: Cancel
+    - name: Menu
       description: 
       positive: 359
       negative: 0
@@ -35334,33 +35375,33 @@ MonoBehaviour:
       type: 0
       axis: 0
       joystick: 0
-    - name: RightTrigger
+    - name: RightBumper
       description: 
-      positive: 0
+      positive: 364
       negative: 0
       altPositive: 0
       altNegative: 0
       deadZone: 0
       gravity: 0
-      sensitivity: 1000
-      snap: 1
+      sensitivity: 0
+      snap: 0
       invert: 0
-      type: 3
-      axis: 5
+      type: 0
+      axis: 0
       joystick: 0
-    - name: LeftTrigger
+    - name: LeftBumper
       description: 
-      positive: 0
+      positive: 363
       negative: 0
       altPositive: 0
       altNegative: 0
       deadZone: 0
       gravity: 0
-      sensitivity: 1000
-      snap: 1
+      sensitivity: 0
+      snap: 0
       invert: 0
-      type: 3
-      axis: 4
+      type: 0
+      axis: 0
       joystick: 0
     isExpanded: 0
   - name: OSX_Gamepad2
@@ -35417,55 +35458,41 @@ MonoBehaviour:
       gravity: 0
       sensitivity: 1
       snap: 0
-      invert: 0
+      invert: 1
       type: 3
       axis: 3
       joystick: 1
-    - name: MenuHorizontal
-      description: 
-      positive: 0
-      negative: 0
-      altPositive: 0
-      altNegative: 0
-      deadZone: 0.2
-      gravity: 0
-      sensitivity: 1
-      snap: 0
-      invert: 0
-      type: 3
-      axis: 0
-      joystick: 1
-    - name: MenuVertical
-      description: 
-      positive: 0
-      negative: 0
-      altPositive: 0
-      altNegative: 0
-      deadZone: 0.2
-      gravity: 0
-      sensitivity: 1
-      snap: 0
-      invert: 0
-      type: 3
-      axis: 1
-      joystick: 1
     - name: Jump
       description: 
-      positive: 383
+      positive: 0
       negative: 0
       altPositive: 0
       altNegative: 0
       deadZone: 0
       gravity: 0
-      sensitivity: 0
-      snap: 0
+      sensitivity: 1000
+      snap: 1
       invert: 0
-      type: 0
-      axis: 0
+      type: 3
+      axis: 4
       joystick: 1
-    - name: Submit
+    - name: Fire
       description: 
-      positive: 384
+      positive: 0
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 0
+      sensitivity: 1000
+      snap: 1
+      invert: 0
+      type: 3
+      axis: 5
+      joystick: 1
+    - name: Reload
+      description: 
+      positive: 386
       negative: 0
       altPositive: 0
       altNegative: 0
@@ -35477,7 +35504,7 @@ MonoBehaviour:
       type: 0
       axis: 0
       joystick: 1
-    - name: Cancel
+    - name: Menu
       description: 
       positive: 379
       negative: 0
@@ -35519,33 +35546,33 @@ MonoBehaviour:
       type: 0
       axis: 0
       joystick: 1
-    - name: RightTrigger
+    - name: RightBumper
       description: 
-      positive: 0
+      positive: 384
       negative: 0
       altPositive: 0
       altNegative: 0
       deadZone: 0
       gravity: 0
-      sensitivity: 1000
-      snap: 1
+      sensitivity: 0
+      snap: 0
       invert: 0
-      type: 3
-      axis: 5
+      type: 0
+      axis: 0
       joystick: 1
-    - name: LeftTrigger
+    - name: LeftBumper
       description: 
-      positive: 0
+      positive: 383
       negative: 0
       altPositive: 0
       altNegative: 0
       deadZone: 0
       gravity: 0
-      sensitivity: 1000
-      snap: 1
+      sensitivity: 0
+      snap: 0
       invert: 0
-      type: 3
-      axis: 4
+      type: 0
+      axis: 0
       joystick: 1
     isExpanded: 0
   - name: OSX_Gamepad3
@@ -35602,55 +35629,41 @@ MonoBehaviour:
       gravity: 0
       sensitivity: 1
       snap: 0
-      invert: 0
+      invert: 1
       type: 3
       axis: 3
       joystick: 2
-    - name: MenuHorizontal
-      description: 
-      positive: 0
-      negative: 0
-      altPositive: 0
-      altNegative: 0
-      deadZone: 0.2
-      gravity: 0
-      sensitivity: 1
-      snap: 0
-      invert: 0
-      type: 3
-      axis: 0
-      joystick: 2
-    - name: MenuVertical
-      description: 
-      positive: 0
-      negative: 0
-      altPositive: 0
-      altNegative: 0
-      deadZone: 0.2
-      gravity: 0
-      sensitivity: 1
-      snap: 0
-      invert: 0
-      type: 3
-      axis: 1
-      joystick: 2
     - name: Jump
       description: 
-      positive: 403
+      positive: 0
       negative: 0
       altPositive: 0
       altNegative: 0
       deadZone: 0
       gravity: 0
-      sensitivity: 0
-      snap: 0
+      sensitivity: 1000
+      snap: 1
       invert: 0
-      type: 0
-      axis: 0
+      type: 3
+      axis: 4
       joystick: 2
-    - name: Submit
+    - name: Fire
       description: 
-      positive: 404
+      positive: 0
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 0
+      sensitivity: 1000
+      snap: 1
+      invert: 0
+      type: 3
+      axis: 5
+      joystick: 2
+    - name: Reload
+      description: 
+      positive: 406
       negative: 0
       altPositive: 0
       altNegative: 0
@@ -35662,7 +35675,7 @@ MonoBehaviour:
       type: 0
       axis: 0
       joystick: 2
-    - name: Cancel
+    - name: Menu
       description: 
       positive: 399
       negative: 0
@@ -35704,33 +35717,33 @@ MonoBehaviour:
       type: 0
       axis: 0
       joystick: 2
-    - name: RightTrigger
+    - name: RightBumper
       description: 
-      positive: 0
+      positive: 404
       negative: 0
       altPositive: 0
       altNegative: 0
       deadZone: 0
       gravity: 0
-      sensitivity: 1000
-      snap: 1
+      sensitivity: 0
+      snap: 0
       invert: 0
-      type: 3
-      axis: 5
+      type: 0
+      axis: 0
       joystick: 2
-    - name: LeftTrigger
+    - name: LeftBumper
       description: 
-      positive: 0
+      positive: 403
       negative: 0
       altPositive: 0
       altNegative: 0
       deadZone: 0
       gravity: 0
-      sensitivity: 1000
-      snap: 1
+      sensitivity: 0
+      snap: 0
       invert: 0
-      type: 3
-      axis: 4
+      type: 0
+      axis: 0
       joystick: 2
     isExpanded: 0
   - name: OSX_Gamepad4
@@ -35787,55 +35800,41 @@ MonoBehaviour:
       gravity: 0
       sensitivity: 1
       snap: 0
-      invert: 0
+      invert: 1
       type: 3
       axis: 3
       joystick: 3
-    - name: MenuHorizontal
-      description: 
-      positive: 0
-      negative: 0
-      altPositive: 0
-      altNegative: 0
-      deadZone: 0.2
-      gravity: 0
-      sensitivity: 1
-      snap: 0
-      invert: 0
-      type: 3
-      axis: 0
-      joystick: 3
-    - name: MenuVertical
-      description: 
-      positive: 0
-      negative: 0
-      altPositive: 0
-      altNegative: 0
-      deadZone: 0.2
-      gravity: 0
-      sensitivity: 1
-      snap: 0
-      invert: 0
-      type: 3
-      axis: 1
-      joystick: 3
     - name: Jump
       description: 
-      positive: 423
+      positive: 0
       negative: 0
       altPositive: 0
       altNegative: 0
       deadZone: 0
       gravity: 0
-      sensitivity: 0
-      snap: 0
+      sensitivity: 1000
+      snap: 1
       invert: 0
-      type: 0
-      axis: 0
+      type: 3
+      axis: 4
       joystick: 3
-    - name: Submit
+    - name: Fire
       description: 
-      positive: 424
+      positive: 0
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 0
+      sensitivity: 1000
+      snap: 1
+      invert: 0
+      type: 3
+      axis: 5
+      joystick: 3
+    - name: Reload
+      description: 
+      positive: 426
       negative: 0
       altPositive: 0
       altNegative: 0
@@ -35847,7 +35846,7 @@ MonoBehaviour:
       type: 0
       axis: 0
       joystick: 3
-    - name: Cancel
+    - name: Menu
       description: 
       positive: 419
       negative: 0
@@ -35889,33 +35888,33 @@ MonoBehaviour:
       type: 0
       axis: 0
       joystick: 3
-    - name: RightTrigger
+    - name: RightBumper
       description: 
-      positive: 0
+      positive: 424
       negative: 0
       altPositive: 0
       altNegative: 0
       deadZone: 0
       gravity: 0
-      sensitivity: 1000
-      snap: 1
+      sensitivity: 0
+      snap: 0
       invert: 0
-      type: 3
-      axis: 5
+      type: 0
+      axis: 0
       joystick: 3
-    - name: LeftTrigger
+    - name: LeftBumper
       description: 
-      positive: 0
+      positive: 423
       negative: 0
       altPositive: 0
       altNegative: 0
       deadZone: 0
       gravity: 0
-      sensitivity: 1000
-      snap: 1
+      sensitivity: 0
+      snap: 0
       invert: 0
-      type: 3
-      axis: 4
+      type: 0
+      axis: 0
       joystick: 3
     isExpanded: 0
   - name: Linux_Gamepad1
@@ -35930,7 +35929,7 @@ MonoBehaviour:
       gravity: 0
       sensitivity: 1
       snap: 0
-      invert: 1
+      invert: 0
       type: 3
       axis: 0
       joystick: 0
@@ -35944,7 +35943,7 @@ MonoBehaviour:
       gravity: 0
       sensitivity: 1
       snap: 0
-      invert: 0
+      invert: 1
       type: 3
       axis: 1
       joystick: 0
@@ -35958,7 +35957,7 @@ MonoBehaviour:
       gravity: 0
       sensitivity: 1
       snap: 0
-      invert: 1
+      invert: 0
       type: 3
       axis: 3
       joystick: 0
@@ -35972,55 +35971,41 @@ MonoBehaviour:
       gravity: 0
       sensitivity: 1
       snap: 0
-      invert: 0
+      invert: 1
       type: 3
       axis: 4
       joystick: 0
-    - name: MenuHorizontal
-      description: 
-      positive: 0
-      negative: 0
-      altPositive: 0
-      altNegative: 0
-      deadZone: 0.2
-      gravity: 0
-      sensitivity: 1
-      snap: 0
-      invert: 0
-      type: 3
-      axis: 0
-      joystick: 0
-    - name: MenuVertical
-      description: 
-      positive: 0
-      negative: 0
-      altPositive: 0
-      altNegative: 0
-      deadZone: 0.2
-      gravity: 0
-      sensitivity: 1
-      snap: 0
-      invert: 0
-      type: 3
-      axis: 1
-      joystick: 0
     - name: Jump
       description: 
-      positive: 354
+      positive: 0
       negative: 0
       altPositive: 0
       altNegative: 0
       deadZone: 0
       gravity: 0
-      sensitivity: 0
-      snap: 0
+      sensitivity: 1000
+      snap: 1
       invert: 0
-      type: 0
-      axis: 0
+      type: 3
+      axis: 2
       joystick: 0
-    - name: Submit
+    - name: Fire
       description: 
-      positive: 355
+      positive: 0
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 0
+      sensitivity: 1000
+      snap: 1
+      invert: 0
+      type: 3
+      axis: 5
+      joystick: 0
+    - name: Reload
+      description: 
+      positive: 350
       negative: 0
       altPositive: 0
       altNegative: 0
@@ -36032,7 +36017,7 @@ MonoBehaviour:
       type: 0
       axis: 0
       joystick: 0
-    - name: Cancel
+    - name: Menu
       description: 
       positive: 357
       negative: 0
@@ -36074,33 +36059,33 @@ MonoBehaviour:
       type: 3
       axis: 7
       joystick: 0
-    - name: RightTrigger
+    - name: RightBumper
       description: 
-      positive: 0
+      positive: 355
       negative: 0
       altPositive: 0
       altNegative: 0
       deadZone: 0
       gravity: 0
-      sensitivity: 1000
-      snap: 1
+      sensitivity: 0
+      snap: 0
       invert: 0
-      type: 3
-      axis: 5
+      type: 0
+      axis: 0
       joystick: 0
-    - name: LeftTrigger
+    - name: LeftBumper
       description: 
-      positive: 0
+      positive: 354
       negative: 0
       altPositive: 0
       altNegative: 0
       deadZone: 0
       gravity: 0
-      sensitivity: 1000
-      snap: 1
+      sensitivity: 0
+      snap: 0
       invert: 0
-      type: 3
-      axis: 2
+      type: 0
+      axis: 0
       joystick: 0
     isExpanded: 1
   - name: Linux_Gamepad2
@@ -36115,7 +36100,7 @@ MonoBehaviour:
       gravity: 0
       sensitivity: 1
       snap: 0
-      invert: 1
+      invert: 0
       type: 3
       axis: 0
       joystick: 1
@@ -36129,7 +36114,7 @@ MonoBehaviour:
       gravity: 0
       sensitivity: 1
       snap: 0
-      invert: 0
+      invert: 1
       type: 3
       axis: 1
       joystick: 1
@@ -36143,7 +36128,7 @@ MonoBehaviour:
       gravity: 0
       sensitivity: 1
       snap: 0
-      invert: 1
+      invert: 0
       type: 3
       axis: 3
       joystick: 1
@@ -36157,55 +36142,41 @@ MonoBehaviour:
       gravity: 0
       sensitivity: 1
       snap: 0
-      invert: 0
+      invert: 1
       type: 3
       axis: 4
       joystick: 1
-    - name: MenuHorizontal
-      description: 
-      positive: 0
-      negative: 0
-      altPositive: 0
-      altNegative: 0
-      deadZone: 0.2
-      gravity: 0
-      sensitivity: 1
-      snap: 0
-      invert: 0
-      type: 3
-      axis: 0
-      joystick: 1
-    - name: MenuVertical
-      description: 
-      positive: 0
-      negative: 0
-      altPositive: 0
-      altNegative: 0
-      deadZone: 0.2
-      gravity: 0
-      sensitivity: 1
-      snap: 0
-      invert: 0
-      type: 3
-      axis: 1
-      joystick: 1
     - name: Jump
       description: 
-      positive: 374
+      positive: 0
       negative: 0
       altPositive: 0
       altNegative: 0
       deadZone: 0
       gravity: 0
-      sensitivity: 0
-      snap: 0
+      sensitivity: 1000
+      snap: 1
       invert: 0
-      type: 0
-      axis: 0
+      type: 3
+      axis: 2
       joystick: 1
-    - name: Submit
+    - name: Fire
       description: 
-      positive: 375
+      positive: 0
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 0
+      sensitivity: 1000
+      snap: 1
+      invert: 0
+      type: 3
+      axis: 5
+      joystick: 1
+    - name: Reload
+      description: 
+      positive: 370
       negative: 0
       altPositive: 0
       altNegative: 0
@@ -36217,7 +36188,7 @@ MonoBehaviour:
       type: 0
       axis: 0
       joystick: 1
-    - name: Cancel
+    - name: Menu
       description: 
       positive: 377
       negative: 0
@@ -36259,33 +36230,33 @@ MonoBehaviour:
       type: 3
       axis: 7
       joystick: 1
-    - name: RightTrigger
+    - name: RightBumper
       description: 
-      positive: 0
+      positive: 375
       negative: 0
       altPositive: 0
       altNegative: 0
       deadZone: 0
       gravity: 0
-      sensitivity: 1000
-      snap: 1
+      sensitivity: 0
+      snap: 0
       invert: 0
-      type: 3
-      axis: 5
+      type: 0
+      axis: 0
       joystick: 1
-    - name: LeftTrigger
+    - name: LeftBumper
       description: 
-      positive: 0
+      positive: 374
       negative: 0
       altPositive: 0
       altNegative: 0
       deadZone: 0
       gravity: 0
-      sensitivity: 1000
-      snap: 1
+      sensitivity: 0
+      snap: 0
       invert: 0
-      type: 3
-      axis: 2
+      type: 0
+      axis: 0
       joystick: 1
     isExpanded: 1
   - name: Linux_Gamepad3
@@ -36300,7 +36271,7 @@ MonoBehaviour:
       gravity: 0
       sensitivity: 1
       snap: 0
-      invert: 1
+      invert: 0
       type: 3
       axis: 0
       joystick: 2
@@ -36314,7 +36285,7 @@ MonoBehaviour:
       gravity: 0
       sensitivity: 1
       snap: 0
-      invert: 0
+      invert: 1
       type: 3
       axis: 1
       joystick: 2
@@ -36328,7 +36299,7 @@ MonoBehaviour:
       gravity: 0
       sensitivity: 1
       snap: 0
-      invert: 1
+      invert: 0
       type: 3
       axis: 3
       joystick: 2
@@ -36342,55 +36313,41 @@ MonoBehaviour:
       gravity: 0
       sensitivity: 1
       snap: 0
-      invert: 0
+      invert: 1
       type: 3
       axis: 4
       joystick: 2
-    - name: MenuHorizontal
-      description: 
-      positive: 0
-      negative: 0
-      altPositive: 0
-      altNegative: 0
-      deadZone: 0.2
-      gravity: 0
-      sensitivity: 1
-      snap: 0
-      invert: 0
-      type: 3
-      axis: 0
-      joystick: 2
-    - name: MenuVertical
-      description: 
-      positive: 0
-      negative: 0
-      altPositive: 0
-      altNegative: 0
-      deadZone: 0.2
-      gravity: 0
-      sensitivity: 1
-      snap: 0
-      invert: 0
-      type: 3
-      axis: 1
-      joystick: 2
     - name: Jump
       description: 
-      positive: 394
+      positive: 0
       negative: 0
       altPositive: 0
       altNegative: 0
       deadZone: 0
       gravity: 0
-      sensitivity: 0
-      snap: 0
+      sensitivity: 1000
+      snap: 1
       invert: 0
-      type: 0
-      axis: 0
+      type: 3
+      axis: 2
       joystick: 2
-    - name: Submit
+    - name: Fire
       description: 
-      positive: 395
+      positive: 0
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 0
+      sensitivity: 1000
+      snap: 1
+      invert: 0
+      type: 3
+      axis: 5
+      joystick: 2
+    - name: Reload
+      description: 
+      positive: 390
       negative: 0
       altPositive: 0
       altNegative: 0
@@ -36402,7 +36359,7 @@ MonoBehaviour:
       type: 0
       axis: 0
       joystick: 2
-    - name: Cancel
+    - name: Menu
       description: 
       positive: 397
       negative: 0
@@ -36444,33 +36401,33 @@ MonoBehaviour:
       type: 3
       axis: 7
       joystick: 2
-    - name: RightTrigger
+    - name: RightBumper
       description: 
-      positive: 0
+      positive: 395
       negative: 0
       altPositive: 0
       altNegative: 0
       deadZone: 0
       gravity: 0
-      sensitivity: 1000
-      snap: 1
+      sensitivity: 0
+      snap: 0
       invert: 0
-      type: 3
-      axis: 5
+      type: 0
+      axis: 0
       joystick: 2
-    - name: LeftTrigger
+    - name: LeftBumper
       description: 
-      positive: 0
+      positive: 394
       negative: 0
       altPositive: 0
       altNegative: 0
       deadZone: 0
       gravity: 0
-      sensitivity: 1000
-      snap: 1
+      sensitivity: 0
+      snap: 0
       invert: 0
-      type: 3
-      axis: 2
+      type: 0
+      axis: 0
       joystick: 2
     isExpanded: 1
   - name: Linux_Gamepad4
@@ -36485,7 +36442,7 @@ MonoBehaviour:
       gravity: 0
       sensitivity: 1
       snap: 0
-      invert: 1
+      invert: 0
       type: 3
       axis: 0
       joystick: 3
@@ -36499,7 +36456,7 @@ MonoBehaviour:
       gravity: 0
       sensitivity: 1
       snap: 0
-      invert: 0
+      invert: 1
       type: 3
       axis: 1
       joystick: 3
@@ -36513,7 +36470,7 @@ MonoBehaviour:
       gravity: 0
       sensitivity: 1
       snap: 0
-      invert: 1
+      invert: 0
       type: 3
       axis: 3
       joystick: 3
@@ -36527,55 +36484,41 @@ MonoBehaviour:
       gravity: 0
       sensitivity: 1
       snap: 0
-      invert: 0
+      invert: 1
       type: 3
       axis: 4
       joystick: 3
-    - name: MenuHorizontal
-      description: 
-      positive: 0
-      negative: 0
-      altPositive: 0
-      altNegative: 0
-      deadZone: 0.2
-      gravity: 0
-      sensitivity: 1
-      snap: 0
-      invert: 0
-      type: 3
-      axis: 0
-      joystick: 3
-    - name: MenuVertical
-      description: 
-      positive: 0
-      negative: 0
-      altPositive: 0
-      altNegative: 0
-      deadZone: 0.2
-      gravity: 0
-      sensitivity: 1
-      snap: 0
-      invert: 0
-      type: 3
-      axis: 1
-      joystick: 3
     - name: Jump
       description: 
-      positive: 414
+      positive: 0
       negative: 0
       altPositive: 0
       altNegative: 0
       deadZone: 0
       gravity: 0
-      sensitivity: 0
-      snap: 0
+      sensitivity: 1000
+      snap: 1
       invert: 0
-      type: 0
-      axis: 0
+      type: 3
+      axis: 2
       joystick: 3
-    - name: Submit
+    - name: Fire
       description: 
-      positive: 415
+      positive: 0
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 0
+      sensitivity: 1000
+      snap: 1
+      invert: 0
+      type: 3
+      axis: 5
+      joystick: 3
+    - name: Reload
+      description: 
+      positive: 410
       negative: 0
       altPositive: 0
       altNegative: 0
@@ -36587,7 +36530,7 @@ MonoBehaviour:
       type: 0
       axis: 0
       joystick: 3
-    - name: Cancel
+    - name: Menu
       description: 
       positive: 417
       negative: 0
@@ -36629,33 +36572,33 @@ MonoBehaviour:
       type: 3
       axis: 7
       joystick: 3
-    - name: RightTrigger
+    - name: RightBumper
       description: 
-      positive: 0
+      positive: 415
       negative: 0
       altPositive: 0
       altNegative: 0
       deadZone: 0
       gravity: 0
-      sensitivity: 1000
-      snap: 1
+      sensitivity: 0
+      snap: 0
       invert: 0
-      type: 3
-      axis: 5
+      type: 0
+      axis: 0
       joystick: 3
-    - name: LeftTrigger
+    - name: LeftBumper
       description: 
-      positive: 0
+      positive: 414
       negative: 0
       altPositive: 0
       altNegative: 0
       deadZone: 0
       gravity: 0
-      sensitivity: 1000
-      snap: 1
+      sensitivity: 0
+      snap: 0
       invert: 0
-      type: 3
-      axis: 2
+      type: 0
+      axis: 0
       joystick: 3
     isExpanded: 1
   playerOneDefault: KeyboardAndMouse

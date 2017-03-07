@@ -41,9 +41,9 @@ public class GameController : MonoBehaviour {
 		}
 	}
 
-	public void Update() {
+	public void OnPause() {
 		// Pause menu
-		if(_started && Input.GetKeyDown(KeyCode.Escape)) {
+		if(_started) {
 			paused = !paused;
 			Time.timeScale = paused ? 0 : 1;
 			pausehud.SetActive(paused);
