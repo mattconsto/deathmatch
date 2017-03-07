@@ -67,8 +67,6 @@ public class BulletController : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision col) {
-		// print(gameObject.name + " hit " + col.gameObject.name);
-
 		bool destroy = false;
 
 		if(col.gameObject.tag == "Player") {
@@ -108,7 +106,7 @@ public class BulletController : MonoBehaviour {
 				float distance = (col.contacts[0].point - player.transform.position).magnitude;
 				if(distance <= explosionRadius) {
 					float edamage = Mathf.Pow((explosionRadius - distance) / explosionRadius, explosionFalloff) * explosionDamage;
-					player.GetComponent<PlayerController>().OnHurt(edamage, 0);
+					player.GetComponent<Destructable>().OnHurt(edamage, 0);
 					player.GetComponent<Rigidbody>().AddForce(Vector3.up * knockbackForce);
 				}
 			}

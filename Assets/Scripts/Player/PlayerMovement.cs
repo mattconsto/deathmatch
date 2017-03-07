@@ -22,9 +22,7 @@ public class PlayerMovement : MonoBehaviour {
 	void Update () {
 		if(_stepTimer < 0) {
 			_stepTimer = 15f;
-			if(footsteps != null) {
-				GetComponent<AudioSource>().PlayOneShot(footsteps, 0.5f);
-			}
+			if(footsteps != null) GetComponent<AudioSource>().PlayOneShot(footsteps, 0.5f);
 		}
 	}
 
