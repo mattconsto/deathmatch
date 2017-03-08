@@ -934,59 +934,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!1 &63075178
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 63075180}
-  - component: {fileID: 63075179}
-  m_Layer: 0
-  m_Name: Input Adapter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &63075179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 63075178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e63496cd80558db4aa847b75970a8728, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dontDestroyOnLoad: 0
-  allowRealtimeInputDeviceSwitch: 1
-  checkInputDeviceEveryFrame: 0
-  inputDeviceChecksPerSecond: 30
-  updateJoystickCountInterval: 1
-  keyboardConfiguration: KeyboardAndMouse
-  windowsJoystickConfiguration: Windows_Gamepad4
-  osxJoystickConfiguration: OSX_Gamepad4
-  linuxJoystickConfiguration: Linux_Gamepad4
-  leftTriggerAxis: Jump
-  rightTriggerAxis: Fire
-  dpadHorizontalAxis: DPADHorizontal
-  dpadVerticalAxis: DPADVertical
---- !u!4 &63075180
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 63075178}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &71719110 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: a02222d69f5a2cd42b19f38cba29bf3e, type: 3}
@@ -7441,7 +7388,7 @@ Transform:
   - {fileID: 1889319715}
   - {fileID: 1459747147}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &325486033
 GameObject:
@@ -15192,7 +15139,7 @@ RectTransform:
   - {fileID: 2137108168}
   - {fileID: 604306084}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -25074,7 +25021,7 @@ Transform:
   - {fileID: 380788738}
   - {fileID: 1578713142}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1090341393 stripped
 Transform:
@@ -36381,6 +36328,7 @@ GameObject:
   - component: {fileID: 1503735398}
   - component: {fileID: 1503735397}
   - component: {fileID: 1503735399}
+  - component: {fileID: 1503735400}
   m_Layer: 0
   m_Name: Input Manager
   m_TagString: Untagged
@@ -38653,6 +38601,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 517b325a9b345cb4a86a1c2b39ecc3c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1503735400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1503735396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e63496cd80558db4aa847b75970a8728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dontDestroyOnLoad: 0
+  allowRealtimeInputDeviceSwitch: 1
+  checkInputDeviceEveryFrame: 0
+  inputDeviceChecksPerSecond: 30
+  updateJoystickCountInterval: 1
+  keyboardConfiguration: KeyboardAndMouse
+  windowsJoystickConfiguration: Windows_Gamepad4
+  osxJoystickConfiguration: OSX_Gamepad4
+  linuxJoystickConfiguration: Linux_Gamepad4
+  leftTriggerAxis: Jump
+  rightTriggerAxis: Fire
+  dpadHorizontalAxis: DPADHorizontal
+  dpadVerticalAxis: DPADVertical
 --- !u!1001 &1505708027
 Prefab:
   m_ObjectHideFlags: 0
