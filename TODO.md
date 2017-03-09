@@ -27,11 +27,3 @@ TODO
 14. Now, use it to burn down the walls of crates.
 15. We're free, you did it! Either continue shooting Robots, or open the menu with Esc (Start on Gamepad) to start fighting other players.
 16. If you ever forget the controls, open the menu with Esc (Start on Gamepad) and select Controls.
-
-typos:
-jump pad hts, to small trigger box
-attack chess peice rephrased, exxtra w
-use the m button
-hts a target
-attack weird symbol
-your free you did it

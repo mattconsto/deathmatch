@@ -26,6 +26,7 @@ Third Party Notices
 
 * Custom InputManager for Unity by daemon3000 (MIT): https://github.com/daemon3000/InputManager
 * Simple decal system by Wishmaster35 (Unity Asset Store): https://www.assetstore.unity3d.com/en/content/13889
+* Bloom Filter and Misc. Particle Effects from the Unity Standard Assets (Unity Asset Store): https://www.assetstore.unity3d.com/en/#!/content/32351
 
 ## Sound Effects
 
