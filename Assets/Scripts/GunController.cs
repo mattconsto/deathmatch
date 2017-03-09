@@ -54,6 +54,7 @@ public class GunController : MonoBehaviour {
 		if(!_reloading && ammoCount < clipSize) {
 			_reloading = true;
 			_reloadTiming = partialReload ? (clipSize - ammoCount) / clipSize * reloadRate : reloadRate;
+			if(reloadAudio != null) GetComponent<AudioSource>().PlayOneShot(reloadAudio, 1f);
 		}
 	}
 

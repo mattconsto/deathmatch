@@ -115,8 +115,10 @@ public class GameController : MonoBehaviour {
 
 	public void OnSelect() {
 		if(!started) {
+			titleSelected.GetComponent<GlobalSoundSource>().OnPointerClick(null);
 			titleSelected.GetComponent<IPointerClickHandler>().OnPointerClick(null);
 		} else if(paused) {
+			pauseSelected.GetComponent<GlobalSoundSource>().OnPointerClick(null);
 			pauseSelected.GetComponent<IPointerClickHandler>().OnPointerClick(null);
 		}
 	}
