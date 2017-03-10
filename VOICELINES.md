@@ -1,15 +1,5 @@
-TODO
-====
-
-## General
-
-* Refactoring, Optimisation and Bug Fixes
-* Linux full screen
-* Movement at low framerates
-
-## Tutorial
-
-* Re-record audio, it sounds bad.
+Voicelines
+==========
 
  1. Greetings Soldier, you've been invited to join Planet Deathmatch. Where the best compete in one on one combat.
  2. To start, I'm obliged to teach you a few things.
