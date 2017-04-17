@@ -4,7 +4,66 @@ timeCreated: 1487950425
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Character
+    100004: chest
+    100006: fingers_L
+    100008: fingers_R
+    100010: foot_L
+    100012: foot_R
+    100014: hand_L
+    100016: hand_R
+    100018: head
+    100020: hips
+    100022: lowerarm_L
+    100024: lowerarm_R
+    100026: lowerleg_L
+    100028: lowerleg_R
+    100030: neck
+    100032: //RootNode
+    100034: shoulder_L
+    100036: shoulder_R
+    100038: stomach
+    100040: thumb_L
+    100042: thumb_R
+    100044: toes_L
+    100046: toes_R
+    100048: upperarm_L
+    100050: upperarm_R
+    100052: upperleg_L
+    100054: upperleg_R
+    400000: Armature
+    400002: Character
+    400004: chest
+    400006: fingers_L
+    400008: fingers_R
+    400010: foot_L
+    400012: foot_R
+    400014: hand_L
+    400016: hand_R
+    400018: head
+    400020: hips
+    400022: lowerarm_L
+    400024: lowerarm_R
+    400026: lowerleg_L
+    400028: lowerleg_R
+    400030: neck
+    400032: //RootNode
+    400034: shoulder_L
+    400036: shoulder_R
+    400038: stomach
+    400040: thumb_L
+    400042: thumb_R
+    400044: toes_L
+    400046: toes_R
+    400048: upperarm_L
+    400050: upperarm_R
+    400052: upperleg_L
+    400054: upperleg_R
+    4300000: Character
+    9500000: //RootNode
+    13700000: Character
   materials:
     importMaterials: 1
     materialName: 0
@@ -15,7 +74,8 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    rigImportErrors: 
+    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
+      human bone 'Hips' not found\n"
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 

@@ -12,14 +12,18 @@ public class PlayerMovement : MonoBehaviour {
 	/* Private Properties */
 	private Rigidbody _rb;
 	private float _stepTimer = 15f;
+	private Vector2 _rotation = new Vector2(0, 0);
 
 	// Use this for initialization
-	void Start () {
+	public void Start () {
 		_rb = GetComponent<Rigidbody>();
 	}
 
 	// Update is called once per frame
-	void Update () {
+	public void FixedUpdate () {
+		_rb.AddForce(transform.right * _rotation.x * speed);
+		_rb.AddForce(transform.forward * _rotation.y * speed);
+
 		if(_stepTimer < 0) {
 			_stepTimer = 15f;
 			if(footsteps != null) GetComponent<AudioSource>().PlayOneShot(footsteps, 0.5f);
@@ -27,12 +31,12 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	public void OnMoveHorizontal(float value) {
-		_rb.AddForce(transform.right * value * speed);
+		_rotation.x = value;
 		if(canJump > 0) _stepTimer -= Mathf.Abs(value);
 	}
 
 	public void OnMoveVertical(float value) {
-		_rb.AddForce(transform.forward * value * speed);
+		_rotation.y = value;
 		if(canJump > 0) _stepTimer -= Mathf.Abs(value);
 	}
 
