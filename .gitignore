@@ -33,3 +33,6 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+# Annoying version file
+/ProjectSettings/ProjectVersion.txt

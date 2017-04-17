@@ -6,6 +6,10 @@ Third Party Notices
 * Common Controller by Rahazan (CC BY 3.0): http://opengameart.org/content/common-controller
 * Keyboard Keys by TRBRY (CC BY 3.0): http://opengameart.org/content/keyboard-keys
 
+## Fonts
+
+* Star Jedi Special Edition by Boba Fonts (Boba Fonts): http://dafont.com/star-jedi.font
+
 ## Models
 
 * Apollo Lunar Module by Michael Carbajal (NASA Public Domain): https://nasa3d.arc.nasa.gov/detail/lunarlandernofoil-c
@@ -14,10 +18,6 @@ Third Party Notices
 * StarNest Skybox by Ninjapretzel (Unity Asset Store): https://www.assetstore.unity3d.com/en/content/63726
 * Weapon Pack by Kenney (CC0 1.0): https://kenney.nl/assets/weapon-pack
 
-## Fonts
-
-* Star Jedi Special Edition by Boba Fonts (Boba Fonts): http://dafont.com/star-jedi.font
-
 ## Music
 
 * Mega Ultra Hyper Storm by Kevin MacLeod (CC BY 3.0): https://incompetech.com/music/royalty-free
@@ -25,8 +25,7 @@ Third Party Notices
 ## Scripts
 
 * Custom InputManager for Unity by daemon3000 (MIT): https://github.com/daemon3000/InputManager
-* Simple decal system by Wishmaster35 (Unity Asset Store): https://www.assetstore.unity3d.com/en/content/13889
-* Bloom Filter and Misc. Particle Effects from the Unity Standard Assets (Unity Asset Store): https://www.assetstore.unity3d.com/en/#!/content/32351
+* Bloom Filter and Misc. Particle Effects from the Unity Standard Assets by Unity (Unity Asset Store): https://www.assetstore.unity3d.com/en/#!/content/32351
 
 ## Sound Effects
 
