@@ -10,17 +10,10 @@
     <script src="Build/UnityLoader.js"></script>
     <script>
       var gameInstance = UnityLoader.instantiate("gameContainer", "Build/WebGL.json", {onProgress: UnityProgress});
-	  
-	  var download_native = function() {
-		     if (window.navigator.userAgent.indexOf("Windows")!= -1) window.location = "windows.zip";
-		else if (window.navigator.userAgent.indexOf("Mac")    != -1) window.location = "osx.zip";
-		else if (window.navigator.userAgent.indexOf("Linux")  != -1) window.location = "linux.zip";
-		else                                                         alert("Unknown Operating System!");
-	  }
     </script>
-	<style>
-		body {background: #bacdd0;}
-	</style>
+    <style>
+            body {background: #bacdd0;}
+    </style>
   </head>
   <body>
     <div class="webgl-content">
@@ -28,7 +21,7 @@
       <div class="footer">
         <div class="webgl-logo"></div>
         <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
-        <div class="title">Planet Deathmatch (<a href="javascript:download_native();">Download</a>)</div>
+        <div class="title">Planet Deathmatch (<a href="https://consto.itch.io/planet-deathmatch">Download</a>)</div>
       </div>
     </div>
   </body>
