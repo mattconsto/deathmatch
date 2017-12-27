@@ -5,13 +5,15 @@ using UnityEngine;
 public class PlayerMouseLook : MonoBehaviour {
 	public float sensitivity = 3;
 	public float smoothing = 3;
+	public float knockback = 1;
+
 	public GameObject player_camera;
 
 	private Vector2 _smoothMouse;
 
-	private float _recoilForce = 0;
-	private float _recoilTime = 0;
-	private float _recoilFallOff = 3;
+	public float _recoilForce = 0;
+	public float _recoilTime = 0;
+	public float _recoilFallOff = 3;
 
 	public void Recoil(float force, float time, float falloff) {
 		_recoilForce = force;
@@ -24,6 +26,7 @@ public class PlayerMouseLook : MonoBehaviour {
 		if(_recoilTime > 0) {
 			OnLookVertical(Mathf.Pow(_recoilTime, _recoilFallOff) * _recoilForce);
 			_recoilTime -= Time.deltaTime;
+			player_camera.transform.localPosition = new Vector3(player_camera.transform.localPosition.x, player_camera.transform.localPosition.y, -1f * knockback * Mathf.Log(_recoilForce * _recoilTime));
 		}
 	}
 

@@ -2257,7 +2257,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensitivity: 3
   smoothing: 3
+  knockback: 0.15
   player_camera: {fileID: 1216776187065638}
+  _recoilForce: 0
+  _recoilTime: 0
+  _recoilFallOff: 3
 --- !u!124 &124326675722948800
 Behaviour:
   m_ObjectHideFlags: 1

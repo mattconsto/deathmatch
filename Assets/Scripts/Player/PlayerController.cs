@@ -140,7 +140,7 @@ public class PlayerController : MonoBehaviour {
 
 	public void UpdateHUD() {
 		Color old = _hudDeadOverlay.GetComponent<RawImage>().color;
-		_hudDeadOverlay.GetComponent<RawImage>().color = new Color(old.r, old.g, old.b, Mathf.Clamp(_respawnTimer * 4, 0, 1));
+		_hudDeadOverlay.GetComponent<RawImage>().color = new Color(old.r, old.g, old.b, Mathf.Clamp(Mathf.Max(_respawnTimer * 4, mouselook_script._recoilTime), 0, 1));
 
 		old = _hudHurtOverlay.GetComponent<RawImage>().color;
 		_hudHurtOverlay.GetComponent<RawImage>().color = new Color(old.r, old.g, old.b, Mathf.Clamp(_hurtOverlayTimer, 0, 1));
