@@ -1,7 +1,7 @@
 Planet Deathmatch
 =================
 
-![](Screenshots/1.jpg)
+[![](Screenshots/1.jpg)](https://consto.itch.io/planet-deathmatch)
 
 * A Quake inspired, little planet deathmatch arena.
 * Created by Matthew Consterdine and Ollie Steptoe.
